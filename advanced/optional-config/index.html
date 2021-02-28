@@ -272,6 +272,8 @@
           
             
               
+                
+              
               <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
@@ -1037,7 +1039,9 @@
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -1095,15 +1099,15 @@
 <h2 id="files">Files<a class="headerlink" href="#files" title="Permanent link">⚓︎</a></h2>
 <ul>
 <li><strong>{user_email_address}.dovecot.sieve:</strong> User specific Sieve filter file. (Docs: <a href="../mail-sieve/">Sieve</a>)</li>
-<li><strong>before.dovecot.sieve:</strong> Global Sieve filter file, applied prior to the ${login}.dovecot.sieve filter. (Docs: <a href="../mail-sieve/">Sieve</a>)</li>
-<li><strong>after.dovecot.sieve</strong>: Global Sieve filter file, applied after the ${login}.dovecot.sieve filter. (Docs: <a href="../mail-sieve/">Sieve</a>)</li>
+<li><strong>before.dovecot.sieve:</strong> Global Sieve filter file, applied prior to the <code>${login}.dovecot.sieve</code> filter. (Docs: <a href="../mail-sieve/">Sieve</a>)</li>
+<li><strong>after.dovecot.sieve</strong>: Global Sieve filter file, applied after the <code>${login}.dovecot.sieve</code> filter. (Docs: <a href="../mail-sieve/">Sieve</a>)</li>
 <li><strong>postfix-main.cf:</strong> Every line will be added to the postfix main configuration. (Docs: <a href="../override-defaults/postfix/">Override Postfix Defaults</a>)</li>
 <li><strong>postfix-master.cf:</strong> Every line will be added to the postfix master configuration. (Docs: <a href="../override-defaults/postfix/">Override Postfix Defaults</a>)</li>
 <li><strong>postfix-accounts.cf:</strong> User accounts file. Modify via the <a href="../../config/setup.sh/"><code>setup.sh email</code></a> script.</li>
 <li><strong>postfix-send-access.cf:</strong> List of users denied sending. Modify via <a href="../../config/setup.sh/"><code>setup.sh email restrict</code></a>.</li>
 <li><strong>postfix-receive-access.cf:</strong> List of users denied receiving. Modify via <a href="../../config/setup.sh/"><code>setup.sh email restrict</code></a>.</li>
 <li><strong>postfix-virtual.cf:</strong> Alias configuration file. Modify via <a href="../../config/setup.sh/"><code>setup.sh alias</code></a>.</li>
-<li><strong>postfix-sasl-password.cf:</strong> listing of relayed domains with their respective username:password. Modify via <code>setup.sh relay add-auth &lt;domain&gt; &lt;username&gt; [&lt;password&gt;]</code>. (Docs: <a href="../mail-forwarding/relay-hosts/#sender-dependent-authentication">Relay-Hosts Auth</a>)</li>
+<li><strong>postfix-sasl-password.cf:</strong> listing of relayed domains with their respective <code>&lt;username&gt;:&lt;password&gt;</code>. Modify via <code>setup.sh relay add-auth &lt;domain&gt; &lt;username&gt; [&lt;password&gt;]</code>. (Docs: <a href="../mail-forwarding/relay-hosts/#sender-dependent-authentication">Relay-Hosts Auth</a>)</li>
 <li><strong>postfix-relaymap.cf:</strong> domain-specific relays and exclusions Modify via <code>setup.sh relay add-domain</code> and <code>setup.sh relay exclude-domain</code>. (Docs: <a href="../mail-forwarding/relay-hosts/#sender-dependent-relay-host">Relay-Hosts Senders</a>)</li>
 <li><strong>postfix-regexp.cf:</strong> Regular expression alias file. (Docs: <a href="../../config/user-management/aliases/#configuring-regexp-aliases">Aliases</a>)</li>
 <li><strong>ldap-users.cf:</strong> Configuration for the virtual user mapping (virtual_mailbox_maps). See the <a href="https://github.com/docker-mailserver/docker-mailserver/blob/941e7acdaebe271eaf3d296b36d4d81df4c54b90/target/scripts/startup/setup-stack.sh#L411"><code>setup-stack.sh</code></a> script.</li>
@@ -1112,10 +1116,10 @@
 <li><strong>ldap-domains.cf:</strong> Configuration for the virtual domain mapping (virtual_mailbox_domains). See the <a href="https://github.com/docker-mailserver/docker-mailserver/blob/941e7acdaebe271eaf3d296b36d4d81df4c54b90/target/scripts/startup/setup-stack.sh#L411"><code>setup-stack.sh</code></a> script.</li>
 <li><strong>whitelist_clients.local:</strong> Whitelisted domains, not considered by postgrey. Enter one host or domain per line.</li>
 <li><strong>spamassassin-rules.cf:</strong> Antispam rules for Spamassassin. (Docs: <a href="../../config/troubleshooting/faq/#how-can-i-manage-my-custom-spamassassin-rules">FAQ - SpamAssassin Rules</a>)</li>
-<li><strong>fail2ban-fail2ban.cf:</strong> Additional config options for fail2ban.cf. (Docs: <a href="../../config/security/fail2ban/">Fail2Ban</a>)</li>
+<li><strong>fail2ban-fail2ban.cf:</strong> Additional config options for <code>fail2ban.cf</code>. (Docs: <a href="../../config/security/fail2ban/">Fail2Ban</a>)</li>
 <li><strong>fail2ban-jail.cf:</strong> Additional config options for fail2ban's jail behaviour. (Docs: <a href="../../config/security/fail2ban/">Fail2Ban</a>)</li>
-<li><strong>amavis.cf:</strong> replaces the /etc/amavis/conf.d/50-user file</li>
-<li><strong>dovecot.cf:</strong> replaces /etc/dovecot/local.conf. (Docs: <a href="../override-defaults/dovecot/">Override Dovecot Defaults</a>)</li>
+<li><strong>amavis.cf:</strong> replaces the <code>/etc/amavis/conf.d/50-user</code> file</li>
+<li><strong>dovecot.cf:</strong> replaces <code>/etc/dovecot/local.conf</code>. (Docs: <a href="../override-defaults/dovecot/">Override Dovecot Defaults</a>)</li>
 <li><strong>dovecot-quotas.cf:</strong> list of custom quotas per mailbox. (Docs: <a href="../../config/user-management/accounts/#notes">Accounts</a>)</li>
 </ul>
                 

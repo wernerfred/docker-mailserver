@@ -1140,10 +1140,10 @@
 <div class="highlight"><pre><span></span><code>./setup.sh config dkim &lt;key-size&gt; &lt;domain.tld&gt;<span class="o">[</span>,&lt;domain2.tld&gt;<span class="o">]</span>
 </code></pre></div>
 <p>Now the keys are generated, you can configure your DNS server with DKIM signature, simply by adding a TXT record. If you have direct access to your DNS zone file, then it's only a matter of pasting the content of <code>config/opendkim/keys/domain.tld/mail.txt</code> in your <code>domain.tld.hosts</code> zone.</p>
-<div class="highlight"><pre><span></span><code>$ dig mail._domainkey.domain.tld TXT
----
-<span class="p">;;</span> ANSWER SECTION
-mail._domainkey.&lt;DOMAIN&gt; <span class="m">300</span> IN TXT    <span class="s2">&quot;v=DKIM1; k=rsa; p=AZERTYUIOPQSDFGHJKLMWXCVBN/AZERTYUIOPQSDFGHJKLMWXCVBN/AZERTYUIOPQSDFGHJKLMWXCVBN/AZERTYUIOPQSDFGHJKLMWXCVBN/AZERTYUIOPQSDFGHJKLMWXCVBN/AZERTYUIOPQSDFGHJKLMWXCVBN/AZERTYUIOPQSDFGHJKLMWXCVBN/AZERTYUIOPQSDFGHJKLMWXCVBN&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>dig mail._domainkey.domain.tld TXT
+<span class="go">---</span>
+<span class="go">;; ANSWER SECTION</span>
+<span class="go">mail._domainkey.&lt;DOMAIN&gt; 300 IN TXT    &quot;v=DKIM1; k=rsa; p=AZERTYUIOPQSDFGHJKLMWXCVBN/AZERTYUIOPQSDFGHJKLMWXCVBN/AZERTYUIOPQSDFGHJKLMWXCVBN/AZERTYUIOPQSDFGHJKLMWXCVBN/AZERTYUIOPQSDFGHJKLMWXCVBN/AZERTYUIOPQSDFGHJKLMWXCVBN/AZERTYUIOPQSDFGHJKLMWXCVBN/AZERTYUIOPQSDFGHJKLMWXCVBN&quot;</span>
 </code></pre></div>
 <h2 id="configuration-using-a-web-interface">Configuration using a Web Interface<a class="headerlink" href="#configuration-using-a-web-interface" title="Permanent link">⚓︎</a></h2>
 <ol>
@@ -1154,12 +1154,12 @@ mail._domainkey.&lt;DOMAIN&gt; <span class="m">300</span> IN TXT    <span class=
 <li>Save.</li>
 </ol>
 <p><strong>Note</strong>: Sometimes the key in <code>config/opendkim/keys/domain.tld/mail.txt</code> can be on multiple lines. If so then you need to concatenate the values in the TXT record:</p>
-<div class="highlight"><pre><span></span><code>$ dig mail._domainkey.domain.tld TXT
----
-<span class="p">;;</span> ANSWER SECTION
-mail._domainkey.&lt;DOMAIN&gt; <span class="m">300</span> IN TXT    <span class="s2">&quot;v=DKIM1; k=rsa; &quot;</span>
-      <span class="s2">&quot;p=AZERTYUIOPQSDF...&quot;</span>
-      <span class="s2">&quot;asdfQWERTYUIOPQSDF...&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>dig mail._domainkey.domain.tld TXT
+<span class="go">---</span>
+<span class="go">;; ANSWER SECTION</span>
+<span class="go">mail._domainkey.&lt;DOMAIN&gt; 300 IN TXT &quot;v=DKIM1; k=rsa; &quot;</span>
+<span class="go">    &quot;p=AZERTYUIOPQSDF...&quot;</span>
+<span class="go">    &quot;asdfQWERTYUIOPQSDF...&quot;</span>
 </code></pre></div>
 <p>The target (or value) field must then have all the parts together: <code>v=DKIM1; k=rsa; p=AZERTYUIOPQSDF...asdfQWERTYUIOPQSDF...</code></p>
 <h2 id="verify-only">Verify-Only<a class="headerlink" href="#verify-only" title="Permanent link">⚓︎</a></h2>
@@ -1183,26 +1183,26 @@ Mode                    v
 <li><a href="https://addons.mozilla.org/en-US/thunderbird/addon/dkim-verifier">DKIM-verifer</a>: A add-on for the mail client Thunderbird.</li>
 <li>You can debug your TXT records with the <code>dig</code> tool.</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ dig TXT mail._domainkey.domain.tld
----
-<span class="p">;</span> &lt;&lt;&gt;&gt; DiG <span class="m">9</span>.10.3-P4-Debian &lt;&lt;&gt;&gt; TXT mail._domainkey.domain.tld
-<span class="p">;;</span> global options: +cmd
-<span class="p">;;</span> Got answer:
-<span class="p">;;</span> -&gt;&gt;HEADER<span class="s">&lt;&lt;- opco</span>de: QUERY, status: NOERROR, id: <span class="m">39669</span>
-<span class="p">;;</span> flags: qr rd ra<span class="p">;</span> QUERY: <span class="m">1</span>, ANSWER: <span class="m">1</span>, AUTHORITY: <span class="m">0</span>, ADDITIONAL: <span class="m">1</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>dig TXT mail._domainkey.domain.tld
+<span class="go">---</span>
+<span class="go">; &lt;&lt;&gt;&gt; DiG 9.10.3-P4-Debian &lt;&lt;&gt;&gt; TXT mail._domainkey.domain.tld</span>
+<span class="go">;; global options: +cmd</span>
+<span class="go">;; Got answer:</span>
+<span class="go">;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 39669</span>
+<span class="go">;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1</span>
 
-<span class="p">;;</span> OPT PSEUDOSECTION:
-<span class="p">;</span> EDNS: version: <span class="m">0</span>, flags:<span class="p">;</span> udp: <span class="m">512</span>
-<span class="p">;;</span> QUESTION SECTION:
-<span class="p">;</span>mail._domainkey.domain.tld. IN TXT
+<span class="go">;; OPT PSEUDOSECTION:</span>
+<span class="go">; EDNS: version: 0, flags:; udp: 512</span>
+<span class="go">;; QUESTION SECTION:</span>
+<span class="go">;mail._domainkey.domain.tld. IN TXT</span>
 
-<span class="p">;;</span> ANSWER SECTION:
-mail._domainkey.domain.tld. <span class="m">3600</span> IN TXT <span class="s2">&quot;v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCxBSjG6RnWAdU3oOlqsdf2WC0FOUmU8uHVrzxPLW2R3yRBPGLrGO1++yy3tv6kMieWZwEBHVOdefM6uQOQsZ4brahu9lhG8sFLPX4MaKYN/NR6RK4gdjrZu+MYSdfk3THgSbNwIDAQAB&quot;</span>
+<span class="go">;; ANSWER SECTION:</span>
+<span class="go">mail._domainkey.domain.tld. 3600 IN TXT &quot;v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCxBSjG6RnWAdU3oOlqsdf2WC0FOUmU8uHVrzxPLW2R3yRBPGLrGO1++yy3tv6kMieWZwEBHVOdefM6uQOQsZ4brahu9lhG8sFLPX4MaKYN/NR6RK4gdjrZu+MYSdfk3THgSbNwIDAQAB&quot;</span>
 
-<span class="p">;;</span> Query time: <span class="m">50</span> msec
-<span class="p">;;</span> SERVER: <span class="m">127</span>.0.1.1#53<span class="o">(</span><span class="m">127</span>.0.1.1<span class="o">)</span>
-<span class="p">;;</span> WHEN: Wed Sep <span class="m">07</span> <span class="m">18</span>:22:57 CEST <span class="m">2016</span>
-<span class="p">;;</span> MSG SIZE  rcvd: <span class="m">310</span>
+<span class="go">;; Query time: 50 msec</span>
+<span class="go">;; SERVER: 127.0.1.1#53(127.0.1.1)</span>
+<span class="go">;; WHEN: Wed Sep 07 18:22:57 CEST 2016</span>
+<span class="go">;; MSG SIZE  rcvd: 310</span>
 </code></pre></div>
 <h2 id="switch-off-dkim">Switch Off DKIM<a class="headerlink" href="#switch-off-dkim" title="Permanent link">⚓︎</a></h2>
 <p>Simply remove the DKIM key by recreating (not just relaunching) the mailserver container.</p>

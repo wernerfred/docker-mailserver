@@ -1148,7 +1148,7 @@
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ENABLE_CLAMAV=1</span>
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ENABLE_FAIL2BAN=1</span>
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ENABLE_POSTGREY=1</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">SASLAUTHD_PASSWD=</span>      
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">SASLAUTHD_PASSWD=</span>
 
       <span class="c1"># &gt;&gt;&gt; SASL Authentication</span>
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ENABLE_SASLAUTHD=1</span>
@@ -1193,14 +1193,14 @@
     <span class="nt">driver</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">local</span>
 </code></pre></div>
 <p>If your directory has not the postfix-book schema installed, then you must change the internal attribute handling for dovecot. For this you have to change the <code>pass_attr</code> and the <code>user_attr</code> mapping, as shown in the example below: </p>
-<div class="highlight"><pre><span></span><code>    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">DOVECOT_PASS_ATTR=&lt;YOUR_USER_IDENTIFYER_ATTRIBUTE&gt;=user,&lt;YOUR_USER_PASSWORD_ATTRIBUTE&gt;=password</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">DOVECOT_USER_ATTR=&lt;YOUR_USER_HOME_DIRECTORY_ATTRIBUTE&gt;=home,&lt;YOUR_USER_MAILSTORE_ATTRIBUTE&gt;=mail,&lt;YOUR_USER_MAIL_UID_ATTRIBUTE&gt;=uid, &lt;YOUR_USER_MAIL_GID_ATTRIBUTE&gt;=gid</span>
+<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">DOVECOT_PASS_ATTR=&lt;YOUR_USER_IDENTIFYER_ATTRIBUTE&gt;=user,&lt;YOUR_USER_PASSWORD_ATTRIBUTE&gt;=password</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">DOVECOT_USER_ATTR=&lt;YOUR_USER_HOME_DIRECTORY_ATTRIBUTE&gt;=home,&lt;YOUR_USER_MAILSTORE_ATTRIBUTE&gt;=mail,&lt;YOUR_USER_MAIL_UID_ATTRIBUTE&gt;=uid, &lt;YOUR_USER_MAIL_GID_ATTRIBUTE&gt;=gid</span>
 </code></pre></div>
 <p>The following example illustrates this for a directory that has the qmail-schema installed and that uses <code>uid</code>:</p>
-<div class="highlight"><pre><span></span><code>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">DOVECOT_PASS_ATTRS=uid=user,userPassword=password</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">DOVECOT_USER_ATTRS=homeDirectory=home,qmailUID=uid,qmailGID=gid,mailMessageStore=mail</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">DOVECOT_PASS_FILTER=(&amp;(objectClass=qmailUser)(uid=%u)(accountStatus=active))</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">DOVECOT_USER_FILTER=(&amp;(objectClass=qmailUser)(uid=%u)(accountStatus=active))</span>
+<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">DOVECOT_PASS_ATTRS=uid=user,userPassword=password</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">DOVECOT_USER_ATTRS=homeDirectory=home,qmailUID=uid,qmailGID=gid,mailMessageStore=mail</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">DOVECOT_PASS_FILTER=(&amp;(objectClass=qmailUser)(uid=%u)(accountStatus=active))</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">DOVECOT_USER_FILTER=(&amp;(objectClass=qmailUser)(uid=%u)(accountStatus=active))</span>
 </code></pre></div>
                 
                   

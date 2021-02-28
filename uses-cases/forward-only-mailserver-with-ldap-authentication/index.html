@@ -1087,12 +1087,12 @@
                 <h2 id="building-a-forward-only-mailserver">Building a Forward-Only Mailserver<a class="headerlink" href="#building-a-forward-only-mailserver" title="Permanent link">⚓︎</a></h2>
 <p>A <strong>forward-only</strong> mailserver does not have any local mailboxes. Instead, it has only aliases that forward emails to external email accounts (for example to a gmail account). You can also send email from the localhost (the computer where the mailserver is installed), using as sender any of the alias addresses.</p>
 <p>The important settings for this setup (on <code>mailserver.env</code>) are these:</p>
-<div class="highlight"><pre><span></span><code><span class="go">PERMIT_DOCKER=host</span>
-<span class="go">ENABLE_POP3=</span>
-<span class="go">ENABLE_CLAMAV=0</span>
-<span class="go">SMTP_ONLY=1</span>
-<span class="go">ENABLE_SPAMASSASSIN=0</span>
-<span class="go">ENABLE_FETCHMAIL=0</span>
+<div class="highlight"><pre><span></span><code><span class="nv">PERMIT_DOCKER</span><span class="o">=</span>host
+<span class="nv">ENABLE_POP3</span><span class="o">=</span>
+<span class="nv">ENABLE_CLAMAV</span><span class="o">=</span><span class="m">0</span>
+<span class="nv">SMTP_ONLY</span><span class="o">=</span><span class="m">1</span>
+<span class="nv">ENABLE_SPAMASSASSIN</span><span class="o">=</span><span class="m">0</span>
+<span class="nv">ENABLE_FETCHMAIL</span><span class="o">=</span><span class="m">0</span>
 </code></pre></div>
 <p>Since there are no local mailboxes, we use <code>SMTP_ONLY=1</code> to disable <code>dovecot</code>. We disable as well the other services that are related to local mailboxes (<code>POP3</code>, <code>ClamAV</code>, <code>SpamAssassin</code>, etc.)</p>
 <p>We can create aliases with <code>./setup.sh</code>, like this:</p>

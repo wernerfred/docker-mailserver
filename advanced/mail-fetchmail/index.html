@@ -1139,11 +1139,9 @@
                   <h1>Email Gathering with Fetchmail</h1>
                 
                 <p>To enable the <a href="https://www.fetchmail.info">fetchmail</a> service to retrieve e-mails set the environment variable <code>ENABLE_FETCHMAIL</code> to <code>1</code>. Your <code>docker-compose.yml</code> file should look like following snippet:</p>
-<div class="highlight"><pre><span></span><code><span class="nn">...</span>
-<span class="nt">environment</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="nt">environment</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ENABLE_FETCHMAIL=1</span>
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">FETCHMAIL_POLL=300</span>
-<span class="nn">...</span>
 </code></pre></div>
 <p>Generate a file called <code>fetchmail.cf</code> and place it in the <code>config</code> folder. Your <code>docker-mailserver</code> folder should look like this example:</p>
 <div class="highlight"><pre><span></span><code>├── config
@@ -1174,52 +1172,53 @@
 <p>More details how to configure fetchmail can be found in the <a href="https://www.fetchmail.info/fetchmail-man.html">fetchmail man page in the chapter “The run control file”</a>.</p>
 <h3 id="polling-interval">Polling Interval<a class="headerlink" href="#polling-interval" title="Permanent link">⚓︎</a></h3>
 <p>By default the fetchmail service searches every 5 minutes for new mails on your external mail accounts. You can override this default value by changing the ENV variable <code>FETCHMAIL_POLL</code>.</p>
-<p><div class="highlight"><pre><span></span><code>  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">FETCHMAIL_POLL=60</span>
+<div class="highlight"><pre><span></span><code><span class="nt">environment</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">FETCHMAIL_POLL=60</span>
 </code></pre></div>
-You must specify a numeric argument which is a polling interval in seconds. The example above polls every minute for new mails.</p>
+<p>You must specify a numeric argument which is a polling interval in seconds. The example above polls every minute for new mails.</p>
 <h2 id="debugging">Debugging<a class="headerlink" href="#debugging" title="Permanent link">⚓︎</a></h2>
 <p>To debug your <code>fetchmail.cf</code> configuration run this command:</p>
 <div class="highlight"><pre><span></span><code>./setup.sh debug fetchmail
 </code></pre></div>
 <p>For more informations about the configuration script <code>setup.sh</code> <a href="../../config/setup.sh/">read the corresponding docs</a>.</p>
 <p>Here a sample output of <code>./setup.sh debug fetchmail</code>:</p>
-<div class="highlight"><pre><span></span><code>fetchmail: 6.3.26 querying outlook.office365.com (protocol POP3) at Mon Aug 29 22:11:09 2016: poll started
-Trying to connect to 132.245.48.18/995...connected.
-fetchmail: Server certificate:
-fetchmail: Issuer Organization: Microsoft Corporation
-fetchmail: Issuer CommonName: Microsoft IT SSL SHA2
-fetchmail: Subject CommonName: outlook.com
-fetchmail: Subject Alternative Name: outlook.com
-fetchmail: Subject Alternative Name: *.outlook.com
-fetchmail: Subject Alternative Name: office365.com
-fetchmail: Subject Alternative Name: *.office365.com
-fetchmail: Subject Alternative Name: *.live.com
-fetchmail: Subject Alternative Name: *.internal.outlook.com
-fetchmail: Subject Alternative Name: *.outlook.office365.com
-fetchmail: Subject Alternative Name: outlook.office.com
-fetchmail: Subject Alternative Name: attachment.outlook.office.net
-fetchmail: Subject Alternative Name: attachment.outlook.officeppe.net
-fetchmail: Subject Alternative Name: *.office.com
-fetchmail: outlook.office365.com key fingerprint: 3A:A4:58:42:56:CD:BD:11:19:5B:CF:1E:85:16:8E:4D
-fetchmail: POP3&lt; +OK The Microsoft Exchange POP3 service is ready. [SABFADEAUABSADAAMQBDAEEAMAAwADAANwAuAGUAdQByAHAAcgBkADAAMQAuAHAAcgBvAGQALgBlAHgAYwBoAGEAbgBnAGUAbABhAGIAcwAuAGMAbwBtAA==]
-fetchmail: POP3&gt; CAPA
-fetchmail: POP3&lt; +OK
-fetchmail: POP3&lt; TOP
-fetchmail: POP3&lt; UIDL
-fetchmail: POP3&lt; SASL PLAIN
-fetchmail: POP3&lt; USER
-fetchmail: POP3&lt; .
-fetchmail: POP3&gt; USER user1@outlook.com
-fetchmail: POP3&lt; +OK
-fetchmail: POP3&gt; PASS *
-fetchmail: POP3&lt; +OK User successfully logged on.
-fetchmail: POP3&gt; STAT
-fetchmail: POP3&lt; +OK 0 0
-fetchmail: No mail for user1@outlook.com at outlook.office365.com
-fetchmail: POP3&gt; QUIT
-fetchmail: POP3&lt; +OK Microsoft Exchange Server 2016 POP3 server signing off.
-fetchmail: 6.3.26 querying outlook.office365.com (protocol POP3) at Mon Aug 29 22:11:11 2016: poll completed
-fetchmail: normal termination, status 1
+<div class="highlight"><pre><span></span><code><span class="go">fetchmail: 6.3.26 querying outlook.office365.com (protocol POP3) at Mon Aug 29 22:11:09 2016: poll started</span>
+<span class="go">Trying to connect to 132.245.48.18/995...connected.</span>
+<span class="go">fetchmail: Server certificate:</span>
+<span class="go">fetchmail: Issuer Organization: Microsoft Corporation</span>
+<span class="go">fetchmail: Issuer CommonName: Microsoft IT SSL SHA2</span>
+<span class="go">fetchmail: Subject CommonName: outlook.com</span>
+<span class="go">fetchmail: Subject Alternative Name: outlook.com</span>
+<span class="go">fetchmail: Subject Alternative Name: *.outlook.com</span>
+<span class="go">fetchmail: Subject Alternative Name: office365.com</span>
+<span class="go">fetchmail: Subject Alternative Name: *.office365.com</span>
+<span class="go">fetchmail: Subject Alternative Name: *.live.com</span>
+<span class="go">fetchmail: Subject Alternative Name: *.internal.outlook.com</span>
+<span class="go">fetchmail: Subject Alternative Name: *.outlook.office365.com</span>
+<span class="go">fetchmail: Subject Alternative Name: outlook.office.com</span>
+<span class="go">fetchmail: Subject Alternative Name: attachment.outlook.office.net</span>
+<span class="go">fetchmail: Subject Alternative Name: attachment.outlook.officeppe.net</span>
+<span class="go">fetchmail: Subject Alternative Name: *.office.com</span>
+<span class="go">fetchmail: outlook.office365.com key fingerprint: 3A:A4:58:42:56:CD:BD:11:19:5B:CF:1E:85:16:8E:4D</span>
+<span class="go">fetchmail: POP3&lt; +OK The Microsoft Exchange POP3 service is ready. [SABFADEAUABSADAAMQBDAEEAMAAwADAANwAuAGUAdQByAHAAcgBkADAAMQAuAHAAcgBvAGQALgBlAHgAYwBoAGEAbgBnAGUAbABhAGIAcwAuAGMAbwBtAA==]</span>
+<span class="go">fetchmail: POP3&gt; CAPA</span>
+<span class="go">fetchmail: POP3&lt; +OK</span>
+<span class="go">fetchmail: POP3&lt; TOP</span>
+<span class="go">fetchmail: POP3&lt; UIDL</span>
+<span class="go">fetchmail: POP3&lt; SASL PLAIN</span>
+<span class="go">fetchmail: POP3&lt; USER</span>
+<span class="go">fetchmail: POP3&lt; .</span>
+<span class="go">fetchmail: POP3&gt; USER user1@outlook.com</span>
+<span class="go">fetchmail: POP3&lt; +OK</span>
+<span class="go">fetchmail: POP3&gt; PASS *</span>
+<span class="go">fetchmail: POP3&lt; +OK User successfully logged on.</span>
+<span class="go">fetchmail: POP3&gt; STAT</span>
+<span class="go">fetchmail: POP3&lt; +OK 0 0</span>
+<span class="go">fetchmail: No mail for user1@outlook.com at outlook.office365.com</span>
+<span class="go">fetchmail: POP3&gt; QUIT</span>
+<span class="go">fetchmail: POP3&lt; +OK Microsoft Exchange Server 2016 POP3 server signing off.</span>
+<span class="go">fetchmail: 6.3.26 querying outlook.office365.com (protocol POP3) at Mon Aug 29 22:11:11 2016: poll completed</span>
+<span class="go">fetchmail: normal termination, status 1</span>
 </code></pre></div>
                 
                   

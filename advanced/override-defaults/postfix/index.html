@@ -1013,17 +1013,17 @@
                 
                 <p>The Postfix default configuration can easily be extended by providing a <code>config/postfix-main.cf</code> in postfix format.
 This can also be used to add configuration that is not in our default configuration.</p>
-<p>For example, one common use of this file is for increasing the default maximum message size:
-<div class="highlight"><pre><span></span><code># increase maximum message size
-   message_size_limit = 52428800
-</code></pre></div></p>
-<p>That specific example is now supported and can be handled by setting POSTFIX_MESSAGE_SIZE_LIMIT.</p>
+<p>For example, one common use of this file is for increasing the default maximum message size:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># increase maximum message size</span>
+<span class="na">message_size_limit</span> <span class="o">=</span> <span class="s">52428800</span>
+</code></pre></div>
+<p>That specific example is now supported and can be handled by setting <code>POSTFIX_MESSAGE_SIZE_LIMIT</code>.</p>
 <p><a href="http://www.postfix.org/documentation.html">Postfix documentation</a> remains the best place to find configuration options.</p>
 <p>Each line in the provided file will be loaded into postfix.</p>
-<p>In the same way it is possible to add a custom <code>config/postfix-master.cf</code> file that will override the standard <code>master.cf</code>. Each line in the file will be passed to <code>postconf -P</code>. The expected format is service_name/type/parameter, for example:
-<div class="highlight"><pre><span></span><code>submission/inet/smtpd_reject_unlisted_recipient=no
+<p>In the same way it is possible to add a custom <code>config/postfix-master.cf</code> file that will override the standard <code>master.cf</code>. Each line in the file will be passed to <code>postconf -P</code>. The expected format is <code>&lt;service_name&gt;/&lt;type&gt;/&lt;parameter&gt;</code>, for example:</p>
+<div class="highlight"><pre><span></span><code><span class="na">submission/inet/smtpd_reject_unlisted_recipient</span><span class="o">=</span><span class="s">no</span>
 </code></pre></div>
-Run <code>postconf -P</code> in the container without arguments to see the active master options.</p>
+<p>Run <code>postconf -P</code> in the container without arguments to see the active master options.</p>
 <p>Note! There should be no space between the parameter and the value.</p>
 <p>Have a look at the code for more information.</p>
                 

@@ -1103,37 +1103,37 @@
 <p>The <a href="https://wiki2.dovecot.org/Plugins/FTS/Solr">dovecot-solr Plugin</a> is used in conjunction with <a href="https://lucene.apache.org/solr/">Apache Solr</a> running in a separate container. This is quite straightforward to setup using the following instructions.</p>
 <h2 id="setup-steps">Setup Steps<a class="headerlink" href="#setup-steps" title="Permanent link">⚓︎</a></h2>
 <ol>
-<li>docker-compose.yml:</li>
-</ol>
-<div class="highlight"><pre><span></span><code>  solr:
-    image: lmmdock/dovecot-solr:latest
-    volumes:
-     - solr-dovecot:/opt/solr/server/solr/dovecot
-    restart: always
-
-  mailserver:
-    image: tvial/docker-mailserver:latest
-    ...
-    volumes:
-      ...
-      - ./etc/dovecot/conf.d/10-plugin.conf:/etc/dovecot/conf.d/10-plugin.conf:ro
-    ...
-
-volumes:
-  solr-dovecot:
-    driver: local
-</code></pre></div>
-<ol>
 <li>
-<p><code>etc/dovecot/conf.d/10-plugin.conf</code>:
-<div class="highlight"><pre><span></span><code>mail_plugins = $mail_plugins fts fts_solr
+<p><code>docker-compose.yml</code>:</p>
+<div class="highlight"><pre><span></span><code>  <span class="nt">solr</span><span class="p">:</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">lmmdock/dovecot-solr:latest</span>
+    <span class="nt">volumes</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">solr-dovecot:/opt/solr/server/solr/dovecot</span>
+    <span class="nt">restart</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always</span>
 
-plugin {
-  fts = solr
-  fts_autoindex = yes
-  fts_solr = url=http://solr:8983/solr/dovecot/ 
-}
-</code></pre></div></p>
+  <span class="nt">mailserver</span><span class="p">:</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tvial/docker-mailserver:latest</span>
+    <span class="l l-Scalar l-Scalar-Plain">...</span>
+    <span class="nt">volumes</span><span class="p">:</span>
+      <span class="l l-Scalar l-Scalar-Plain">...</span>
+      <span class="l l-Scalar l-Scalar-Plain">- ./etc/dovecot/conf.d/10-plugin.conf:/etc/dovecot/conf.d/10-plugin.conf:ro</span>
+    <span class="l l-Scalar l-Scalar-Plain">...</span>
+
+<span class="nt">volumes</span><span class="p">:</span>
+  <span class="nt">solr-dovecot</span><span class="p">:</span>
+    <span class="nt">driver</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">local</span>
+</code></pre></div>
+</li>
+<li>
+<p><code>etc/dovecot/conf.d/10-plugin.conf</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="na">mail_plugins</span> <span class="o">=</span> <span class="s">$mail_plugins fts fts_solr</span>
+
+<span class="na">plugin {</span>
+  <span class="na">fts</span> <span class="o">=</span> <span class="s">solr</span>
+  <span class="na">fts_autoindex</span> <span class="o">=</span> <span class="s">yes</span>
+  <span class="na">fts_solr</span> <span class="o">=</span> <span class="s">url=http://solr:8983/solr/dovecot/ </span>
+<span class="na">}</span>
+</code></pre></div>
 </li>
 <li>
 <p>Start the solr container: <code>docker-compose up -d --remove-orphans solr</code></p>
@@ -1142,9 +1142,7 @@ plugin {
 <p>Restart the mailserver container: <code>docker-compose restart mailserver</code></p>
 </li>
 <li>
-<p>Flag all user mailbox FTS indexes as invalid, so they are rescanned on demand when they are next searched
-<div class="highlight"><pre><span></span><code>docker-compose exec mailserver doveadm fts rescan -A
-</code></pre></div></p>
+<p>Flag all user mailbox FTS indexes as invalid, so they are rescanned on demand when they are next searched: <code>docker-compose exec mailserver doveadm fts rescan -A</code></p>
 </li>
 </ol>
 <h2 id="further-discussion">Further Discussion<a class="headerlink" href="#further-discussion" title="Permanent link">⚓︎</a></h2>

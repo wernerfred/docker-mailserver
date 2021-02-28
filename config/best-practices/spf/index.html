@@ -1101,7 +1101,7 @@
 domain.com. IN  MX 1 mail.domain.com.
 
 ; SPF record
-domain.com. IN TXT &quot;v=spf1 mx ~all&quot;
+domain.com. IN TXT &quot;v=spf1 mx ~all&quot; 
 </code></pre></div>
 <p>This enables the <em>Softfail</em> mode for SPF. You could first add this SPF record with a very low TTL.<br />
 <em>SoftFail</em> is a good setting for getting started and testing, as it lets all email through, with spams tagged as such in the mailbox.</p>
@@ -1110,18 +1110,19 @@ domain.com. IN TXT &quot;v=spf1 mx ~all&quot;
 <h2 id="backup-mx-secondary-mx">Backup MX, Secondary MX<a class="headerlink" href="#backup-mx-secondary-mx" title="Permanent link">⚓︎</a></h2>
 <p>For whitelisting a IP-Address from the SPF test, you can create a config file (see <a href="https://www.linuxcertif.com/man/5/policyd-spf.conf">policyd-spf.conf</a>) and mount that file into <code>/etc/postfix-policyd-spf-python/policyd-spf.conf</code>.</p>
 <p><strong>Example:</strong></p>
-<p>Create and edit a policyd-spf.conf file here <code>/&lt;your Docker-Mailserver dir&gt;/config/postfix-policyd-spf.conf</code>:
-<div class="highlight"><pre><span></span><code><span class="nv">debugLevel</span> <span class="o">=</span> <span class="m">1</span> 
-<span class="c1">#0(only errors)-4(complete data received)</span>
+<p>Create and edit a policyd-spf.conf file here <code>/&lt;your Docker-Mailserver dir&gt;/config/postfix-policyd-spf.conf</code>:</p>
+<div class="highlight"><pre><span></span><code>debugLevel = 1
+#0(only errors)-4(complete data received)
 
-<span class="nv">skip_addresses</span> <span class="o">=</span> <span class="m">127</span>.0.0.0/8,::ffff:127.0.0.0/104,::1
+skip_addresses = 127.0.0.0/8,::ffff:127.0.0.0/104,::1
 
-<span class="c1"># Preferably use IP-Addresses for whitelist lookups:</span>
-<span class="nv">Whitelist</span> <span class="o">=</span> <span class="m">192</span>.168.0.0/31,192.168.1.0/30
-<span class="c1"># Domain_Whitelist = mx1.mybackupmx.com,mx2.mybackupmx.com</span>
+# Preferably use IP-Addresses for whitelist lookups:
+Whitelist = 192.168.0.0/31,192.168.1.0/30
+# Domain_Whitelist = mx1.mybackupmx.com,mx2.mybackupmx.com
 </code></pre></div>
-Then add this line to <code>docker-compose.yml</code> below the <code>volumes:</code> section</p>
-<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">./config/postfix-policyd-spf.conf:/etc/postfix-policyd-spf-python/policyd-spf.conf</span>
+<p>Then add this line to <code>docker-compose.yml</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">volumes</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">./config/postfix-policyd-spf.conf:/etc/postfix-policyd-spf-python/policyd-spf.conf</span>
 </code></pre></div>
                 
                   

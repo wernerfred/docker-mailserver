@@ -1112,11 +1112,11 @@
 └── README.md
 </code></pre></div>
 <p>One common option to change is the maximum number of connections per user:</p>
-<div class="highlight"><pre><span></span><code>mail_max_userip_connections = 100
+<div class="highlight"><pre><span></span><code><span class="na">mail_max_userip_connections</span> <span class="o">=</span> <span class="s">100</span>
 </code></pre></div>
 <p>Another important option is the <code>default_process_limit</code> (defaults to <code>100</code>). If high-security mode is enabled you'll need to make sure this count is higher than the maximum number of users that can be logged in simultaneously. This limit is quickly reached if users connect to the mail server with multiple end devices.</p>
 <h2 id="override-configuration">Override Configuration<a class="headerlink" href="#override-configuration" title="Permanent link">⚓︎</a></h2>
-<p>For major configuration changes it’s best to override the <code>dovecot</code> configuration files. For each configuration file you want to override, add a list entry under the <code>volumes:</code> key.</p>
+<p>For major configuration changes it’s best to override the dovecot configuration files. For each configuration file you want to override, add a list entry under the <code>volumes</code> key.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span> <span class="s">&#39;2&#39;</span>
 
 <span class="nt">services</span><span class="p">:</span>
@@ -1135,7 +1135,7 @@
 <p>or</p>
 <div class="highlight"><pre><span></span><code>docker <span class="nb">exec</span> -ti &lt;your-container-name&gt; doveconf <span class="p">|</span> grep &lt;some-keyword&gt;
 </code></pre></div>
-<p>The  <code>config/dovecot.cf</code> is copied to <code>/etc/dovecot/local.conf</code>. To check this file run:</p>
+<p>The <code>config/dovecot.cf</code> is copied to <code>/etc/dovecot/local.conf</code>. To check this file run:</p>
 <div class="highlight"><pre><span></span><code>docker <span class="nb">exec</span> -ti &lt;your-container-name&gt; cat /etc/dovecot/local.conf
 </code></pre></div>
                 
