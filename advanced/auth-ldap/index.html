@@ -1133,18 +1133,22 @@
 <li>SASLAUTHD (this can also be handled by dovecot above)</li>
 </ul>
 <h2 id="variables-to-control-provisioning-by-the-container">Variables to Control Provisioning by the Container<a class="headerlink" href="#variables-to-control-provisioning-by-the-container" title="Permanent link">⚓︎</a></h2>
-<p><strong>POSTFIX</strong>:
-* <code>LDAP_QUERY_FILTER_USER</code>
-* <code>LDAP_QUERY_FILTER_GROUP</code>
-* <code>LDAP_QUERY_FILTER_ALIAS</code>
-* <code>LDAP_QUERY_FILTER_DOMAIN</code></p>
+<p><strong>POSTFIX</strong>:</p>
+<ul>
+<li><code>LDAP_QUERY_FILTER_USER</code></li>
+<li><code>LDAP_QUERY_FILTER_GROUP</code></li>
+<li><code>LDAP_QUERY_FILTER_ALIAS</code></li>
+<li><code>LDAP_QUERY_FILTER_DOMAIN</code></li>
+</ul>
 <p><strong>SASLAUTHD</strong>:</p>
 <ul>
 <li><code>SASLAUTHD_LDAP_FILTER</code></li>
 </ul>
-<p><strong>DOVECOT</strong>:
-* <code>DOVECOT_USER_FILTER</code>
-* <code>DOVECOT_PASS_FILTER</code></p>
+<p><strong>DOVECOT</strong>:</p>
+<ul>
+<li><code>DOVECOT_USER_FILTER</code></li>
+<li><code>DOVECOT_PASS_FILTER</code></li>
+</ul>
 <p><strong>NOTE</strong>: This page will provide several use cases like recipes to show, how this project can be used with it's LDAP Features.</p>
 <h2 id="ldap-setup-kopano-zarafa">LDAP Setup - Kopano / Zarafa<a class="headerlink" href="#ldap-setup-kopano-zarafa" title="Permanent link">⚓︎</a></h2>
 <div class="highlight"><pre><span></span><code><span class="nn">---</span>
