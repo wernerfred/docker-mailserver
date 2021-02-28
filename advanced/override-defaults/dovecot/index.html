@@ -18,7 +18,7 @@
     
     
       
-        <title>Dovecot - Docker Mailserver</title>
+        <title>Override the Default Configs | Dovecot - Docker Mailserver</title>
       
     
     
@@ -94,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Dovecot
+              Override the Default Configs | Dovecot
             
           </span>
         </div>
@@ -155,6 +155,117 @@
       
       
         
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../introduction/" class="md-tabs__link">
+      An Introduction to Mail Servers
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../config/setup.sh/" class="md-tabs__link">
+        Configuration
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../optional-config/" class="md-tabs__link md-tabs__link--active">
+        Advanced
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../tutorials/installation-examples/" class="md-tabs__link">
+        Tutorials
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../uses-cases/forward-only-mailserver-with-ldap-authentication/" class="md-tabs__link">
+        Use Cases
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="https://hub.docker.com/repository/docker/mailserver/docker-mailserver" class="md-tabs__link">
+      DockerHub
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+        
       
       <main class="md-main" data-md-component="main">
         <div class="md-main__inner md-grid">
@@ -168,8 +279,10 @@
 
 
 
+  
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../../.." title="Docker Mailserver" class="md-nav__button md-logo" aria-label="Docker Mailserver">
       
@@ -236,7 +349,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" data-md-state="indeterminate" type="checkbox" id="__nav_3" checked>
       
       <label class="md-nav__link" for="__nav_3">
         Configuration
@@ -269,7 +382,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" data-md-state="indeterminate" type="checkbox" id="__nav_3_2" checked>
       
       <label class="md-nav__link" for="__nav_3_2">
         User Management
@@ -320,7 +433,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" data-md-state="indeterminate" type="checkbox" id="__nav_3_3" checked>
       
       <label class="md-nav__link" for="__nav_3_3">
         Best Practices
@@ -395,7 +508,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" data-md-state="indeterminate" type="checkbox" id="__nav_3_4" checked>
       
       <label class="md-nav__link" for="__nav_3_4">
         Security
@@ -458,7 +571,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" data-md-state="indeterminate" type="checkbox" id="__nav_3_5" checked>
       
       <label class="md-nav__link" for="__nav_3_5">
         Troubleshooting
@@ -565,7 +678,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" data-md-state="indeterminate" type="checkbox" id="__nav_4_2" checked>
       
       <label class="md-nav__link" for="__nav_4_2">
         Maintenance
@@ -629,12 +742,51 @@
       
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
-        
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Dovecot
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         Dovecot
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#add-configuration" class="md-nav__link">
+    Add Configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#override-configuration" class="md-nav__link">
+    Override Configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging" class="md-nav__link">
+    Debugging
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -702,7 +854,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_7" type="checkbox" id="__nav_4_7" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_7" data-md-state="indeterminate" type="checkbox" id="__nav_4_7" checked>
       
       <label class="md-nav__link" for="__nav_4_7">
         Email Forwarding
@@ -798,7 +950,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" data-md-state="indeterminate" type="checkbox" id="__nav_5" checked>
       
       <label class="md-nav__link" for="__nav_5">
         Tutorials
@@ -810,18 +962,6 @@
           Tutorials
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../config/troubleshooting/faq/" class="md-nav__link">
-        FAQ
-      </a>
-    </li>
-  
-
           
             
   
@@ -852,7 +992,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" data-md-state="indeterminate" type="checkbox" id="__nav_6" checked>
       
       <label class="md-nav__link" for="__nav_6">
         Use Cases
@@ -913,8 +1053,35 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#add-configuration" class="md-nav__link">
+    Add Configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#override-configuration" class="md-nav__link">
+    Override Configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging" class="md-nav__link">
+    Debugging
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -931,45 +1098,48 @@
                   </a>
                 
                 
-                <h1 id="add-configuration">Add configuration</h1>
+                  <h1>Dovecot</h1>
+                
+                <h2 id="add-configuration">Add Configuration<a class="headerlink" href="#add-configuration" title="Permanent link">⚓︎</a></h2>
 <p>The Dovecot default configuration can easily be extended providing a <code>config/dovecot.cf</code> file.
-<a href="http://wiki.dovecot.org/FrontPage">Dovecot documentation</a> remains the best place to find configuration options.</p>
+<a href="https://wiki.dovecot.org">Dovecot documentation</a> remains the best place to find configuration options.</p>
 <p>Your <code>docker-mailserver</code> folder should look like this example:</p>
-<pre><code>├── config
+<div class="highlight"><pre><span></span><code>├── config
 │   ├── dovecot.cf
 │   ├── postfix-accounts.cf
 │   └── postfix-virtual.cf
 ├── docker-compose.yml
 └── README.md
-</code></pre>
+</code></pre></div>
 <p>One common option to change is the maximum number of connections per user:</p>
-<pre><code>mail_max_userip_connections = 100
-</code></pre>
+<div class="highlight"><pre><span></span><code>mail_max_userip_connections = 100
+</code></pre></div>
 <p>Another important option is the <code>default_process_limit</code> (defaults to <code>100</code>). If high-security mode is enabled you'll need to make sure this count is higher than the maximum number of users that can be logged in simultaneously. This limit is quickly reached if users connect to the mail server with multiple end devices.</p>
-<h1 id="override-configuration">Override configuration</h1>
+<h2 id="override-configuration">Override Configuration<a class="headerlink" href="#override-configuration" title="Permanent link">⚓︎</a></h2>
 <p>For major configuration changes it’s best to override the <code>dovecot</code> configuration files. For each configuration file you want to override, add a list entry under the <code>volumes:</code> key.</p>
-<pre><code class="language-yaml">version: '2'
+<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span> <span class="s">&#39;2&#39;</span>
 
-services:
-  mail:
-  ...
-    volumes:
-      - maildata:/var/mail
-      ...
-      - ./config/dovecot/10-master.conf:/etc/dovecot/conf.d/10-master.conf
-
-</code></pre>
-<h1 id="debugging">Debugging</h1>
+<span class="nt">services</span><span class="p">:</span>
+  <span class="nt">mail</span><span class="p">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">...</span>
+    <span class="l l-Scalar l-Scalar-Plain">volumes</span><span class="p p-Indicator">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">maildata:/var/mail</span>
+      <span class="l l-Scalar l-Scalar-Plain">...</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">./config/dovecot/10-master.conf:/etc/dovecot/conf.d/10-master.conf</span>
+</code></pre></div>
+<h2 id="debugging">Debugging<a class="headerlink" href="#debugging" title="Permanent link">⚓︎</a></h2>
 <p>To debug your dovecot configuration you can use this command:</p>
-<pre><code class="language-sh">./setup.sh debug login doveconf | grep &lt;some-keyword&gt;
-</code></pre>
-<p><a href="https://github.com/tomav/docker-mailserver/blob/master/setup.sh">setup.sh</a> is included in the <code>docker-mailserver</code> repository.</p>
+<div class="highlight"><pre><span></span><code>./setup.sh debug login doveconf <span class="p">|</span> grep &lt;some-keyword&gt;
+</code></pre></div>
+<p><a href="https://github.com/docker-mailserver/docker-mailserver/blob/master/setup.sh">setup.sh</a> is included in the <code>docker-mailserver</code> repository.</p>
 <p>or</p>
-<pre><code class="language-sh">docker exec -ti &lt;your-container-name&gt; doveconf | grep &lt;some-keyword&gt;
-</code></pre>
+<div class="highlight"><pre><span></span><code>docker <span class="nb">exec</span> -ti &lt;your-container-name&gt; doveconf <span class="p">|</span> grep &lt;some-keyword&gt;
+</code></pre></div>
 <p>The  <code>config/dovecot.cf</code> is copied to <code>/etc/dovecot/local.conf</code>. To check this file run:</p>
-<pre><code class="language-sh">docker exec -ti &lt;your-container-name&gt; cat /etc/dovecot/local.conf
-</code></pre>
+<div class="highlight"><pre><span></span><code>docker <span class="nb">exec</span> -ti &lt;your-container-name&gt; cat /etc/dovecot/local.conf
+</code></pre></div>
+                
+                  
                 
               
               
@@ -1040,7 +1210,7 @@ services:
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.expand"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
     
     
       <script src="../../../assets/javascripts/bundle.ca5457b8.min.js"></script>

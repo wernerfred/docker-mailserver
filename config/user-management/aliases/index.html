@@ -18,7 +18,7 @@
     
     
       
-        <title>Aliases - Docker Mailserver</title>
+        <title>User Management | Aliases - Docker Mailserver</title>
       
     
     
@@ -94,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Aliases
+              User Management | Aliases
             
           </span>
         </div>
@@ -155,6 +155,117 @@
       
       
         
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../introduction/" class="md-tabs__link">
+      An Introduction to Mail Servers
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../setup.sh/" class="md-tabs__link md-tabs__link--active">
+        Configuration
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../advanced/optional-config/" class="md-tabs__link">
+        Advanced
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../tutorials/installation-examples/" class="md-tabs__link">
+        Tutorials
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../uses-cases/forward-only-mailserver-with-ldap-authentication/" class="md-tabs__link">
+        Use Cases
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="https://hub.docker.com/repository/docker/mailserver/docker-mailserver" class="md-tabs__link">
+      DockerHub
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+        
       
       <main class="md-main" data-md-component="main">
         <div class="md-main__inner md-grid">
@@ -168,8 +279,10 @@
 
 
 
+  
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../../.." title="Docker Mailserver" class="md-nav__button md-logo" aria-label="Docker Mailserver">
       
@@ -331,14 +444,14 @@
       
         <li class="md-nav__item">
   <a href="#configuring-regexp-aliases" class="md-nav__link">
-    Configuring regexp aliases
+    Configuring RegExp Aliases
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#address-tags-extension-delimiters-as-an-alternative-to-aliases" class="md-nav__link">
-    Address tags (extension delimiters) as an alternative to aliases
+  <a href="#address-tags-extension-delimiters-an-alternative-to-aliases" class="md-nav__link">
+    Address Tags (Extension Delimiters) an Alternative to Aliases
   </a>
   
 </li>
@@ -365,7 +478,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" data-md-state="indeterminate" type="checkbox" id="__nav_3_3" checked>
       
       <label class="md-nav__link" for="__nav_3_3">
         Best Practices
@@ -440,7 +553,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" data-md-state="indeterminate" type="checkbox" id="__nav_3_4" checked>
       
       <label class="md-nav__link" for="__nav_3_4">
         Security
@@ -503,7 +616,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" data-md-state="indeterminate" type="checkbox" id="__nav_3_5" checked>
       
       <label class="md-nav__link" for="__nav_3_5">
         Troubleshooting
@@ -575,7 +688,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" data-md-state="indeterminate" type="checkbox" id="__nav_4" checked>
       
       <label class="md-nav__link" for="__nav_4">
         Advanced
@@ -608,7 +721,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" data-md-state="indeterminate" type="checkbox" id="__nav_4_2" checked>
       
       <label class="md-nav__link" for="__nav_4_2">
         Maintenance
@@ -647,7 +760,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" data-md-state="indeterminate" type="checkbox" id="__nav_4_3" checked>
       
       <label class="md-nav__link" for="__nav_4_3">
         Override the Default Configs
@@ -734,7 +847,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_7" type="checkbox" id="__nav_4_7" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_7" data-md-state="indeterminate" type="checkbox" id="__nav_4_7" checked>
       
       <label class="md-nav__link" for="__nav_4_7">
         Email Forwarding
@@ -830,7 +943,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" data-md-state="indeterminate" type="checkbox" id="__nav_5" checked>
       
       <label class="md-nav__link" for="__nav_5">
         Tutorials
@@ -842,18 +955,6 @@
           Tutorials
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../troubleshooting/faq/" class="md-nav__link">
-        FAQ
-      </a>
-    </li>
-  
-
           
             
   
@@ -884,7 +985,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" data-md-state="indeterminate" type="checkbox" id="__nav_6" checked>
       
       <label class="md-nav__link" for="__nav_6">
         Use Cases
@@ -954,14 +1055,14 @@
       
         <li class="md-nav__item">
   <a href="#configuring-regexp-aliases" class="md-nav__link">
-    Configuring regexp aliases
+    Configuring RegExp Aliases
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#address-tags-extension-delimiters-as-an-alternative-to-aliases" class="md-nav__link">
-    Address tags (extension delimiters) as an alternative to aliases
+  <a href="#address-tags-extension-delimiters-an-alternative-to-aliases" class="md-nav__link">
+    Address Tags (Extension Delimiters) an Alternative to Aliases
   </a>
   
 </li>
@@ -992,21 +1093,23 @@
 <li>redirected to one or more other email addresses</li>
 </ul>
 <p>Alias and target are space separated. An example on a server with domain.tld as its domain:</p>
-<pre><code class="language-INI"># Alias delivered to an existing account
-alias1@domain.tld user1@domain.tld
+<div class="highlight"><pre><span></span><code><span class="c1"># Alias delivered to an existing account</span>
+<span class="na">alias1@domain.tld user1@domain.tld</span>
 
-# Alias forwarded to an external email address
-alias2@domain.tld external@gmail.com
-</code></pre>
-<h3 id="configuring-regexp-aliases">Configuring regexp aliases</h3>
-<p>Additional regexp aliases can be configured by placing them into <code>config/postfix-regexp.cf</code>. The regexp aliases get evaluated after the virtual aliases (<code>/tmp/docker-mailserver/postfix-virtual.cf</code>). For example, the following <code>config/postfix-regexp.cf</code> causes all email to "test" users to be delivered to qa@example.com:</p>
-<pre><code class="language-INI">/^test[0-9][0-9]*@example.com/ qa@example.com
-</code></pre>
-<h3 id="address-tags-extension-delimiters-as-an-alternative-to-aliases">Address tags (extension delimiters) as an alternative to aliases</h3>
-<p>Postfix supports so-called address tags, in the form of plus (+) tags - i.e. address+tag@example.com will end up at address@example.com. This is configured by default and the (configurable !) separator is set to <code>+</code>. For more info, see <a href="https://www.stevejenkins.com/blog/2011/03/how-to-use-address-tagging-usertagexample-com-with-postfix/">How to use Address Tagging (user+tag@example.com) with Postfix</a> and the <a href="http://www.postfix.org/postconf.5.html#recipient_delimiter">official documentation</a>.</p>
+<span class="c1"># Alias forwarded to an external email address</span>
+<span class="na">alias2@domain.tld external@gmail.com</span>
+</code></pre></div>
+<h2 id="configuring-regexp-aliases">Configuring RegExp Aliases<a class="headerlink" href="#configuring-regexp-aliases" title="Permanent link">⚓︎</a></h2>
+<p>Additional regexp aliases can be configured by placing them into <code>config/postfix-regexp.cf</code>. The regexp aliases get evaluated after the virtual aliases (<code>/tmp/docker-mailserver/postfix-virtual.cf</code>). For example, the following <code>config/postfix-regexp.cf</code> causes all email to "test" users to be delivered to <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#113;&#97;&#64;&#101;&#120;&#97;&#109;&#112;&#108;&#101;&#46;&#99;&#111;&#109;">&#113;&#97;&#64;&#101;&#120;&#97;&#109;&#112;&#108;&#101;&#46;&#99;&#111;&#109;</a>:</p>
+<div class="highlight"><pre><span></span><code><span class="na">/^test[0-9][0-9]*@example.com/ qa@example.com</span>
+</code></pre></div>
+<h2 id="address-tags-extension-delimiters-an-alternative-to-aliases">Address Tags (Extension Delimiters) an Alternative to Aliases<a class="headerlink" href="#address-tags-extension-delimiters-an-alternative-to-aliases" title="Permanent link">⚓︎</a></h2>
+<p>Postfix supports so-called address tags, in the form of plus (+) tags - i.e. <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#97;&#100;&#100;&#114;&#101;&#115;&#115;&#43;&#116;&#97;&#103;&#64;&#101;&#120;&#97;&#109;&#112;&#108;&#101;&#46;&#99;&#111;&#109;">&#97;&#100;&#100;&#114;&#101;&#115;&#115;&#43;&#116;&#97;&#103;&#64;&#101;&#120;&#97;&#109;&#112;&#108;&#101;&#46;&#99;&#111;&#109;</a> will end up at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#97;&#100;&#100;&#114;&#101;&#115;&#115;&#64;&#101;&#120;&#97;&#109;&#112;&#108;&#101;&#46;&#99;&#111;&#109;">&#97;&#100;&#100;&#114;&#101;&#115;&#115;&#64;&#101;&#120;&#97;&#109;&#112;&#108;&#101;&#46;&#99;&#111;&#109;</a>. This is configured by default and the (configurable !) separator is set to <code>+</code>. For more info, see <a href="https://www.stevejenkins.com/blog/2011/03/how-to-use-address-tagging-usertagexample-com-with-postfix/">How to use Address Tagging (user+tag@example.com) with Postfix</a> and the <a href="http://www.postfix.org/postconf.5.html#recipient_delimiter">official documentation</a>.</p>
 <p>Note that if you do decide to change the configurable separator, you must add the same line to <em>both</em> <code>config/postfix-main.cf</code> and <code>config/dovecot.cf</code>, because Dovecot is acting as the delivery agent. For example, to switch to <code>-</code>, add:</p>
-<pre><code class="language-INI">recipient_delimiter = -
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="na">recipient_delimiter</span> <span class="o">=</span> <span class="s">-</span>
+</code></pre></div>
+                
+                  
                 
               
               
@@ -1077,7 +1180,7 @@ alias2@domain.tld external@gmail.com
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.expand"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
     
     
       <script src="../../../assets/javascripts/bundle.ca5457b8.min.js"></script>

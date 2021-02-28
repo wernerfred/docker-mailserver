@@ -18,7 +18,7 @@
     
     
       
-        <title>AWS SES - Docker Mailserver</title>
+        <title>Mail Forwarding | AWS SES - Docker Mailserver</title>
       
     
     
@@ -89,7 +89,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              AWS SES
+              Mail Forwarding | AWS SES
             
           </span>
         </div>
@@ -150,6 +150,117 @@
       
       
         
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../introduction/" class="md-tabs__link">
+      An Introduction to Mail Servers
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../config/setup.sh/" class="md-tabs__link">
+        Configuration
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../optional-config/" class="md-tabs__link md-tabs__link--active">
+        Advanced
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../tutorials/installation-examples/" class="md-tabs__link">
+        Tutorials
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../uses-cases/forward-only-mailserver-with-ldap-authentication/" class="md-tabs__link">
+        Use Cases
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="https://hub.docker.com/repository/docker/mailserver/docker-mailserver" class="md-tabs__link">
+      DockerHub
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+        
       
       <main class="md-main" data-md-component="main">
         <div class="md-main__inner md-grid">
@@ -163,8 +274,10 @@
 
 
 
+  
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../../.." title="Docker Mailserver" class="md-nav__button md-logo" aria-label="Docker Mailserver">
       
@@ -231,7 +344,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" data-md-state="indeterminate" type="checkbox" id="__nav_3" checked>
       
       <label class="md-nav__link" for="__nav_3">
         Configuration
@@ -264,7 +377,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" data-md-state="indeterminate" type="checkbox" id="__nav_3_2" checked>
       
       <label class="md-nav__link" for="__nav_3_2">
         User Management
@@ -315,7 +428,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" data-md-state="indeterminate" type="checkbox" id="__nav_3_3" checked>
       
       <label class="md-nav__link" for="__nav_3_3">
         Best Practices
@@ -390,7 +503,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" data-md-state="indeterminate" type="checkbox" id="__nav_3_4" checked>
       
       <label class="md-nav__link" for="__nav_3_4">
         Security
@@ -453,7 +566,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" data-md-state="indeterminate" type="checkbox" id="__nav_3_5" checked>
       
       <label class="md-nav__link" for="__nav_3_5">
         Troubleshooting
@@ -560,7 +673,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" data-md-state="indeterminate" type="checkbox" id="__nav_4_2" checked>
       
       <label class="md-nav__link" for="__nav_4_2">
         Maintenance
@@ -599,7 +712,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" data-md-state="indeterminate" type="checkbox" id="__nav_4_3" checked>
       
       <label class="md-nav__link" for="__nav_4_3">
         Override the Default Configs
@@ -791,7 +904,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" data-md-state="indeterminate" type="checkbox" id="__nav_5" checked>
       
       <label class="md-nav__link" for="__nav_5">
         Tutorials
@@ -803,18 +916,6 @@
           Tutorials
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../config/troubleshooting/faq/" class="md-nav__link">
-        FAQ
-      </a>
-    </li>
-  
-
           
             
   
@@ -845,7 +946,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" data-md-state="indeterminate" type="checkbox" id="__nav_6" checked>
       
       <label class="md-nav__link" for="__nav_6">
         Use Cases
@@ -910,23 +1011,23 @@
                 
                   <h1>AWS SES</h1>
                 
-                <p>Instead of letting postfix deliver mail directly it is possible to configure it to deliver outgoing email via Amazon SES (Simple Email Service). (Receiving inbound email via SES is not implemented.) The configuration follows the guidelines provided by AWS in http://docs.aws.amazon.com/ses/latest/DeveloperGuide/postfix.html, specifically, the STARTTLS method.</p>
+                <p>Note: new configuration, see <a href="../relay-hosts/">Configure Relay Hosts</a></p>
+<p>Instead of letting postfix deliver mail directly it is possible to configure it to deliver outgoing email via Amazon SES (Simple Email Service). (Receiving inbound email via SES is not implemented.) The configuration follows the guidelines provided by AWS in <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/postfix.html">https://docs.aws.amazon.com/ses/latest/DeveloperGuide/postfix.html</a>, specifically, the STARTTLS method.</p>
 <p>As described in the AWS Developer Guide you will have to generate SMTP credentials and define the following two environment variables in the docker-compose.yml with the appropriate values for your AWS SES subscription (the values for AWS_SES_USERPASS are the "SMTP username" and "SMTP password" provided when you create SMTP credentials for SES):</p>
-<pre><code>    environment:
+<div class="highlight"><pre><span></span><code>    environment:
     - AWS_SES_HOST=email-smtp.us-east-1.amazonaws.com
     - AWS_SES_USERPASS=AKIAXXXXXXXXXXXXXXXX:kqXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-</code></pre>
+</code></pre></div>
 <p>If necessary, you can also provide AWS_SES_PORT. If not provided, it defaults to 25.</p>
-<p>When you start the container you will see a log line as follows confirming the configuration:</p>
-<pre><code>Setting up outgoing email via AWS SES host email-smtp.us-east-1.amazonaws.com
-</code></pre>
-<p>To verify proper operation, send an email to some external account of yours and inspect the mail headers. You will also see the connection to SES in the mail logs. For example:</p>
-<pre><code>May 23 07:09:36 mail postfix/smtp[692]: Trusted TLS connection established to email-smtp.us-east-1.amazonaws.com[107.20.142.169]:25:
+<p>When you start the container you will see a log line as follows confirming the configuration:
+<div class="highlight"><pre><span></span><code>Setting up outgoing email via AWS SES host email-smtp.us-east-1.amazonaws.com
+</code></pre></div>
+To verify proper operation, send an email to some external account of yours and inspect the mail headers. You will also see the connection to SES in the mail logs. For example:
+<div class="highlight"><pre><span></span><code>May 23 07:09:36 mail postfix/smtp[692]: Trusted TLS connection established to email-smtp.us-east-1.amazonaws.com[107.20.142.169]:25:
 TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits)
 May 23 07:09:36 mail postfix/smtp[692]: 8C82A7E7: to=&lt;someone@example.com&gt;, relay=email-smtp.us-east-1.amazonaws.com[107.20.142.169]:25,
 delay=0.35, delays=0/0.02/0.13/0.2, dsn=2.0.0, status=sent (250 Ok 01000154dc729264-93fdd7ea-f039-43d6-91ed-653e8547867c-000000)
-
-</code></pre>
+</code></pre></div></p>
                 
                   
                 
@@ -999,7 +1100,7 @@ delay=0.35, delays=0/0.02/0.13/0.2, dsn=2.0.0, status=sent (250 Ok 01000154dc729
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.expand"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
     
     
       <script src="../../../assets/javascripts/bundle.ca5457b8.min.js"></script>

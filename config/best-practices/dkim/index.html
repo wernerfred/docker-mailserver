@@ -18,7 +18,7 @@
     
     
       
-        <title>DKIM - Docker Mailserver</title>
+        <title>Best Practices | DKIM - Docker Mailserver</title>
       
     
     
@@ -94,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              DKIM
+              Best Practices | DKIM
             
           </span>
         </div>
@@ -155,6 +155,117 @@
       
       
         
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../introduction/" class="md-tabs__link">
+      An Introduction to Mail Servers
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../setup.sh/" class="md-tabs__link md-tabs__link--active">
+        Configuration
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../advanced/optional-config/" class="md-tabs__link">
+        Advanced
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../tutorials/installation-examples/" class="md-tabs__link">
+        Tutorials
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../uses-cases/forward-only-mailserver-with-ldap-authentication/" class="md-tabs__link">
+        Use Cases
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="https://hub.docker.com/repository/docker/mailserver/docker-mailserver" class="md-tabs__link">
+      DockerHub
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+        
       
       <main class="md-main" data-md-component="main">
         <div class="md-main__inner md-grid">
@@ -168,8 +279,10 @@
 
 
 
+  
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../../.." title="Docker Mailserver" class="md-nav__button md-logo" aria-label="Docker Mailserver">
       
@@ -271,7 +384,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" data-md-state="indeterminate" type="checkbox" id="__nav_3_2" checked>
       
       <label class="md-nav__link" for="__nav_3_2">
         User Management
@@ -370,21 +483,21 @@
       
         <li class="md-nav__item">
   <a href="#enabling-dkim-signature" class="md-nav__link">
-    Enabling DKIM signature
+    Enabling DKIM Signature
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#configuration-using-a-web-interface" class="md-nav__link">
-    Configuration using a web interface
+    Configuration using a Web Interface
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#verify-only" class="md-nav__link">
-    Verify-only
+    Verify-Only
   </a>
   
 </li>
@@ -398,7 +511,7 @@
       
         <li class="md-nav__item">
   <a href="#switch-off-dkim" class="md-nav__link">
-    Switch off DKIM
+    Switch Off DKIM
   </a>
   
 </li>
@@ -461,7 +574,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" data-md-state="indeterminate" type="checkbox" id="__nav_3_4" checked>
       
       <label class="md-nav__link" for="__nav_3_4">
         Security
@@ -524,7 +637,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" data-md-state="indeterminate" type="checkbox" id="__nav_3_5" checked>
       
       <label class="md-nav__link" for="__nav_3_5">
         Troubleshooting
@@ -596,7 +709,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" data-md-state="indeterminate" type="checkbox" id="__nav_4" checked>
       
       <label class="md-nav__link" for="__nav_4">
         Advanced
@@ -629,7 +742,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" data-md-state="indeterminate" type="checkbox" id="__nav_4_2" checked>
       
       <label class="md-nav__link" for="__nav_4_2">
         Maintenance
@@ -668,7 +781,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" data-md-state="indeterminate" type="checkbox" id="__nav_4_3" checked>
       
       <label class="md-nav__link" for="__nav_4_3">
         Override the Default Configs
@@ -755,7 +868,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_7" type="checkbox" id="__nav_4_7" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_7" data-md-state="indeterminate" type="checkbox" id="__nav_4_7" checked>
       
       <label class="md-nav__link" for="__nav_4_7">
         Email Forwarding
@@ -851,7 +964,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" data-md-state="indeterminate" type="checkbox" id="__nav_5" checked>
       
       <label class="md-nav__link" for="__nav_5">
         Tutorials
@@ -863,18 +976,6 @@
           Tutorials
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../troubleshooting/faq/" class="md-nav__link">
-        FAQ
-      </a>
-    </li>
-  
-
           
             
   
@@ -905,7 +1006,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" data-md-state="indeterminate" type="checkbox" id="__nav_6" checked>
       
       <label class="md-nav__link" for="__nav_6">
         Use Cases
@@ -975,21 +1076,21 @@
       
         <li class="md-nav__item">
   <a href="#enabling-dkim-signature" class="md-nav__link">
-    Enabling DKIM signature
+    Enabling DKIM Signature
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#configuration-using-a-web-interface" class="md-nav__link">
-    Configuration using a web interface
+    Configuration using a Web Interface
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#verify-only" class="md-nav__link">
-    Verify-only
+    Verify-Only
   </a>
   
 </li>
@@ -1003,7 +1104,7 @@
       
         <li class="md-nav__item">
   <a href="#switch-off-dkim" class="md-nav__link">
-    Switch off DKIM
+    Switch Off DKIM
   </a>
   
 </li>
@@ -1028,23 +1129,23 @@
                   <h1>DKIM</h1>
                 
                 <p>DKIM is a security measure targeting email spoofing. It is greatly recommended one activates it. See <a href="https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail">the Wikipedia page</a> for more details on DKIM.</p>
-<h4 id="enabling-dkim-signature">Enabling DKIM signature</h4>
+<h2 id="enabling-dkim-signature">Enabling DKIM Signature<a class="headerlink" href="#enabling-dkim-signature" title="Permanent link">⚓︎</a></h2>
 <p>To enable DKIM signature, <strong>you must have created at least one email account</strong>. Once its done, just run the following command to generate the signature:</p>
-<pre><code class="language-BASH">./setup.sh config dkim
-</code></pre>
+<div class="highlight"><pre><span></span><code>./setup.sh config dkim
+</code></pre></div>
 <p>After generating DKIM keys, you should restart the mail server. DNS edits may take a few minutes to hours to propagate. The script assumes you're being in the directory where the <code>config/</code> directory is located. The default keysize when generating the signature is 4096 bits for now. If you need to change it (e.g. your DNS provider limits the size), then provide the size as the first parameter of the command:</p>
-<pre><code class="language-BASH">./setup.sh config dkim &lt;keysize&gt;
-</code></pre>
+<div class="highlight"><pre><span></span><code>./setup.sh config dkim &lt;keysize&gt;
+</code></pre></div>
 <p>For LDAP systems that do not have any directly created user account you can run the following command (since <code>8.0.0</code>) to generate the signature by additionally providing the desired domain name (if you have multiple domains use the command multiple times or provide a comma-separated list of domains): </p>
-<pre><code class="language-BASH">./setup.sh config dkim &lt;key-size&gt; &lt;domain.tld&gt;[,&lt;domain2.tld&gt;]
-</code></pre>
+<div class="highlight"><pre><span></span><code>./setup.sh config dkim &lt;key-size&gt; &lt;domain.tld&gt;<span class="o">[</span>,&lt;domain2.tld&gt;<span class="o">]</span>
+</code></pre></div>
 <p>Now the keys are generated, you can configure your DNS server with DKIM signature, simply by adding a TXT record. If you have direct access to your DNS zone file, then it's only a matter of pasting the content of <code>config/opendkim/keys/domain.tld/mail.txt</code> in your <code>domain.tld.hosts</code> zone.</p>
-<pre><code class="language-BASH">$ dig mail._domainkey.domain.tld TXT
+<div class="highlight"><pre><span></span><code>$ dig mail._domainkey.domain.tld TXT
 ---
-;; ANSWER SECTION
-mail._domainkey.&lt;DOMAIN&gt; 300 IN TXT    &quot;v=DKIM1; k=rsa; p=AZERTYUIOPQSDFGHJKLMWXCVBN/AZERTYUIOPQSDFGHJKLMWXCVBN/AZERTYUIOPQSDFGHJKLMWXCVBN/AZERTYUIOPQSDFGHJKLMWXCVBN/AZERTYUIOPQSDFGHJKLMWXCVBN/AZERTYUIOPQSDFGHJKLMWXCVBN/AZERTYUIOPQSDFGHJKLMWXCVBN/AZERTYUIOPQSDFGHJKLMWXCVBN&quot;
-</code></pre>
-<h4 id="configuration-using-a-web-interface">Configuration using a web interface</h4>
+<span class="p">;;</span> ANSWER SECTION
+mail._domainkey.&lt;DOMAIN&gt; <span class="m">300</span> IN TXT    <span class="s2">&quot;v=DKIM1; k=rsa; p=AZERTYUIOPQSDFGHJKLMWXCVBN/AZERTYUIOPQSDFGHJKLMWXCVBN/AZERTYUIOPQSDFGHJKLMWXCVBN/AZERTYUIOPQSDFGHJKLMWXCVBN/AZERTYUIOPQSDFGHJKLMWXCVBN/AZERTYUIOPQSDFGHJKLMWXCVBN/AZERTYUIOPQSDFGHJKLMWXCVBN/AZERTYUIOPQSDFGHJKLMWXCVBN&quot;</span>
+</code></pre></div>
+<h2 id="configuration-using-a-web-interface">Configuration using a Web Interface<a class="headerlink" href="#configuration-using-a-web-interface" title="Permanent link">⚓︎</a></h2>
 <ol>
 <li>Generate a new record of the type <code>TXT</code>.</li>
 <li>Paste <code>mail._domainkey</code> the <code>Name</code> txt field.</li>
@@ -1053,17 +1154,17 @@ mail._domainkey.&lt;DOMAIN&gt; 300 IN TXT    &quot;v=DKIM1; k=rsa; p=AZERTYUIOPQ
 <li>Save.</li>
 </ol>
 <p><strong>Note</strong>: Sometimes the key in <code>config/opendkim/keys/domain.tld/mail.txt</code> can be on multiple lines. If so then you need to concatenate the values in the TXT record:</p>
-<pre><code class="language-BASH">$ dig mail._domainkey.domain.tld TXT
+<div class="highlight"><pre><span></span><code>$ dig mail._domainkey.domain.tld TXT
 ---
-;; ANSWER SECTION
-mail._domainkey.&lt;DOMAIN&gt; 300 IN TXT    &quot;v=DKIM1; k=rsa; &quot;
-      &quot;p=AZERTYUIOPQSDF...&quot;
-      &quot;asdfQWERTYUIOPQSDF...&quot;
-</code></pre>
+<span class="p">;;</span> ANSWER SECTION
+mail._domainkey.&lt;DOMAIN&gt; <span class="m">300</span> IN TXT    <span class="s2">&quot;v=DKIM1; k=rsa; &quot;</span>
+      <span class="s2">&quot;p=AZERTYUIOPQSDF...&quot;</span>
+      <span class="s2">&quot;asdfQWERTYUIOPQSDF...&quot;</span>
+</code></pre></div>
 <p>The target (or value) field must then have all the parts together: <code>v=DKIM1; k=rsa; p=AZERTYUIOPQSDF...asdfQWERTYUIOPQSDF...</code></p>
-<h4 id="verify-only">Verify-only</h4>
+<h2 id="verify-only">Verify-Only<a class="headerlink" href="#verify-only" title="Permanent link">⚓︎</a></h2>
 <p>If you want DKIM to only <em>verify</em> incoming emails, the following version of /etc/opendkim.conf may be useful (right now there is no easy mechanism for installing it other than forking the repo):</p>
-<pre><code class="language-TXT"># This is a simple config file verifying messages only
+<div class="highlight"><pre><span></span><code># This is a simple config file verifying messages only
 
 #LogWhy                 yes
 Syslog                  yes
@@ -1076,35 +1177,37 @@ ReportAddress           postmaster@my-domain.com
 SendReports             yes
 
 Mode                    v
-</code></pre>
-<h4 id="debugging">Debugging</h4>
+</code></pre></div>
+<h2 id="debugging">Debugging<a class="headerlink" href="#debugging" title="Permanent link">⚓︎</a></h2>
 <ul>
 <li><a href="https://addons.mozilla.org/en-US/thunderbird/addon/dkim-verifier">DKIM-verifer</a>: A add-on for the mail client Thunderbird.</li>
 <li>You can debug your TXT records with the <code>dig</code> tool.</li>
 </ul>
-<pre><code class="language-BASH">$ dig TXT mail._domainkey.domain.tld
+<div class="highlight"><pre><span></span><code>$ dig TXT mail._domainkey.domain.tld
 ---
-; &lt;&lt;&gt;&gt; DiG 9.10.3-P4-Debian &lt;&lt;&gt;&gt; TXT mail._domainkey.domain.tld
-;; global options: +cmd
-;; Got answer:
-;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 39669
-;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+<span class="p">;</span> &lt;&lt;&gt;&gt; DiG <span class="m">9</span>.10.3-P4-Debian &lt;&lt;&gt;&gt; TXT mail._domainkey.domain.tld
+<span class="p">;;</span> global options: +cmd
+<span class="p">;;</span> Got answer:
+<span class="p">;;</span> -&gt;&gt;HEADER<span class="s">&lt;&lt;- opco</span>de: QUERY, status: NOERROR, id: <span class="m">39669</span>
+<span class="p">;;</span> flags: qr rd ra<span class="p">;</span> QUERY: <span class="m">1</span>, ANSWER: <span class="m">1</span>, AUTHORITY: <span class="m">0</span>, ADDITIONAL: <span class="m">1</span>
 
-;; OPT PSEUDOSECTION:
-; EDNS: version: 0, flags:; udp: 512
-;; QUESTION SECTION:
-;mail._domainkey.domain.tld. IN TXT
+<span class="p">;;</span> OPT PSEUDOSECTION:
+<span class="p">;</span> EDNS: version: <span class="m">0</span>, flags:<span class="p">;</span> udp: <span class="m">512</span>
+<span class="p">;;</span> QUESTION SECTION:
+<span class="p">;</span>mail._domainkey.domain.tld. IN TXT
 
-;; ANSWER SECTION:
-mail._domainkey.domain.tld. 3600 IN TXT &quot;v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCxBSjG6RnWAdU3oOlqsdf2WC0FOUmU8uHVrzxPLW2R3yRBPGLrGO1++yy3tv6kMieWZwEBHVOdefM6uQOQsZ4brahu9lhG8sFLPX4MaKYN/NR6RK4gdjrZu+MYSdfk3THgSbNwIDAQAB&quot;
+<span class="p">;;</span> ANSWER SECTION:
+mail._domainkey.domain.tld. <span class="m">3600</span> IN TXT <span class="s2">&quot;v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCxBSjG6RnWAdU3oOlqsdf2WC0FOUmU8uHVrzxPLW2R3yRBPGLrGO1++yy3tv6kMieWZwEBHVOdefM6uQOQsZ4brahu9lhG8sFLPX4MaKYN/NR6RK4gdjrZu+MYSdfk3THgSbNwIDAQAB&quot;</span>
 
-;; Query time: 50 msec
-;; SERVER: 127.0.1.1#53(127.0.1.1)
-;; WHEN: Wed Sep 07 18:22:57 CEST 2016
-;; MSG SIZE  rcvd: 310
-</code></pre>
-<h4 id="switch-off-dkim">Switch off DKIM</h4>
+<span class="p">;;</span> Query time: <span class="m">50</span> msec
+<span class="p">;;</span> SERVER: <span class="m">127</span>.0.1.1#53<span class="o">(</span><span class="m">127</span>.0.1.1<span class="o">)</span>
+<span class="p">;;</span> WHEN: Wed Sep <span class="m">07</span> <span class="m">18</span>:22:57 CEST <span class="m">2016</span>
+<span class="p">;;</span> MSG SIZE  rcvd: <span class="m">310</span>
+</code></pre></div>
+<h2 id="switch-off-dkim">Switch Off DKIM<a class="headerlink" href="#switch-off-dkim" title="Permanent link">⚓︎</a></h2>
 <p>Simply remove the DKIM key by recreating (not just relaunching) the mailserver container.</p>
+                
+                  
                 
               
               
@@ -1175,7 +1278,7 @@ mail._domainkey.domain.tld. 3600 IN TXT &quot;v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.expand"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
     
     
       <script src="../../../assets/javascripts/bundle.ca5457b8.min.js"></script>
