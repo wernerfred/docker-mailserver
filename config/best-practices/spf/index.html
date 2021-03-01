@@ -1135,17 +1135,17 @@ domain.com. IN TXT &quot;v=spf1 mx ~all&quot;
 <p>After verification, you <em>might</em> want to change your SPF record to <code>v=spf1 mx -all</code> so as to enforce the <em>HardFail</em> policy. See <a href="http://www.open-spf.org/SPF_Record_Syntax">http://www.open-spf.org/SPF_Record_Syntax</a> for more details about SPF policies.</p>
 <p>In any case, increment the SPF record's TTL to its final value.</p>
 <h2 id="backup-mx-secondary-mx">Backup MX, Secondary MX<a class="headerlink" href="#backup-mx-secondary-mx" title="Permanent link">⚓︎</a></h2>
-<p>For whitelisting a IP-Address from the SPF test, you can create a config file (see <a href="https://www.linuxcertif.com/man/5/policyd-spf.conf">policyd-spf.conf</a>) and mount that file into <code>/etc/postfix-policyd-spf-python/policyd-spf.conf</code>.</p>
+<p>For whitelisting a IP Address from the SPF test, you can create a config file (see <a href="https://www.linuxcertif.com/man/5/policyd-spf.conf"><code>policyd-spf.conf</code></a>) and mount that file into <code>/etc/postfix-policyd-spf-python/policyd-spf.conf</code>.</p>
 <p><strong>Example:</strong></p>
-<p>Create and edit a policyd-spf.conf file here <code>/&lt;your Docker-Mailserver dir&gt;/config/postfix-policyd-spf.conf</code>:</p>
-<div class="highlight"><pre><span></span><code>debugLevel = 1
-#0(only errors)-4(complete data received)
+<p>Create and edit a <code>policyd-spf.conf</code> file here <code>/&lt;your docker-mailserver dir&gt;/config/postfix-policyd-spf.conf</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="na">debugLevel</span> <span class="o">=</span> <span class="s">1</span>
+<span class="c1">#0(only errors)-4(complete data received)</span>
 
-skip_addresses = 127.0.0.0/8,::ffff:127.0.0.0/104,::1
+<span class="na">skip_addresses</span> <span class="o">=</span> <span class="s">127.0.0.0/8,::ffff:127.0.0.0/104,::1</span>
 
-# Preferably use IP-Addresses for whitelist lookups:
-Whitelist = 192.168.0.0/31,192.168.1.0/30
-# Domain_Whitelist = mx1.mybackupmx.com,mx2.mybackupmx.com
+<span class="c1"># Preferably use IP-Addresses for whitelist lookups:</span>
+<span class="na">Whitelist</span> <span class="o">=</span> <span class="s">192.168.0.0/31,192.168.1.0/30</span>
+<span class="c1"># Domain_Whitelist = mx1.mybackupmx.com,mx2.mybackupmx.com</span>
 </code></pre></div>
 <p>Then add this line to <code>docker-compose.yml</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">volumes</span><span class="p">:</span>

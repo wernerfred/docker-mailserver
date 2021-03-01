@@ -1457,10 +1457,14 @@
         <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tmp-files</span>
           <span class="nt">emptyDir</span><span class="p">:</span> <span class="p p-Indicator">{}</span>
 </code></pre></div>
-<p><strong>Note:</strong>
-Any sensitive data (keys, etc) should be deployed via <a href="https://kubernetes.io/docs/concepts/configuration/secret">Secrets</a>. Other configuration just fits well into <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configmap">ConfigMaps</a>.</p>
-<p><strong>Note:</strong>
-Make sure that <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod">Pod</a> is <a href="https://kubernetes.io/docs/concepts/configuration/assign-pod-node">assigned</a> to specific <a href="https://kubernetes.io/docs/concepts/architecture/nodes">Node</a> in case you're using volume for data directly with <code>hostPath</code>. Otherwise Pod can be rescheduled on a different Node and previous data won't be found. Except the case when you're using some shared filesystem on your Nodes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Any sensitive data (keys, etc) should be deployed via <a href="https://kubernetes.io/docs/concepts/configuration/secret">Secrets</a>. Other configuration just fits well into <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configmap">ConfigMaps</a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Make sure that <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod">Pod</a> is <a href="https://kubernetes.io/docs/concepts/configuration/assign-pod-node">assigned</a> to specific <a href="https://kubernetes.io/docs/concepts/architecture/nodes">Node</a> in case you're using volume for data directly with <code>hostPath</code>. Otherwise Pod can be rescheduled on a different Node and previous data won't be found. Except the case when you're using some shared filesystem on your Nodes.</p>
+</div>
 <h2 id="exposing-to-the-outside-world">Exposing to the Outside World<a class="headerlink" href="#exposing-to-the-outside-world" title="Permanent link">⚓︎</a></h2>
 <p>The hard part with Kubernetes is to expose deployed mailserver to outside world. Kubernetes provides multiple ways for doing that. Each has its downsides and complexity.</p>
 <p>The major problem with exposing mailserver to outside world in Kubernetes is to <a href="https://kubernetes.io/docs/tutorials/services/source-ip">preserve real client IP</a>. Real client IP is required by mailserver for performing IP-based SPF checks and spam checks.</p>
@@ -1639,8 +1643,7 @@ Make sure that <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod">
       <span class="nt">hosts</span><span class="p">:</span>
         <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">example.com</span>
 </code></pre></div>
-<p>Now, you can use Let's Encrypt cert and key from <code>mailserver.tls</code> <a href="https://kubernetes.io/docs/concepts/configuration/secret">Secret</a>
-in your <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod">Pod</a> spec.</p>
+<p>Now, you can use Let's Encrypt cert and key from <code>mailserver.tls</code> <a href="https://kubernetes.io/docs/concepts/configuration/secret">Secret</a> in your <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod">Pod</a> spec:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># ...</span>
 <span class="nt">env</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SSL_TYPE</span>

@@ -1166,95 +1166,88 @@
                   <h1>Installation Examples</h1>
                 
                 <h2 id="building-a-simple-mailserver">Building a Simple Mailserver<a class="headerlink" href="#building-a-simple-mailserver" title="Permanent link">⚓︎</a></h2>
-<p><strong>WARNING</strong>: Adding the docker network's gateway to the list of trusted hosts, e.g. using the <code>network</code> or <code>connected-networks</code> option, can create an <a href="https://en.wikipedia.org/wiki/Open_mail_relay"><strong>open relay</strong></a>, for instance <a href="https://github.com/docker-mailserver/docker-mailserver/issues/1405#issuecomment-590106498">if IPv6 is enabled on the host machine but not in Docker</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Adding the docker network's gateway to the list of trusted hosts, e.g. using the <code>network</code> or <code>connected-networks</code> option, can create an <a href="https://en.wikipedia.org/wiki/Open_mail_relay"><strong>open relay</strong></a>, for instance <a href="https://github.com/docker-mailserver/docker-mailserver/issues/1405#issuecomment-590106498">if IPv6 is enabled on the host machine but not in Docker</a>.</p>
+</div>
 <p>We are going to use this docker based mailserver:</p>
 <ul>
 <li>
-<p>First create a directory for the mailserver and get the setup script:
-  <div class="highlight"><pre><span></span><code>mkdir -p /var/ds/mail.example.org
-cd /var/ds/mail.example.org/
+<p>First create a directory for the mailserver and get the setup script:</p>
+<div class="highlight"><pre><span></span><code>mkdir -p /var/ds/mail.example.org
+<span class="nb">cd</span> /var/ds/mail.example.org/
 
-curl -o setup.sh \
+curl -o setup.sh <span class="se">\</span>
     https://raw.githubusercontent.com/docker-mailserver/docker-mailserver/master/setup.sh
 chmod a+x ./setup.sh
-</code></pre></div></p>
-</li>
-<li>
-<p>Create the file <code>docker-compose.yml</code> with a content like this:
-  <div class="highlight"><pre><span></span><code>version: &#39;2&#39;
-
-services:
-  mail:
-    image: tvial/docker-mailserver:latest
-    hostname: mail
-    domainname: example.org
-    container_name: mail
-    ports:
-    - &quot;25:25&quot;
-    - &quot;587:587&quot;
-    - &quot;465:465&quot;
-    volumes:
-    - ./data/:/var/mail/
-    - ./state/:/var/mail-state/
-    - ./config/:/tmp/docker-mailserver/
-    - /var/ds/wsproxy/letsencrypt/:/etc/letsencrypt/
-    environment:
-    - PERMIT_DOCKER=network
-    - SSL_TYPE=letsencrypt
-    - ONE_DIR=1
-    - DMS_DEBUG=1
-    - SPOOF_PROTECTION=0
-    - REPORT_RECIPIENT=1
-    - ENABLE_SPAMASSASSIN=0
-    - ENABLE_CLAMAV=0
-    - ENABLE_FAIL2BAN=1
-    - ENABLE_POSTGREY=0
-    cap_add:
-    - NET_ADMIN
-    - SYS_PTRACE
-</code></pre></div></p>
-</li>
-</ul>
-<p>For more details about the environment variables that can be used,
-  and their meaning and possible values, check also these:
-  - <a href="https://github.com/docker-mailserver/docker-mailserver/blob/master/ENVIRONMENT.md">Environtment Variables</a>
-  - <a href="https://github.com/docker-mailserver/docker-mailserver/blob/master/mailserver.env"><code>mailserver.env</code> file</a></p>
-<p>Make sure to set the proper <code>domainname</code> that you will use for the
-  emails. We forward only SMTP ports (not POP3 and IMAP) because we
-  are not interested in accessing the mailserver directly (from a
-  client).  We also use these settings:
-  - <code>PERMIT_DOCKER=network</code> because we want to send emails from other
-    docker containers.
-  - <code>SSL_TYPE=letsencrypt</code> because we will manage SSL certificates
-    with letsencrypt.</p>
-<ul>
-<li>
-<p>We need to open these ports on the firewall: <code>25</code>, <code>587</code>, <code>465</code>
-  <div class="highlight"><pre><span></span><code>ufw allow 25
-ufw allow 587
-ufw allow 465
 </code></pre></div>
-  On your server you may have to do it differently.</p>
 </li>
 <li>
-<p>Pull the docker image:
-  <div class="highlight"><pre><span></span><code>docker pull tvial/docker-mailserver:latest
-</code></pre></div></p>
+<p>Create the file <code>docker-compose.yml</code> with a content like this:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span> <span class="s">&#39;2&#39;</span>
+
+<span class="nt">services</span><span class="p">:</span>
+  <span class="nt">mail</span><span class="p">:</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tvial/docker-mailserver:latest</span>
+    <span class="nt">hostname</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mail</span>
+    <span class="nt">domainname</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">example.org</span>
+    <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mail</span>
+    <span class="nt">ports</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;25:25&quot;</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;587:587&quot;</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;465:465&quot;</span>
+    <span class="nt">volumes</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">./data/:/var/mail/</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">./state/:/var/mail-state/</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">./config/:/tmp/docker-mailserver/</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">/var/ds/wsproxy/letsencrypt/:/etc/letsencrypt/</span>
+    <span class="nt">environment</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">PERMIT_DOCKER=network</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">SSL_TYPE=letsencrypt</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ONE_DIR=1</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">DMS_DEBUG=1</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">SPOOF_PROTECTION=0</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">REPORT_RECIPIENT=1</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ENABLE_SPAMASSASSIN=0</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ENABLE_CLAMAV=0</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ENABLE_FAIL2BAN=1</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ENABLE_POSTGREY=0</span>
+    <span class="nt">cap_add</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">NET_ADMIN</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">SYS_PTRACE</span>
+</code></pre></div>
+<p>For more details about the environment variables that can be used, and their meaning and possible values, check also these:</p>
+<ul>
+<li><a href="https://github.com/docker-mailserver/docker-mailserver/blob/master/ENVIRONMENT.md">Environtment Variables</a></li>
+<li><a href="https://github.com/docker-mailserver/docker-mailserver/blob/master/mailserver.env"><code>mailserver.env</code> file</a></li>
+</ul>
+<p>Make sure to set the proper <code>domainname</code> that you will use for the emails. We forward only SMTP ports (not POP3 and IMAP) because we are not interested in accessing the mailserver directly (from a client).  We also use these settings:</p>
+<ul>
+<li><code>PERMIT_DOCKER=network</code> because we want to send emails from other docker containers.</li>
+<li><code>SSL_TYPE=letsencrypt</code> because we will manage SSL certificates with letsencrypt.</li>
+</ul>
 </li>
 <li>
-<p>Now generate the DKIM keys with <code>./setup.sh config dkim</code> and copy
-  the content of the file <code>config/opendkim/keys/domain.tld/mail.txt</code>
-  on the domain zone configuration at the DNS server. I use
-  <a href="https://github.com/docker-scripts/bind9">bind9</a> for managing my
-  domains, so I just paste it on <code>example.org.db</code>:
-  <div class="highlight"><pre><span></span><code>mail._domainkey IN      TXT     ( &quot;v=DKIM1; h=sha256; k=rsa; &quot;
+<p>We need to open ports <code>25</code>, <code>587</code> and <code>465</code> on the firewall:</p>
+<div class="highlight"><pre><span></span><code>ufw allow <span class="m">25</span>
+ufw allow <span class="m">587</span>
+ufw allow <span class="m">465</span>
+</code></pre></div>
+<p>On your server you may have to do it differently.</p>
+</li>
+<li>
+<p>Pull the docker image: <code>docker pull tvial/docker-mailserver:latest</code></p>
+</li>
+<li>
+<p>Now generate the DKIM keys with <code>./setup.sh config dkim</code> and copy the content of the file <code>config/opendkim/keys/domain.tld/mail.txt</code> on the domain zone configuration at the DNS server. I use <a href="https://github.com/docker-scripts/bind9">bind9</a> for managing my domains, so I just paste it on <code>example.org.db</code>:</p>
+<div class="highlight"><pre><span></span><code>mail._domainkey IN      TXT     ( &quot;v=DKIM1; h=sha256; k=rsa; &quot;
         &quot;p=MIIBIjANBgkqhkiG9w0BAQEFACAQ8AMIIBCgKCAQEAaH5KuPYPSF3Ppkt466BDMAFGOA4mgqn4oPjZ5BbFlYA9l5jU3bgzRj3l6/Q1n5a9lQs5fNZ7A/HtY0aMvs3nGE4oi+LTejt1jblMhV/OfJyRCunQBIGp0s8G9kIUBzyKJpDayk2+KJSJt/lxL9Iiy0DE5hIv62ZPP6AaTdHBAsJosLFeAzuLFHQ6USyQRojefqFQtgYqWQ2JiZQ3&quot;
         &quot;iqq3bD/BVlwKRp5gH6TEYEmx8EBJUuDxrJhkWRUk2VDl1fqhVBy8A9O7Ah+85nMrlOHIFsTaYo9o6+cDJ6t1i6G1gu+bZD0d3/3bqGLPBQV9LyEL1Rona5V7TJBGg099NQkTz1IwIDAQAB&quot; )  ; ----- DKIM key mail for example.org
-</code></pre></div></p>
+</code></pre></div>
 </li>
 <li>
-<p>Add these configurations as well on the same file on the DNS server:
-  <div class="highlight"><pre><span></span><code>mail      IN  A   10.11.12.13
+<p>Add these configurations as well on the same file on the DNS server:</p>
+<div class="highlight"><pre><span></span><code>mail      IN  A   10.11.12.13
 
 ; mailservers for example.org
     3600  IN  MX  1  mail.example.org.
@@ -1262,164 +1255,156 @@ ufw allow 465
 ; Add SPF record
           IN TXT &quot;v=spf1 mx ~all&quot;
 </code></pre></div>
-  Then don't forget to change the serial number and to restart the service.</p>
+<p>Then don't forget to change the serial number and to restart the service.</p>
 </li>
 <li>
-<p>Get an SSL certificate from letsencrypt. I use
-  <a href="https://github.com/docker-scripts/wsproxy">wsproxy</a> for managing
-  SSL letsencrypt certificates of my domains:
-  <div class="highlight"><pre><span></span><code>cd /var/ds/wsproxy
+<p>Get an SSL certificate from letsencrypt. I use <a href="https://github.com/docker-scripts/wsproxy">wsproxy</a> for managing SSL letsencrypt certificates of my domains:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> /var/ds/wsproxy
 ds domains-add mail mail.example.org
 ds get-ssl-cert myemail@gmail.com mail.example.org --test
 ds get-ssl-cert myemail@gmail.com mail.example.org
 </code></pre></div>
-  Now the certificates will be available on
-  <code>/var/ds/wsproxy/letsencrypt/live/mail.example.org</code>.</p>
+<p>Now the certificates will be available on <code>/var/ds/wsproxy/letsencrypt/live/mail.example.org</code>.</p>
 </li>
 <li>
-<p>Start the mailserver and check for any errors:
-  <div class="highlight"><pre><span></span><code>apt install docker-compose
+<p>Start the mailserver and check for any errors:</p>
+<div class="highlight"><pre><span></span><code>apt install docker-compose
 docker-compose up mail
-</code></pre></div></p>
+</code></pre></div>
 </li>
 <li>
-<p>Create email accounts and aliases with <code>SPOOF_PROTECTION=0</code>:
-  <div class="highlight"><pre><span></span><code>./setup.sh email add admin@example.org passwd123
+<p>Create email accounts and aliases with <code>SPOOF_PROTECTION=0</code>:</p>
+<div class="highlight"><pre><span></span><code>./setup.sh email add admin@example.org passwd123
 ./setup.sh email add info@example.org passwd123
-./setup.sh alias add admin@example.org myemail@gmail.com
-./setup.sh alias add info@example.org myemail@gmail.com
+./setup.sh <span class="nb">alias</span> add admin@example.org myemail@gmail.com
+./setup.sh <span class="nb">alias</span> add info@example.org myemail@gmail.com
 ./setup.sh email list
-./setup.sh alias list
+./setup.sh <span class="nb">alias</span> list
 </code></pre></div>
-  Aliases make sure that any email that comes to these accounts is
-  forwarded to my real email address, so that I don't need to use
-  POP3/IMAP in order to get these messages. Also no anti-spam and
-  anti-virus software is needed, making the mailserver lighter.</p>
+<p>Aliases make sure that any email that comes to these accounts is forwarded to my real email address, so that I don't need to use POP3/IMAP in order to get these messages. Also no anti-spam and anti-virus software is needed, making the mailserver lighter.</p>
 </li>
 <li>
-<p>Or create email accounts and aliases with <code>SPOOF_PROTECTION=1</code>:
-  <div class="highlight"><pre><span></span><code>./setup.sh email add admin.gmail@example.org passwd123
+<p>Or create email accounts and aliases with <code>SPOOF_PROTECTION=1</code>:</p>
+<div class="highlight"><pre><span></span><code>./setup.sh email add admin.gmail@example.org passwd123
 ./setup.sh email add info.gmail@example.org passwd123
-./setup.sh alias add admin@example.org admin.gmail@example.org
-./setup.sh alias add info@example.org info.gmail@example.org
-./setup.sh alias add admin.gmail@example.org myemail@gmail.com
-./setup.sh alias add info.gmail@example.org myemail@gmail.com
+./setup.sh <span class="nb">alias</span> add admin@example.org admin.gmail@example.org
+./setup.sh <span class="nb">alias</span> add info@example.org info.gmail@example.org
+./setup.sh <span class="nb">alias</span> add admin.gmail@example.org myemail@gmail.com
+./setup.sh <span class="nb">alias</span> add info.gmail@example.org myemail@gmail.com
 ./setup.sh email list
-./setup.sh alias list
+./setup.sh <span class="nb">alias</span> list
 </code></pre></div>
-  This extra step is required to avoid the <code>553 5.7.1 Sender address rejected: not owned by user</code> error (the account used for setting up gmail is <code>admin.gmail@example.org</code> and <code>info.gmail@example.org</code> )</p>
+<p>This extra step is required to avoid the <code>553 5.7.1 Sender address rejected: not owned by user</code> error (the account used for setting up gmail is <code>admin.gmail@example.org</code> and <code>info.gmail@example.org</code> )</p>
 </li>
 <li>
-<p>Send some test emails to these addresses and make other tests. Then
-  stop the container with <code>Ctrl+c</code> and start it again as a daemon:
-  <code>docker-compose up -d mail</code>.</p>
+<p>Send some test emails to these addresses and make other tests. Then stop the container with <code>ctrl+c</code> and start it again as a daemon: <code>docker-compose up -d mail</code>.</p>
 </li>
 <li>
-<p>Now save on Moodle configuration the SMTP settings and test by
-  trying to send some messages to other users:</p>
-</li>
+<p>Now save on Moodle configuration the SMTP settings and test by trying to send some messages to other users:</p>
+<ul>
 <li><strong>SMTP hosts</strong>: <code>mail.example.org:465</code></li>
 <li><strong>SMTP security</strong>: <code>SSL</code></li>
 <li><strong>SMTP username</strong>: <code>info@example.org</code></li>
 <li><strong>SMTP password</strong>: <code>passwd123</code></li>
 </ul>
+</li>
+</ul>
 <h2 id="using-docker-mailserver-behind-a-proxy">Using <code>docker-mailserver</code> behind a Proxy<a class="headerlink" href="#using-docker-mailserver-behind-a-proxy" title="Permanent link">⚓︎</a></h2>
 <h3 id="information">Information<a class="headerlink" href="#information" title="Permanent link">⚓︎</a></h3>
 <p>If you are hiding your container behind a proxy service you might have discovered that the proxied requests from now on contain the proxy IP as the request origin. Whilst this behavior is technical correct it produces certain problems on the containers behind the proxy as they cannot distinguish the real origin of the requests anymore.</p>
-<p>To solve this problem on TCP connections we can make use of the <a href="https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt">proxy protocol</a>. Compared to other workarounds that exist (<code>X-Forwarded-For</code> which only works for HTTP requests or <code>Tproxy</code> that requires you to recompile your kernel) the proxy protocol:
-- it is protocol agnostic (can work with any layer 7 protocols, even when encrypted).
-- it does not require any infrastructure changes
-- nat-ing firewalls have no impact it
-- it is scalable
-The is only one condition: <strong>both endpoints</strong> of the connection MUST be compatible with proxy protocol.</p>
-<p>Luckily <code>dovecot</code> and <code>postfix</code> are both Proxy-Protocol ready softwares so it depends only on your used reverse-proxy/loadbalancer.</p>
+<p>To solve this problem on TCP connections we can make use of the <a href="https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt">proxy protocol</a>. Compared to other workarounds that exist (<code>X-Forwarded-For</code> which only works for HTTP requests or <code>Tproxy</code> that requires you to recompile your kernel) the proxy protocol:</p>
+<ul>
+<li>It is protocol agnostic (can work with any layer 7 protocols, even when encrypted).</li>
+<li>It does not require any infrastructure changes.</li>
+<li>NAT-ing firewalls have no impact it.</li>
+<li>It is scalable.</li>
+</ul>
+<p>There is only one condition: <strong>both endpoints</strong> of the connection MUST be compatible with proxy protocol.</p>
+<p>Luckily <code>dovecot</code> and <code>postfix</code> are both Proxy-Protocol ready softwares so it depends only on your used reverse-proxy / loadbalancer.</p>
 <h3 id="configuration-of-the-used-proxy-software">Configuration of the used Proxy Software<a class="headerlink" href="#configuration-of-the-used-proxy-software" title="Permanent link">⚓︎</a></h3>
-<p>The configuration depends on the used proxy system. I will provide the configuration examples of <a href="https://traefik.io/">traefik v2</a> using IMAP and SMTP with implicit TLS. Feel free to add your configuration if you achived the same goal using different proxy software below:</p>
-<details>
-  <summary>traefik v2</summary>
-
-  Truncated configuration of traefik itself:
-<div class="highlight"><pre><span></span><code>version: &#39;3.7&#39;
-services:
-  reverse-proxy:
-    image: traefik:v2.4
-    container_name: docker-traefik
-    restart: always
-    command:
-      - &quot;--providers.docker&quot;
-      - &quot;--providers.docker.exposedbydefault=false&quot;
-      - &quot;--providers.docker.network=proxy&quot;
-      - &quot;--entrypoints.web.address=:80&quot;
-      - &quot;--entryPoints.websecure.address=:443&quot;
-      - &quot;--entryPoints.smtp.address=:25&quot;
-      - &quot;--entryPoints.smtp-ssl.address=:465&quot;
-      - &quot;--entryPoints.imap-ssl.address=:993&quot;
-      - &quot;--entryPoints.sieve.address=:4190&quot;
-    ports:
-      - &quot;25:25&quot;
-      - &quot;465:465&quot;
-      - &quot;993:993&quot;
-      - &quot;4190:4190&quot;
-[...]
+<p>The configuration depends on the used proxy system. I will provide the configuration examples of <a href="https://traefik.io/">traefik v2</a> using IMAP and SMTP with implicit TLS.</p>
+<p>Feel free to add your configuration if you achived the same goal using different proxy software below:</p>
+<details><summary>Traefik v2</summary><p>Truncated configuration of traefik itself:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span> <span class="s">&#39;3.7&#39;</span>
+<span class="nt">services</span><span class="p">:</span>
+  <span class="nt">reverse-proxy</span><span class="p">:</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">traefik:v2.4</span>
+    <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">docker-traefik</span>
+    <span class="nt">restart</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always</span>
+    <span class="nt">command</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;--providers.docker&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;--providers.docker.exposedbydefault=false&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;--providers.docker.network=proxy&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;--entrypoints.web.address=:80&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;--entryPoints.websecure.address=:443&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;--entryPoints.smtp.address=:25&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;--entryPoints.smtp-ssl.address=:465&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;--entryPoints.imap-ssl.address=:993&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;--entryPoints.sieve.address=:4190&quot;</span>
+    <span class="nt">ports</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;25:25&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;465:465&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;993:993&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;4190:4190&quot;</span>
+<span class="p p-Indicator">[</span><span class="nv">...</span><span class="p p-Indicator">]</span>
 </code></pre></div>
-
-Truncated list of neccessary labels on the mailserver container:
-
-<div class="highlight"><pre><span></span><code>version: &#39;2&#39;
-services:
-  mail:
-    image: tvial/docker-mailserver:release-v7.2.0
-    restart: always
-    networks:
-      - proxy
-    labels:
-      - &quot;traefik.enable=true&quot;
-      - &quot;traefik.tcp.routers.smtp.rule=HostSNI(`*`)&quot;
-      - &quot;traefik.tcp.routers.smtp.entrypoints=smtp&quot;
-      - &quot;traefik.tcp.routers.smtp.service=smtp&quot;
-      - &quot;traefik.tcp.services.smtp.loadbalancer.server.port=25&quot;
-      - &quot;traefik.tcp.services.smtp.loadbalancer.proxyProtocol.version=1&quot;
-      - &quot;traefik.tcp.routers.smtp-ssl.rule=HostSNI(`*`)&quot;
-      - &quot;traefik.tcp.routers.smtp-ssl.entrypoints=smtp-ssl&quot;
-      - &quot;traefik.tcp.routers.smtp-ssl.service=smtp-ssl&quot;
-      - &quot;traefik.tcp.services.smtp-ssl.loadbalancer.server.port=465&quot;
-      - &quot;traefik.tcp.services.smtp-ssl.loadbalancer.proxyProtocol.version=1&quot;
-      - &quot;traefik.tcp.routers.imap-ssl.rule=HostSNI(`*`)&quot;
-      - &quot;traefik.tcp.routers.imap-ssl.entrypoints=imap-ssl&quot;
-      - &quot;traefik.tcp.routers.imap-ssl.service=imap-ssl&quot;
-      - &quot;traefik.tcp.services.imap-ssl.loadbalancer.server.port=10993&quot;
-      - &quot;traefik.tcp.services.imap-ssl.loadbalancer.proxyProtocol.version=2&quot;
-      - &quot;traefik.tcp.routers.sieve.rule=HostSNI(`*`)&quot;
-      - &quot;traefik.tcp.routers.sieve.entrypoints=sieve&quot;
-      - &quot;traefik.tcp.routers.sieve.service=sieve&quot;
-      - &quot;traefik.tcp.services.sieve.loadbalancer.server.port=4190&quot;
-[...]
+<p>Truncated list of neccessary labels on the mailserver container:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span> <span class="s">&#39;2&#39;</span>
+<span class="nt">services</span><span class="p">:</span>
+  <span class="nt">mail</span><span class="p">:</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tvial/docker-mailserver:release-v7.2.0</span>
+    <span class="nt">restart</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always</span>
+    <span class="nt">networks</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">proxy</span>
+    <span class="nt">labels</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;traefik.enable=true&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;traefik.tcp.routers.smtp.rule=HostSNI(`*`)&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;traefik.tcp.routers.smtp.entrypoints=smtp&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;traefik.tcp.routers.smtp.service=smtp&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;traefik.tcp.services.smtp.loadbalancer.server.port=25&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;traefik.tcp.services.smtp.loadbalancer.proxyProtocol.version=1&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;traefik.tcp.routers.smtp-ssl.rule=HostSNI(`*`)&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;traefik.tcp.routers.smtp-ssl.entrypoints=smtp-ssl&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;traefik.tcp.routers.smtp-ssl.service=smtp-ssl&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;traefik.tcp.services.smtp-ssl.loadbalancer.server.port=465&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;traefik.tcp.services.smtp-ssl.loadbalancer.proxyProtocol.version=1&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;traefik.tcp.routers.imap-ssl.rule=HostSNI(`*`)&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;traefik.tcp.routers.imap-ssl.entrypoints=imap-ssl&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;traefik.tcp.routers.imap-ssl.service=imap-ssl&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;traefik.tcp.services.imap-ssl.loadbalancer.server.port=10993&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;traefik.tcp.services.imap-ssl.loadbalancer.proxyProtocol.version=2&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;traefik.tcp.routers.sieve.rule=HostSNI(`*`)&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;traefik.tcp.routers.sieve.entrypoints=sieve&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;traefik.tcp.routers.sieve.service=sieve&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;traefik.tcp.services.sieve.loadbalancer.server.port=4190&quot;</span>
+<span class="p p-Indicator">[</span><span class="nv">...</span><span class="p p-Indicator">]</span>
 </code></pre></div>
-Keep in mind that it is neccessary to use port `10993` here. More information below at `dovecot` configuration.
-
+<p>Keep in mind that it is neccessary to use port <code>10993</code> here. More information below at <code>dovecot</code> configuration.</p>
 </details>
-
 <h3 id="configuration-of-the-backend-dovecot-and-postfix">Configuration of the Backend (<code>dovecot</code> and <code>postfix</code>)<a class="headerlink" href="#configuration-of-the-backend-dovecot-and-postfix" title="Permanent link">⚓︎</a></h3>
 <p>The following changes can be achived completely by adding the content to the appropriate files by using the projects <a href="../../advanced/optional-config/">function to overwrite config files</a>.</p>
-<p>Changes for <code>postfix</code> can be applied by adding the following content to <code>config/postfix-main.cf</code>:
-<div class="highlight"><pre><span></span><code>postscreen_upstream_proxy_protocol = haproxy
-</code></pre></div></p>
-<p>and to <code>config/postfix-master.cd</code>:
-<div class="highlight"><pre><span></span><code>submission/inet/smtpd_upstream_proxy_protocol=haproxy
-smtps/inet/smtpd_upstream_proxy_protocol=haproxy
-</code></pre></div></p>
-<p>Changes for <code>dovecot</code> can be applied by adding the following content to <code>config/dovecot.cf</code>:
-<div class="highlight"><pre><span></span><code>haproxy_trusted_networks = &lt;your-proxy-ip&gt;, &lt;optional-cidr-notation&gt;
-haproxy_timeout = 3 secs
-service imap-login {
-  inet_listener imaps {
-    haproxy = yes
-    ssl = yes
-    port = 10993
-  }
-}
+<p>Changes for <code>postfix</code> can be applied by adding the following content to <code>config/postfix-main.cf</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="na">postscreen_upstream_proxy_protocol</span> <span class="o">=</span> <span class="s">haproxy</span>
 </code></pre></div>
-Note that port <code>10993</code> is used here to avoid conflicts with internal systems like <code>postscreen</code> and <code>amavis</code> as they will exchange messages on the default port and obviously have a different origin then compared to the proxy.</p>
+<p>and to <code>config/postfix-master.cf</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="na">submission/inet/smtpd_upstream_proxy_protocol</span><span class="o">=</span><span class="s">haproxy</span>
+<span class="na">smtps/inet/smtpd_upstream_proxy_protocol</span><span class="o">=</span><span class="s">haproxy</span>
+</code></pre></div>
+<p>Changes for <code>dovecot</code> can be applied by adding the following content to <code>config/dovecot.cf</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="na">haproxy_trusted_networks</span> <span class="o">=</span> <span class="s">&lt;your-proxy-ip&gt;, &lt;optional-cidr-notation&gt;</span>
+<span class="na">haproxy_timeout</span> <span class="o">=</span> <span class="s">3 secs</span>
+<span class="na">service imap-login {</span>
+  <span class="na">inet_listener imaps {</span>
+    <span class="na">haproxy</span> <span class="o">=</span> <span class="s">yes</span>
+    <span class="na">ssl</span> <span class="o">=</span> <span class="s">yes</span>
+    <span class="na">port</span> <span class="o">=</span> <span class="s">10993</span>
+  <span class="na">}</span>
+<span class="na">}</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Port <code>10993</code> is used here to avoid conflicts with internal systems like <code>postscreen</code> and <code>amavis</code> as they will exchange messages on the default port and obviously have a different origin then compared to the proxy.</p>
+</div>
                 
                   
                 

@@ -1183,22 +1183,25 @@
 <p>A detailed description of the configuration options can be found in the <a href="https://www.fetchmail.info/fetchmail-man.html">online version of the manual page</a>.</p>
 <h3 id="example-imap-configuration">Example IMAP Configuration<a class="headerlink" href="#example-imap-configuration" title="Permanent link">⚓︎</a></h3>
 <div class="highlight"><pre><span></span><code>poll &#39;imap.example.com&#39; proto imap
-    user &#39;username&#39;
-    pass &#39;secret&#39;
-    is &#39;user1@domain.tld&#39;
-    ssl
+  user &#39;username&#39;
+  pass &#39;secret&#39;
+  is &#39;user1@domain.tld&#39;
+  ssl
 </code></pre></div>
 <h3 id="example-pop3-configuration">Example POP3 Configuration<a class="headerlink" href="#example-pop3-configuration" title="Permanent link">⚓︎</a></h3>
 <div class="highlight"><pre><span></span><code>poll &#39;pop3.example.com&#39; proto pop3
-    user &#39;username&#39;
-    pass &#39;secret&#39;
-    is &#39;user2@domain.tld&#39;
-    ssl
+  user &#39;username&#39;
+  pass &#39;secret&#39;
+  is &#39;user2@domain.tld&#39;
+  ssl
 </code></pre></div>
-<p><strong>IMPORTANT</strong>: Don’t forget the last line: e. g. <code>is 'user1@domain.tld'</code>. After <code>is</code> you have to specify one email address from the configuration file <code>config/postfix-accounts.cf</code>. </p>
-<p>More details how to configure fetchmail can be found in the <a href="https://www.fetchmail.info/fetchmail-man.html">fetchmail man page in the chapter “The run control file”</a>.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Don’t forget the last line: eg: <code>is 'user1@domain.tld'</code>. After <code>is</code> you have to specify one email address from the configuration file <code>config/postfix-accounts.cf</code>.</p>
+</div>
+<p>More details how to configure fetchmail can be found in the <a href="https://www.fetchmail.info/fetchmail-man.html#31">fetchmail man page in the chapter “The run control file”</a>.</p>
 <h3 id="polling-interval">Polling Interval<a class="headerlink" href="#polling-interval" title="Permanent link">⚓︎</a></h3>
-<p>By default the fetchmail service searches every 5 minutes for new mails on your external mail accounts. You can override this default value by changing the ENV variable <code>FETCHMAIL_POLL</code>.</p>
+<p>By default the fetchmail service searches every 5 minutes for new mails on your external mail accounts. You can override this default value by changing the ENV variable <code>FETCHMAIL_POLL</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">environment</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">FETCHMAIL_POLL=60</span>
 </code></pre></div>

@@ -1130,22 +1130,27 @@
                   <h1>Accounts</h1>
                 
                 <h2 id="adding-a-new-account">Adding a New Account<a class="headerlink" href="#adding-a-new-account" title="Permanent link">⚓︎</a></h2>
-<p>Users (email accounts) are managed in <code>/tmp/docker-mailserver/postfix-accounts.cf</code>. <strong><em>The best way to manage accounts is to use the reliable <a href="https://github.com/docker-mailserver/docker-mailserver/wiki/Setup-docker-mailserver-using-the-script-setup.sh">setup.sh</a> script</em></strong>. Or you may directly add the <em>full</em> email address and its encrypted password, separated by a pipe:</p>
+<p>Users (email accounts) are managed in <code>/tmp/docker-mailserver/postfix-accounts.cf</code>. <strong><em>The best way to manage accounts is to use the reliable <a href="../../setup.sh/"><code>setup.sh</code></a> script</em></strong>. Or you may directly add the <em>full</em> email address and its encrypted password, separated by a pipe:</p>
 <div class="highlight"><pre><span></span><code><span class="na">user1@domain.tld|{SHA512-CRYPT}$6$2YpW1nYtPBs2yLYS$z.5PGH1OEzsHHNhl3gJrc3D.YMZkvKw/vp.r5WIiwya6z7P/CQ9GDEJDr2G2V0cAfjDFeAQPUoopsuWPXLk3u1</span>
 <span class="na">user2@otherdomain.tld|{SHA512-CRYPT}$6$2YpW1nYtPBs2yLYS$z.5PGH1OEzsHHNhl3gJrc3D.YMZkvKw/vp.r5WIiwya6z7P/CQ9GDEJDr2G2V0cAfjDFeAQPUoopsuWPXLk3u1</span>
-<span class="na">````</span>
-
-<span class="na">In the example above, we&#39;ve added 2 mail accounts for 2 different domains. Consequently, the mail server will automatically be configured for multi-domains. Therefore, to generate a new mail account data, directly from your docker host, you could for example run the following:</span>
-
-<span class="na">``` BASH</span>
-<span class="na">docker run --rm \</span>
-  <span class="na">-e MAIL_USER</span><span class="o">=</span><span class="s">user1@domain.tld \</span>
-  <span class="na">-e MAIL_PASS</span><span class="o">=</span><span class="s">mypassword \</span>
-  <span class="na">-ti mailserver/docker-mailserver:latest \</span>
-  <span class="na">/bin/sh -c &#39;echo &quot;$MAIL_USER|$(doveadm pw -s SHA512-CRYPT -u $MAIL_USER -p $MAIL_PASS)&quot;&#39; &gt;&gt; config/postfix-accounts.cf</span>
 </code></pre></div>
-<p>You will then be asked for a password, and be given back the data for a new account entry, as text. To actually <em>add</em> this new account, just copy all the output text in <code>config/postfix-accounts.cf</code> file of your running container. Please note the <code>doveadm pw</code> command lets you choose between several encryption schemes for the password. Use doveadm pw -l to get a list of the currently supported encryption schemes.</p>
-<p><strong>Note</strong>: Changes to the accounts list require a restart of the container, using <code>supervisord</code>. See <a href="https://github.com/docker-mailserver/docker-mailserver/issues/552">#552</a>.</p>
+<p>In the example above, we've added 2 mail accounts for 2 different domains. Consequently, the mail server will automatically be configured for multi-domains. Therefore, to generate a new mail account data, directly from your docker host, you could for example run the following:</p>
+<div class="highlight"><pre><span></span><code>docker run --rm <span class="se">\</span>
+  -e <span class="nv">MAIL_USER</span><span class="o">=</span>user1@domain.tld <span class="se">\</span>
+  -e <span class="nv">MAIL_PASS</span><span class="o">=</span>mypassword <span class="se">\</span>
+  -it mailserver/docker-mailserver:latest <span class="se">\</span>
+  /bin/sh -c <span class="s1">&#39;echo &quot;$MAIL_USER|$(doveadm pw -s SHA512-CRYPT -u $MAIL_USER -p $MAIL_PASS)&quot;&#39;</span> &gt;&gt; config/postfix-accounts.cf
+</code></pre></div>
+<p>You will then be asked for a password, and be given back the data for a new account entry, as text. To actually <em>add</em> this new account, just copy all the output text in <code>config/postfix-accounts.cf</code> file of your running container.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>doveadm pw</code> command lets you choose between several encryption schemes for the password.</p>
+<p>Use <code>doveadm pw -l</code> to get a list of the currently supported encryption schemes.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Changes to the accounts list require a restart of the container, using <code>supervisord</code>. See <a href="https://github.com/docker-mailserver/docker-mailserver/issues/552">#552</a>.</p>
+</div>
 <hr />
 <h3 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">⚓︎</a></h3>
 <ul>

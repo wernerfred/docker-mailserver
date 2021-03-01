@@ -1219,30 +1219,39 @@
 <li><strong>RELAY_PASSWORD</strong> <em>password for the default user</em></li>
 </ul>
 <p>Setting these environment variables will cause mail for all sender domains to be routed via the specified host, authenticating with the user/password combination.</p>
-<p>Note for users of the previous AWS_SES_* variables: please update your configuration to use these new variables, no other configuration is required.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For users of the previous <code>AWS_SES_*</code> variables: please update your configuration to use these new variables, no other configuration is required.</p>
+</div>
 <h2 id="advanced-configuration">Advanced Configuration<a class="headerlink" href="#advanced-configuration" title="Permanent link">⚓︎</a></h2>
 <h3 id="sender-dependent-authentication">Sender-dependent Authentication<a class="headerlink" href="#sender-dependent-authentication" title="Permanent link">⚓︎</a></h3>
-<p>Sender dependent authentication is done in <code>config/postfix-sasl-password.cf</code>. You can create this file manually, or use </p>
+<p>Sender dependent authentication is done in <code>config/postfix-sasl-password.cf</code>. You can create this file manually, or use:</p>
 <div class="highlight"><pre><span></span><code>setup.sh relay add-auth &lt;domain&gt; &lt;username&gt; <span class="o">[</span>&lt;password&gt;<span class="o">]</span>
 </code></pre></div>
 <p>An example configuration file looks like this:</p>
 <div class="highlight"><pre><span></span><code>@domain1.com           relay_user_1:password_1
 @domain2.com           relay_user_2:password_2
 </code></pre></div>
-<p>If there is no other configuration, this will cause Postfix to deliver email throught the relay specified in <code>RELAY_HOST</code> env variable, authenticating as <code>relay_user_1</code> when sent from domain1.com and authenticating as <code>relay_user_2</code> when sending from domain2.com.</p>
-<p><strong>NOTE</strong> to activate the configuration you must either restart the container, or you can also trigger an update by modifying a mail account.</p>
+<p>If there is no other configuration, this will cause Postfix to deliver email throught the relay specified in <code>RELAY_HOST</code> env variable, authenticating as <code>relay_user_1</code> when sent from <code>domain1.com</code> and authenticating as <code>relay_user_2</code> when sending from domain2.com.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To activate the configuration you must either restart the container, or you can also trigger an update by modifying a mail account.</p>
+</div>
 <h3 id="sender-dependent-relay-host">Sender-dependent Relay Host<a class="headerlink" href="#sender-dependent-relay-host" title="Permanent link">⚓︎</a></h3>
-<p>Sender dependent relay hosts are configured in <code>config/postfix-relaymap.cf</code>. You can create this file manually, or use</p>
+<p>Sender dependent relay hosts are configured in <code>config/postfix-relaymap.cf</code>. You can create this file manually, or use:</p>
 <div class="highlight"><pre><span></span><code>setup.sh relay add-domain &lt;domain&gt; &lt;host&gt; <span class="o">[</span>&lt;port&gt;<span class="o">]</span>
 </code></pre></div>
 <p>An example configuration file looks like this:</p>
 <div class="highlight"><pre><span></span><code>@domain1.com        [relay1.org]:587
 @domain2.com        [relay2.org]:2525
 </code></pre></div>
-<p>Combined with the previous configuration in <code>config/postfix-sasl-password.cf</code>, this will cause Postfix to deliver mail sent from domain1.com via <code>relay1.org:587</code>, authenticating as <code>relay_user_1</code>, and mail sent from domain2.com via <code>relay2.org:2525</code> authenticating as <code>relay_user_2</code>.<br />
-<strong>NOTE</strong> You still have to define RELAY_HOST to activate the feature</p>
+<p>Combined with the previous configuration in <code>config/postfix-sasl-password.cf</code>, this will cause Postfix to deliver mail sent from domain1.com via <code>relay1.org:587</code>, authenticating as <code>relay_user_1</code>, and mail sent from domain2.com via <code>relay2.org:2525</code> authenticating as <code>relay_user_2</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You still have to define <code>RELAY_HOST</code> to activate the feature</p>
+</div>
 <h3 id="excluding-sender-domains">Excluding Sender Domains<a class="headerlink" href="#excluding-sender-domains" title="Permanent link">⚓︎</a></h3>
-<p>If you want mail sent from some domains to be delivered directly, you can exclude them from being delivered via the default relay by adding them to <code>config/postfix-relaymap.cf</code> with no destination. You can also do this via </p>
+<p>If you want mail sent from some domains to be delivered directly, you can exclude them from being delivered via the default relay by adding them to <code>config/postfix-relaymap.cf</code> with no destination. You can also do this via:</p>
 <div class="highlight"><pre><span></span><code>setup.sh relay exclude-domain &lt;domain&gt;
 </code></pre></div>
 <p>Extending the configuration file from above:</p>

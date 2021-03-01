@@ -1149,7 +1149,10 @@
 <li><code>DOVECOT_USER_FILTER</code></li>
 <li><code>DOVECOT_PASS_FILTER</code></li>
 </ul>
-<p><strong>NOTE</strong>: This page will provide several use cases like recipes to show, how this project can be used with it's LDAP Features.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This page will provide several use cases like recipes to show, how this project can be used with it's LDAP Features.</p>
+</div>
 <h2 id="ldap-setup-kopano-zarafa">LDAP Setup - Kopano / Zarafa<a class="headerlink" href="#ldap-setup-kopano-zarafa" title="Permanent link">⚓︎</a></h2>
 <div class="highlight"><pre><span></span><code><span class="nn">---</span>
 <span class="nt">version</span><span class="p">:</span> <span class="s">&#39;2&#39;</span>
@@ -1223,7 +1226,7 @@
   <span class="nt">mailstate</span><span class="p">:</span>
     <span class="nt">driver</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">local</span>
 </code></pre></div>
-<p>If your directory has not the postfix-book schema installed, then you must change the internal attribute handling for dovecot. For this you have to change the <code>pass_attr</code> and the <code>user_attr</code> mapping, as shown in the example below: </p>
+<p>If your directory has not the postfix-book schema installed, then you must change the internal attribute handling for dovecot. For this you have to change the <code>pass_attr</code> and the <code>user_attr</code> mapping, as shown in the example below:</p>
 <div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">DOVECOT_PASS_ATTR=&lt;YOUR_USER_IDENTIFYER_ATTRIBUTE&gt;=user,&lt;YOUR_USER_PASSWORD_ATTRIBUTE&gt;=password</span>
 <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">DOVECOT_USER_ATTR=&lt;YOUR_USER_HOME_DIRECTORY_ATTRIBUTE&gt;=home,&lt;YOUR_USER_MAILSTORE_ATTRIBUTE&gt;=mail,&lt;YOUR_USER_MAIL_UID_ATTRIBUTE&gt;=uid, &lt;YOUR_USER_MAIL_GID_ATTRIBUTE&gt;=gid</span>
 </code></pre></div>

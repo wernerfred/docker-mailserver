@@ -1141,29 +1141,28 @@
 <p>One common option to change is the maximum number of connections per user:</p>
 <div class="highlight"><pre><span></span><code><span class="na">mail_max_userip_connections</span> <span class="o">=</span> <span class="s">100</span>
 </code></pre></div>
-<p>Another important option is the <code>default_process_limit</code> (defaults to <code>100</code>). If high-security mode is enabled you'll need to make sure this count is higher than the maximum number of users that can be logged in simultaneously. This limit is quickly reached if users connect to the mail server with multiple end devices.</p>
+<p>Another important option is the <code>default_process_limit</code> (defaults to <code>100</code>). If high-security mode is enabled you'll need to make sure this count is higher than the maximum number of users that can be logged in simultaneously.</p>
+<p>This limit is quickly reached if users connect to the mail server with multiple end devices.</p>
 <h2 id="override-configuration">Override Configuration<a class="headerlink" href="#override-configuration" title="Permanent link">⚓︎</a></h2>
 <p>For major configuration changes it’s best to override the dovecot configuration files. For each configuration file you want to override, add a list entry under the <code>volumes</code> key.</p>
-<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span> <span class="s">&#39;2&#39;</span>
-
-<span class="nt">services</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
   <span class="nt">mail</span><span class="p">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">...</span>
-    <span class="l l-Scalar l-Scalar-Plain">volumes</span><span class="p p-Indicator">:</span>
+    <span class="nt">volumes</span><span class="p">:</span>
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">maildata:/var/mail</span>
-      <span class="l l-Scalar l-Scalar-Plain">...</span>
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">./config/dovecot/10-master.conf:/etc/dovecot/conf.d/10-master.conf</span>
 </code></pre></div>
 <h2 id="debugging">Debugging<a class="headerlink" href="#debugging" title="Permanent link">⚓︎</a></h2>
-<p>To debug your dovecot configuration you can use this command:</p>
-<div class="highlight"><pre><span></span><code>./setup.sh debug login doveconf <span class="p">|</span> grep &lt;some-keyword&gt;
-</code></pre></div>
-<p><a href="https://github.com/docker-mailserver/docker-mailserver/blob/master/setup.sh">setup.sh</a> is included in the <code>docker-mailserver</code> repository.</p>
-<p>or</p>
-<div class="highlight"><pre><span></span><code>docker <span class="nb">exec</span> -ti &lt;your-container-name&gt; doveconf <span class="p">|</span> grep &lt;some-keyword&gt;
-</code></pre></div>
-<p>The <code>config/dovecot.cf</code> is copied to <code>/etc/dovecot/local.conf</code>. To check this file run:</p>
-<div class="highlight"><pre><span></span><code>docker <span class="nb">exec</span> -ti &lt;your-container-name&gt; cat /etc/dovecot/local.conf
+<p>To debug your dovecot configuration you can use:</p>
+<ul>
+<li>This command: <code>./setup.sh debug login doveconf | grep &lt;some-keyword&gt;</code></li>
+<li>Or: <code>docker exec -it &lt;your-container-name&gt; doveconf | grep &lt;some-keyword&gt;</code></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a href="https://github.com/docker-mailserver/docker-mailserver/blob/master/setup.sh"><code>setup.sh</code></a> is included in the <code>docker-mailserver</code> repository.</p>
+</div>
+<p>The <code>config/dovecot.cf</code> is copied internally to <code>/etc/dovecot/local.conf</code>. To check this file run:</p>
+<div class="highlight"><pre><span></span><code>docker <span class="nb">exec</span> -it &lt;your-container-name&gt; cat /etc/dovecot/local.conf
 </code></pre></div>
                 
                   

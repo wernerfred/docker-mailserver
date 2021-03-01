@@ -1041,17 +1041,16 @@
                 <p><strong>We do not recommend using POP. Use IMAP instead.</strong></p>
 <p>If you really want to have POP3 running, add 3 lines to the docker-compose.yml :<br />
 Add the ports 110 and 995, and add environment variable ENABLE_POP : </p>
-<div class="highlight"><pre><span></span><code>mail:
-  [...]
-  ports:
-  - &quot;25:25&quot;
-  - &quot;143:143&quot;
-  - &quot;587:587&quot;
-  - &quot;993:993&quot;
-  - &quot;110:110&quot;
-  - &quot;995:995&quot; 
-  environment:
-  - ENABLE_POP3=1
+<div class="highlight"><pre><span></span><code><span class="nt">mail</span><span class="p">:</span>
+  <span class="nt">ports</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;25:25&quot;</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;143:143&quot;</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;587:587&quot;</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;993:993&quot;</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;110:110&quot;</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;995:995&quot;</span> 
+  <span class="nt">environment</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ENABLE_POP3=1</span>
 </code></pre></div>
                 
                   

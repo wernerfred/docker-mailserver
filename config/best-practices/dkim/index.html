@@ -1180,7 +1180,10 @@
 <li>In <code>TTL</code> (time to live): Time span in seconds. How long the DNS server should cache the <code>TXT</code> record.</li>
 <li>Save.</li>
 </ol>
-<p><strong>Note</strong>: Sometimes the key in <code>config/opendkim/keys/domain.tld/mail.txt</code> can be on multiple lines. If so then you need to concatenate the values in the TXT record:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Sometimes the key in <code>config/opendkim/keys/domain.tld/mail.txt</code> can be on multiple lines. If so then you need to concatenate the values in the TXT record:</p>
+</div>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>dig mail._domainkey.domain.tld TXT
 <span class="go">---</span>
 <span class="go">;; ANSWER SECTION</span>
@@ -1190,20 +1193,20 @@
 </code></pre></div>
 <p>The target (or value) field must then have all the parts together: <code>v=DKIM1; k=rsa; p=AZERTYUIOPQSDF...asdfQWERTYUIOPQSDF...</code></p>
 <h2 id="verify-only">Verify-Only<a class="headerlink" href="#verify-only" title="Permanent link">⚓︎</a></h2>
-<p>If you want DKIM to only <em>verify</em> incoming emails, the following version of /etc/opendkim.conf may be useful (right now there is no easy mechanism for installing it other than forking the repo):</p>
-<div class="highlight"><pre><span></span><code># This is a simple config file verifying messages only
+<p>If you want DKIM to only <em>verify</em> incoming emails, the following version of <code>/etc/opendkim.conf</code> may be useful (right now there is no easy mechanism for installing it other than forking the repo):</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># This is a simple config file verifying messages only</span>
 
-#LogWhy                 yes
-Syslog                  yes
-SyslogSuccess           yes
+<span class="c1">#LogWhy                 yes</span>
+<span class="na">Syslog                  yes</span>
+<span class="na">SyslogSuccess           yes</span>
 
-Socket                  inet:12301@localhost
-PidFile                 /var/run/opendkim/opendkim.pid
+<span class="na">Socket                  inet:12301@localhost</span>
+<span class="na">PidFile                 /var/run/opendkim/opendkim.pid</span>
 
-ReportAddress           postmaster@my-domain.com
-SendReports             yes
+<span class="na">ReportAddress           postmaster@my-domain.com</span>
+<span class="na">SendReports             yes</span>
 
-Mode                    v
+<span class="na">Mode                    v</span>
 </code></pre></div>
 <h2 id="debugging">Debugging<a class="headerlink" href="#debugging" title="Permanent link">⚓︎</a></h2>
 <ul>

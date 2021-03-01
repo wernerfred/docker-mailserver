@@ -1038,14 +1038,17 @@
                 
                   <h1>AWS SES</h1>
                 
-                <p>Note: new configuration, see <a href="../relay-hosts/">Configure Relay Hosts</a></p>
-<p>Instead of letting postfix deliver mail directly it is possible to configure it to deliver outgoing email via Amazon SES (Simple Email Service). (Receiving inbound email via SES is not implemented.) The configuration follows the guidelines provided by AWS in <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/postfix.html">https://docs.aws.amazon.com/ses/latest/DeveloperGuide/postfix.html</a>, specifically, the STARTTLS method.</p>
-<p>As described in the AWS Developer Guide you will have to generate SMTP credentials and define the following two environment variables in the docker-compose.yml with the appropriate values for your AWS SES subscription (the values for AWS_SES_USERPASS are the "SMTP username" and "SMTP password" provided when you create SMTP credentials for SES):</p>
+                <div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>New configuration, see <a href="../relay-hosts/">Configure Relay Hosts</a></p>
+</div>
+<p>Instead of letting postfix deliver mail directly it is possible to configure it to deliver outgoing email via Amazon SES (Simple Email Service). (Receiving inbound email via SES is not implemented.) The configuration follows the guidelines provided by AWS in <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/postfix.html">https://docs.aws.amazon.com/ses/latest/DeveloperGuide/postfix.html</a>, specifically, the <code>STARTTLS</code> method.</p>
+<p>As described in the AWS Developer Guide you will have to generate SMTP credentials and define the following two environment variables in the docker-compose.yml with the appropriate values for your AWS SES subscription (the values for <code>AWS_SES_USERPASS</code> are the "SMTP username" and "SMTP password" provided when you create SMTP credentials for SES):</p>
 <div class="highlight"><pre><span></span><code><span class="nt">environment</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">AWS_SES_HOST=email-smtp.us-east-1.amazonaws.com</span>
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">AWS_SES_USERPASS=AKIAXXXXXXXXXXXXXXXX:kqXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</span>
 </code></pre></div>
-<p>If necessary, you can also provide AWS_SES_PORT. If not provided, it defaults to 25.</p>
+<p>If necessary, you can also provide <code>AWS_SES_PORT</code>. If not provided, it defaults to 25.</p>
 <p>When you start the container you will see a log line as follows confirming the configuration:</p>
 <div class="highlight"><pre><span></span><code><span class="go">Setting up outgoing email via AWS SES host email-smtp.us-east-1.amazonaws.com</span>
 </code></pre></div>
