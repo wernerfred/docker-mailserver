@@ -18,7 +18,7 @@
     
     
       
-        <title>User Management | Accounts - Docker Mailserver</title>
+        <title>Advanced | Email Filtering with Sieve - Docker Mailserver</title>
       
     
     
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#adding-a-new-account" class="md-skip">
+        <a href="#user-defined-sieve-filters" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              User Management | Accounts
+              Advanced | Email Filtering with Sieve
             
           </span>
         </div>
@@ -287,8 +287,6 @@
           
             
               
-                
-              
               <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
@@ -396,14 +394,12 @@
             
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" data-md-state="indeterminate" type="checkbox" id="__nav_3_2" checked>
       
       <label class="md-nav__link" for="__nav_3_2">
         User Management
@@ -419,58 +415,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Accounts
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../user-management/accounts/" class="md-nav__link">
         Accounts
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#adding-a-new-account" class="md-nav__link">
-    Adding a New Account
-  </a>
-  
-    <nav class="md-nav" aria-label="Adding a New Account">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#notes" class="md-nav__link">
-    Notes
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -480,7 +429,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../aliases/" class="md-nav__link">
+      <a href="../../user-management/aliases/" class="md-nav__link">
         Aliases
       </a>
     </li>
@@ -685,12 +634,14 @@
             
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" data-md-state="indeterminate" type="checkbox" id="__nav_3_6" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" type="checkbox" id="__nav_3_6" checked>
       
       <label class="md-nav__link" for="__nav_3_6">
         Advanced Configuration
@@ -708,7 +659,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/optional-config/" class="md-nav__link">
+      <a href="../optional-config/" class="md-nav__link">
         Optional Configuration
       </a>
     </li>
@@ -741,7 +692,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/maintenance/update-and-cleanup/" class="md-nav__link">
+      <a href="../maintenance/update-and-cleanup/" class="md-nav__link">
         Update and Cleanup
       </a>
     </li>
@@ -780,7 +731,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/override-defaults/dovecot/" class="md-nav__link">
+      <a href="../override-defaults/dovecot/" class="md-nav__link">
         Dovecot
       </a>
     </li>
@@ -792,7 +743,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/override-defaults/postfix/" class="md-nav__link">
+      <a href="../override-defaults/postfix/" class="md-nav__link">
         Postfix
       </a>
     </li>
@@ -810,7 +761,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/auth-ldap/" class="md-nav__link">
+      <a href="../auth-ldap/" class="md-nav__link">
         LDAP Authentication
       </a>
     </li>
@@ -820,11 +771,52 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../advanced/mail-sieve/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Email Filtering with Sieve
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Email Filtering with Sieve
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#user-defined-sieve-filters" class="md-nav__link">
+    User-Defined Sieve Filters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manage-sieve" class="md-nav__link">
+    Manage Sieve
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -834,7 +826,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/mail-fetchmail/" class="md-nav__link">
+      <a href="../mail-fetchmail/" class="md-nav__link">
         Email Gathering with Fetchmail
       </a>
     </li>
@@ -867,7 +859,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/mail-forwarding/relay-hosts/" class="md-nav__link">
+      <a href="../mail-forwarding/relay-hosts/" class="md-nav__link">
         Relay Hosts
       </a>
     </li>
@@ -879,7 +871,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/mail-forwarding/aws-ses/" class="md-nav__link">
+      <a href="../mail-forwarding/aws-ses/" class="md-nav__link">
         AWS SES
       </a>
     </li>
@@ -897,7 +889,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/full-text-search/" class="md-nav__link">
+      <a href="../full-text-search/" class="md-nav__link">
         Full-Text Search
       </a>
     </li>
@@ -909,7 +901,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/kubernetes/" class="md-nav__link">
+      <a href="../kubernetes/" class="md-nav__link">
         Kubernetes
       </a>
     </li>
@@ -921,7 +913,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/ipv6/" class="md-nav__link">
+      <a href="../ipv6/" class="md-nav__link">
         IPv6
       </a>
     </li>
@@ -1191,9 +1183,7 @@
             
             
               
-                
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -1208,22 +1198,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#adding-a-new-account" class="md-nav__link">
-    Adding a New Account
-  </a>
-  
-    <nav class="md-nav" aria-label="Adding a New Account">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#notes" class="md-nav__link">
-    Notes
+  <a href="#user-defined-sieve-filters" class="md-nav__link">
+    User-Defined Sieve Filters
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#manage-sieve" class="md-nav__link">
+    Manage Sieve
+  </a>
   
 </li>
       
@@ -1239,42 +1223,65 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/docker-mailserver/docker-mailserver/edit/master/docs/content/config/user-management/accounts.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/docker-mailserver/docker-mailserver/edit/master/docs/content/config/advanced/mail-sieve.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                  <h1>Accounts</h1>
+                  <h1>Email Filtering with Sieve</h1>
                 
-                <h2 id="adding-a-new-account">Adding a New Account<a class="headerlink" href="#adding-a-new-account" title="Permanent link">⚓︎</a></h2>
-<p>Users (email accounts) are managed in <code>/tmp/docker-mailserver/postfix-accounts.cf</code>. <strong><em>The best way to manage accounts is to use the reliable <a href="../../setup.sh/"><code>setup.sh</code></a> script</em></strong>. Or you may directly add the <em>full</em> email address and its encrypted password, separated by a pipe:</p>
-<div class="highlight"><pre><span></span><code><span class="na">user1@domain.tld|{SHA512-CRYPT}$6$2YpW1nYtPBs2yLYS$z.5PGH1OEzsHHNhl3gJrc3D.YMZkvKw/vp.r5WIiwya6z7P/CQ9GDEJDr2G2V0cAfjDFeAQPUoopsuWPXLk3u1</span>
-<span class="na">user2@otherdomain.tld|{SHA512-CRYPT}$6$2YpW1nYtPBs2yLYS$z.5PGH1OEzsHHNhl3gJrc3D.YMZkvKw/vp.r5WIiwya6z7P/CQ9GDEJDr2G2V0cAfjDFeAQPUoopsuWPXLk3u1</span>
-</code></pre></div>
-<p>In the example above, we've added 2 mail accounts for 2 different domains. Consequently, the mail server will automatically be configured for multi-domains. Therefore, to generate a new mail account data, directly from your docker host, you could for example run the following:</p>
-<div class="highlight"><pre><span></span><code>docker run --rm <span class="se">\</span>
-  -e <span class="nv">MAIL_USER</span><span class="o">=</span>user1@domain.tld <span class="se">\</span>
-  -e <span class="nv">MAIL_PASS</span><span class="o">=</span>mypassword <span class="se">\</span>
-  -it mailserver/docker-mailserver:latest <span class="se">\</span>
-  /bin/sh -c <span class="s1">&#39;echo &quot;$MAIL_USER|$(doveadm pw -s SHA512-CRYPT -u $MAIL_USER -p $MAIL_PASS)&quot;&#39;</span> &gt;&gt; config/postfix-accounts.cf
-</code></pre></div>
-<p>You will then be asked for a password, and be given back the data for a new account entry, as text. To actually <em>add</em> this new account, just copy all the output text in <code>config/postfix-accounts.cf</code> file of your running container.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><code>doveadm pw</code> command lets you choose between several encryption schemes for the password.</p>
-<p>Use <code>doveadm pw -l</code> to get a list of the currently supported encryption schemes.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Changes to the accounts list require a restart of the container, using <code>supervisord</code>. See <a href="https://github.com/docker-mailserver/docker-mailserver/issues/552">#552</a>.</p>
-</div>
-<hr />
-<h3 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">⚓︎</a></h3>
+                <h2 id="user-defined-sieve-filters">User-Defined Sieve Filters<a class="headerlink" href="#user-defined-sieve-filters" title="Permanent link">⚓︎</a></h2>
+<p><a href="http://sieve.info/">Sieve</a> allows to specify filtering rules for incoming emails that allow for example sorting mails into different folders depending on the title of an email.
+There are global and user specific filters which are filtering the incoming emails in the following order:</p>
 <ul>
-<li><code>imap-quota</code> is enabled and allow clients to query their mailbox usage.</li>
-<li>When the mailbox is deleted, the quota directive is deleted as well.</li>
-<li>Dovecot quotas support LDAP, <strong>but it's not implemented</strong> (<em>PR are welcome!</em>).</li>
+<li>Global-before -&gt; User specific -&gt; Global-after</li>
 </ul>
+<p>Global filters are applied to EVERY incoming mail for EVERY email address. 
+To specify a global Sieve filter provide a <code>config/before.dovecot.sieve</code> or a <code>config/after.dovecot.sieve</code> file with your filter rules.
+If any filter in this filtering chain discards an incoming mail, the delivery process will stop as well and the mail will not reach any following filters(e.g. global-before stops an incoming spam mail: The mail will get discarded and a user-specific filter won't get applied.)</p>
+<p>To specify a user-defined Sieve filter place a <code>.dovecot.sieve</code> file into a virtual user's mail folder e.g. <code>/var/mail/domain.com/user1/.dovecot.sieve</code>. If this file exists dovecot will apply the filtering rules.</p>
+<p>It's even possible to install a user provided Sieve filter at startup during users setup: simply include a Sieve file in the <code>config</code> path for each user login that need a filter. The file name provided should be in the form <code>&lt;user_login&gt;.dovecot.sieve</code>, so for example for <code>user1@domain.tld</code> you should provide a Sieve file named <code>config/user1@domain.tld.dovecot.sieve</code>.</p>
+<p>An example of a sieve filter that moves mails to a folder <code>INBOX/spam</code> depending on the sender address:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">require</span> <span class="p">[</span><span class="s">&quot;fileinto&quot;</span><span class="p">,</span> <span class="s">&quot;reject&quot;</span><span class="p">];</span>
+
+<span class="nb">if</span> <span class="nb">address</span> <span class="nt">:contains</span> <span class="p">[</span><span class="s">&quot;From&quot;</span><span class="p">]</span> <span class="s">&quot;spam@spam.com&quot;</span> <span class="p">{</span>
+  <span class="nb">fileinto</span> <span class="s">&quot;INBOX.spam&quot;</span><span class="p">;</span>
+<span class="p">}</span> <span class="nb">else</span> <span class="p">{</span>
+  <span class="nb">keep</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>That folders have to exist beforehand if sieve should move them.</p>
+</div>
+<p>Another example of a sieve filter that forward mails to a different address:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">require</span> <span class="p">[</span><span class="s">&quot;copy&quot;</span><span class="p">];</span>
+
+<span class="nb">redirect</span> <span class="nt">:copy</span> <span class="s">&quot;user2@otherdomain.tld&quot;</span><span class="p">;</span>
+</code></pre></div>
+<p>Just forward all incoming emails and do not save them locally:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">redirect</span> <span class="s">&quot;user2@otherdomain.tld&quot;</span><span class="p">;</span>
+</code></pre></div>
+<p>You can also use external programs to filter or pipe (process) messages by adding executable scripts in <code>config/sieve-pipe</code> or <code>config/sieve-filter</code>. This can be used in lieu of a local alias file, for instance to forward an email to a webservice. These programs can then be referenced by filename, by all users. Note that the process running the scripts run as a privileged user. For further information see <a href="https://wiki.dovecot.org/Pigeonhole/Sieve/Plugins/Pipe">Dovecot's wiki</a>.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">require</span> <span class="p">[</span><span class="s">&quot;vnd.dovecot.pipe&quot;</span><span class="p">];</span>
+<span class="err">pipe</span> <span class="s">&quot;external-program&quot;</span><span class="p">;</span>
+</code></pre></div>
+<p>For more examples or a detailed description of the Sieve language have a look at <a href="http://sieve.info/examplescripts">the official site</a>. Other resources are available on the internet where you can find several <a href="https://support.tigertech.net/sieve#sieve-example-rules-jmp">examples</a>.</p>
+<h2 id="manage-sieve">Manage Sieve<a class="headerlink" href="#manage-sieve" title="Permanent link">⚓︎</a></h2>
+<p>The <a href="https://doc.dovecot.org/admin_manual/pigeonhole_managesieve_server/">Manage Sieve</a> extension allows users to modify their Sieve script by themselves. The authentication mechanisms are the same as for the main dovecot service. ManageSieve runs on port <code>4190</code> and needs to be enabled using the <code>ENABLE_MANAGESIEVE=1</code> environment variable.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># docker-compose.yml</span>
+<span class="nt">ports</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="s">&quot;4190:4190&quot;</span>
+<span class="nt">environment</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ENABLE_MANAGESIEVE=1</span>
+</code></pre></div>
+<p>All user defined sieve scripts that are managed by ManageSieve are stored in the user's home folder in <code>/var/mail/domain.com/user1/sieve</code>. Just one sieve script might be active for a user and is sym-linked to <code>/var/mail/domain.com/user1/.dovecot.sieve</code> automatically.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ManageSieve makes sure to not overwrite an existing <code>.dovecot.sieve</code> file. If a user activates a new sieve script the old one is backuped and moved to the <code>sieve</code> folder.</p>
+</div>
+<p>The extension is known to work with the following ManageSieve clients:
+* <strong>Sieve Editor</strong>  a portable standalone application based on the former Thunderbird plugin (<a href="https://github.com/thsmi/sieve">https://github.com/thsmi/sieve</a>).</p>
                 
                   
                 
@@ -1294,7 +1301,7 @@
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../../setup.sh/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../auth-ldap/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1303,19 +1310,19 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Your Best Friend setup.sh
+              LDAP Authentication
             </div>
           </div>
         </a>
       
       
-        <a href="../aliases/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../mail-fetchmail/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Aliases
+              Email Gathering with Fetchmail
             </div>
           </div>
           <div class="md-footer__button md-icon">

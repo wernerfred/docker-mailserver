@@ -18,7 +18,7 @@
     
     
       
-        <title>User Management | Accounts - Docker Mailserver</title>
+        <title>Advanced | Full-Text Search - Docker Mailserver</title>
       
     
     
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#adding-a-new-account" class="md-skip">
+        <a href="#overview" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              User Management | Accounts
+              Advanced | Full-Text Search
             
           </span>
         </div>
@@ -287,8 +287,6 @@
           
             
               
-                
-              
               <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
@@ -396,14 +394,12 @@
             
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" data-md-state="indeterminate" type="checkbox" id="__nav_3_2" checked>
       
       <label class="md-nav__link" for="__nav_3_2">
         User Management
@@ -419,58 +415,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Accounts
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../user-management/accounts/" class="md-nav__link">
         Accounts
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#adding-a-new-account" class="md-nav__link">
-    Adding a New Account
-  </a>
-  
-    <nav class="md-nav" aria-label="Adding a New Account">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#notes" class="md-nav__link">
-    Notes
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -480,7 +429,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../aliases/" class="md-nav__link">
+      <a href="../../user-management/aliases/" class="md-nav__link">
         Aliases
       </a>
     </li>
@@ -685,12 +634,14 @@
             
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" data-md-state="indeterminate" type="checkbox" id="__nav_3_6" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" type="checkbox" id="__nav_3_6" checked>
       
       <label class="md-nav__link" for="__nav_3_6">
         Advanced Configuration
@@ -708,7 +659,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/optional-config/" class="md-nav__link">
+      <a href="../optional-config/" class="md-nav__link">
         Optional Configuration
       </a>
     </li>
@@ -741,7 +692,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/maintenance/update-and-cleanup/" class="md-nav__link">
+      <a href="../maintenance/update-and-cleanup/" class="md-nav__link">
         Update and Cleanup
       </a>
     </li>
@@ -780,7 +731,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/override-defaults/dovecot/" class="md-nav__link">
+      <a href="../override-defaults/dovecot/" class="md-nav__link">
         Dovecot
       </a>
     </li>
@@ -792,7 +743,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/override-defaults/postfix/" class="md-nav__link">
+      <a href="../override-defaults/postfix/" class="md-nav__link">
         Postfix
       </a>
     </li>
@@ -810,7 +761,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/auth-ldap/" class="md-nav__link">
+      <a href="../auth-ldap/" class="md-nav__link">
         LDAP Authentication
       </a>
     </li>
@@ -822,7 +773,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/mail-sieve/" class="md-nav__link">
+      <a href="../mail-sieve/" class="md-nav__link">
         Email Filtering with Sieve
       </a>
     </li>
@@ -834,7 +785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/mail-fetchmail/" class="md-nav__link">
+      <a href="../mail-fetchmail/" class="md-nav__link">
         Email Gathering with Fetchmail
       </a>
     </li>
@@ -867,7 +818,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/mail-forwarding/relay-hosts/" class="md-nav__link">
+      <a href="../mail-forwarding/relay-hosts/" class="md-nav__link">
         Relay Hosts
       </a>
     </li>
@@ -879,7 +830,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/mail-forwarding/aws-ses/" class="md-nav__link">
+      <a href="../mail-forwarding/aws-ses/" class="md-nav__link">
         AWS SES
       </a>
     </li>
@@ -895,11 +846,59 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../advanced/full-text-search/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Full-Text Search
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Full-Text Search
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-steps" class="md-nav__link">
+    Setup Steps
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-discussion" class="md-nav__link">
+    Further Discussion
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -909,7 +908,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/kubernetes/" class="md-nav__link">
+      <a href="../kubernetes/" class="md-nav__link">
         Kubernetes
       </a>
     </li>
@@ -921,7 +920,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/ipv6/" class="md-nav__link">
+      <a href="../ipv6/" class="md-nav__link">
         IPv6
       </a>
     </li>
@@ -1191,9 +1190,7 @@
             
             
               
-                
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -1208,22 +1205,23 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#adding-a-new-account" class="md-nav__link">
-    Adding a New Account
-  </a>
-  
-    <nav class="md-nav" aria-label="Adding a New Account">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#notes" class="md-nav__link">
-    Notes
+  <a href="#overview" class="md-nav__link">
+    Overview
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#setup-steps" class="md-nav__link">
+    Setup Steps
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-discussion" class="md-nav__link">
+    Further Discussion
+  </a>
   
 </li>
       
@@ -1239,42 +1237,62 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/docker-mailserver/docker-mailserver/edit/master/docs/content/config/user-management/accounts.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/docker-mailserver/docker-mailserver/edit/master/docs/content/config/advanced/full-text-search.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                  <h1>Accounts</h1>
+                  <h1>Full-Text Search</h1>
                 
-                <h2 id="adding-a-new-account">Adding a New Account<a class="headerlink" href="#adding-a-new-account" title="Permanent link">⚓︎</a></h2>
-<p>Users (email accounts) are managed in <code>/tmp/docker-mailserver/postfix-accounts.cf</code>. <strong><em>The best way to manage accounts is to use the reliable <a href="../../setup.sh/"><code>setup.sh</code></a> script</em></strong>. Or you may directly add the <em>full</em> email address and its encrypted password, separated by a pipe:</p>
-<div class="highlight"><pre><span></span><code><span class="na">user1@domain.tld|{SHA512-CRYPT}$6$2YpW1nYtPBs2yLYS$z.5PGH1OEzsHHNhl3gJrc3D.YMZkvKw/vp.r5WIiwya6z7P/CQ9GDEJDr2G2V0cAfjDFeAQPUoopsuWPXLk3u1</span>
-<span class="na">user2@otherdomain.tld|{SHA512-CRYPT}$6$2YpW1nYtPBs2yLYS$z.5PGH1OEzsHHNhl3gJrc3D.YMZkvKw/vp.r5WIiwya6z7P/CQ9GDEJDr2G2V0cAfjDFeAQPUoopsuWPXLk3u1</span>
+                <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">⚓︎</a></h2>
+<p>Full-text search allows all messages to be indexed, so that mail clients can quickly and efficiently search messages by their full text content.</p>
+<p>The <a href="https://wiki2.dovecot.org/Plugins/FTS/Solr">dovecot-solr Plugin</a> is used in conjunction with <a href="https://lucene.apache.org/solr/">Apache Solr</a> running in a separate container. This is quite straightforward to setup using the following instructions.</p>
+<h2 id="setup-steps">Setup Steps<a class="headerlink" href="#setup-steps" title="Permanent link">⚓︎</a></h2>
+<ol>
+<li>
+<p><code>docker-compose.yml</code>:</p>
+<div class="highlight"><pre><span></span><code>  <span class="nt">solr</span><span class="p">:</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">lmmdock/dovecot-solr:latest</span>
+    <span class="nt">volumes</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">solr-dovecot:/opt/solr/server/solr/dovecot</span>
+    <span class="nt">restart</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always</span>
+
+  <span class="nt">mailserver</span><span class="p">:</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mailserver/docker-mailserver:latest</span>
+    <span class="l l-Scalar l-Scalar-Plain">...</span>
+    <span class="nt">volumes</span><span class="p">:</span>
+      <span class="l l-Scalar l-Scalar-Plain">...</span>
+      <span class="l l-Scalar l-Scalar-Plain">- ./etc/dovecot/conf.d/10-plugin.conf:/etc/dovecot/conf.d/10-plugin.conf:ro</span>
+    <span class="l l-Scalar l-Scalar-Plain">...</span>
+
+<span class="nt">volumes</span><span class="p">:</span>
+  <span class="nt">solr-dovecot</span><span class="p">:</span>
+    <span class="nt">driver</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">local</span>
 </code></pre></div>
-<p>In the example above, we've added 2 mail accounts for 2 different domains. Consequently, the mail server will automatically be configured for multi-domains. Therefore, to generate a new mail account data, directly from your docker host, you could for example run the following:</p>
-<div class="highlight"><pre><span></span><code>docker run --rm <span class="se">\</span>
-  -e <span class="nv">MAIL_USER</span><span class="o">=</span>user1@domain.tld <span class="se">\</span>
-  -e <span class="nv">MAIL_PASS</span><span class="o">=</span>mypassword <span class="se">\</span>
-  -it mailserver/docker-mailserver:latest <span class="se">\</span>
-  /bin/sh -c <span class="s1">&#39;echo &quot;$MAIL_USER|$(doveadm pw -s SHA512-CRYPT -u $MAIL_USER -p $MAIL_PASS)&quot;&#39;</span> &gt;&gt; config/postfix-accounts.cf
+</li>
+<li>
+<p><code>etc/dovecot/conf.d/10-plugin.conf</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="na">mail_plugins</span> <span class="o">=</span> <span class="s">$mail_plugins fts fts_solr</span>
+
+<span class="na">plugin {</span>
+  <span class="na">fts</span> <span class="o">=</span> <span class="s">solr</span>
+  <span class="na">fts_autoindex</span> <span class="o">=</span> <span class="s">yes</span>
+  <span class="na">fts_solr</span> <span class="o">=</span> <span class="s">url=http://solr:8983/solr/dovecot/ </span>
+<span class="na">}</span>
 </code></pre></div>
-<p>You will then be asked for a password, and be given back the data for a new account entry, as text. To actually <em>add</em> this new account, just copy all the output text in <code>config/postfix-accounts.cf</code> file of your running container.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><code>doveadm pw</code> command lets you choose between several encryption schemes for the password.</p>
-<p>Use <code>doveadm pw -l</code> to get a list of the currently supported encryption schemes.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Changes to the accounts list require a restart of the container, using <code>supervisord</code>. See <a href="https://github.com/docker-mailserver/docker-mailserver/issues/552">#552</a>.</p>
-</div>
-<hr />
-<h3 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">⚓︎</a></h3>
-<ul>
-<li><code>imap-quota</code> is enabled and allow clients to query their mailbox usage.</li>
-<li>When the mailbox is deleted, the quota directive is deleted as well.</li>
-<li>Dovecot quotas support LDAP, <strong>but it's not implemented</strong> (<em>PR are welcome!</em>).</li>
-</ul>
+</li>
+<li>
+<p>Start the solr container: <code>docker-compose up -d --remove-orphans solr</code></p>
+</li>
+<li>
+<p>Restart the mailserver container: <code>docker-compose restart mailserver</code></p>
+</li>
+<li>
+<p>Flag all user mailbox FTS indexes as invalid, so they are rescanned on demand when they are next searched: <code>docker-compose exec mailserver doveadm fts rescan -A</code></p>
+</li>
+</ol>
+<h2 id="further-discussion">Further Discussion<a class="headerlink" href="#further-discussion" title="Permanent link">⚓︎</a></h2>
+<p>See <a href="https://github.com/docker-mailserver/docker-mailserver/issues/905">#905</a></p>
                 
                   
                 
@@ -1294,7 +1312,7 @@
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../../setup.sh/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../mail-forwarding/aws-ses/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1303,19 +1321,19 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Your Best Friend setup.sh
+              AWS SES
             </div>
           </div>
         </a>
       
       
-        <a href="../aliases/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../kubernetes/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Aliases
+              Kubernetes
             </div>
           </div>
           <div class="md-footer__button md-icon">
