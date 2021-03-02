@@ -1235,10 +1235,14 @@
                   <h1>SPF</h1>
                 
                 <p>From <a href="https://en.wikipedia.org/wiki/Sender_Policy_Framework">Wikipedia</a>:</p>
-<blockquote>
+<div class="admonition quote">
+<p class="admonition-title">Quote</p>
 <p>Sender Policy Framework (SPF) is a simple email-validation system designed to detect email spoofing by providing a mechanism to allow receiving mail exchangers to check that incoming mail from a domain comes from a host authorized by that domain's administrators. The list of authorized sending hosts for a domain is published in the Domain Name System (DNS) records for that domain in the form of a specially formatted TXT record. Email spam and phishing often use forged "from" addresses, so publishing and checking SPF records can be considered anti-spam techniques.</p>
-</blockquote>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">Seealso</p>
 <p>For a more technical review: <a href="https://github.com/internetstandards/toolbox-wiki/blob/master/SPF-how-to.md">https://github.com/internetstandards/toolbox-wiki/blob/master/SPF-how-to.md</a></p>
+</div>
 <h2 id="add-a-spf-record">Add a SPF Record<a class="headerlink" href="#add-a-spf-record" title="Permanent link">⚓︎</a></h2>
 <p>To add a SPF record in your DNS, insert the following line in your DNS zone:</p>
 <div class="highlight"><pre><span></span><code>; MX record must be declared for SPF to work

@@ -1220,7 +1220,10 @@
                 
                   <h1>DMARC</h1>
                 
-                <p>DMARC Guide: <a href="https://github.com/internetstandards/toolbox-wiki/blob/master/DMARC-how-to.md">https://github.com/internetstandards/toolbox-wiki/blob/master/DMARC-how-to.md</a></p>
+                <div class="admonition seealso">
+<p class="admonition-title">Seealso</p>
+<p>DMARC Guide: <a href="https://github.com/internetstandards/toolbox-wiki/blob/master/DMARC-how-to.md">https://github.com/internetstandards/toolbox-wiki/blob/master/DMARC-how-to.md</a></p>
+</div>
 <h2 id="enabling-dmarc">Enabling DMARC<a class="headerlink" href="#enabling-dmarc" title="Permanent link">⚓︎</a></h2>
 <p>In <code>docker-mailserver</code>, DMARC is pre-configured out-of the box. The only thing you need to do in order to enable it, is to add new TXT entry to your DNS.</p>
 <p>In contrast with <a href="../dkim/">DKIM</a>, DMARC DNS entry does not require any keys, but merely setting the <a href="https://github.com/internetstandards/toolbox-wiki/blob/master/DMARC-how-to.md#overview-of-dmarc-configuration-tags">configuration values</a>. You can either handcraft the entry by yourself or use one of available generators (like <a href="https://dmarcguide.globalcyberalliance.org/">https://dmarcguide.globalcyberalliance.org/</a>).</p>
