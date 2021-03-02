@@ -608,6 +608,12 @@
   
 
           
+        </ul>
+      </nav>
+    </li>
+  
+
+          
             
   
   
@@ -616,12 +622,6 @@
       <a href="../../../pop3/" class="md-nav__link">
         Mail Delivery with POP3
       </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
     </li>
   
 
@@ -636,14 +636,14 @@
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" type="checkbox" id="__nav_3_6" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7" type="checkbox" id="__nav_3_7" checked>
       
-      <label class="md-nav__link" for="__nav_3_6">
+      <label class="md-nav__link" for="__nav_3_7">
         Advanced Configuration
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Advanced Configuration" data-md-level="2">
-        <label class="md-nav__title" for="__nav_3_6">
+        <label class="md-nav__title" for="__nav_3_7">
           <span class="md-nav__icon md-icon"></span>
           Advanced Configuration
         </label>
@@ -669,14 +669,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6_2" data-md-state="indeterminate" type="checkbox" id="__nav_3_6_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7_2" data-md-state="indeterminate" type="checkbox" id="__nav_3_7_2" checked>
       
-      <label class="md-nav__link" for="__nav_3_6_2">
+      <label class="md-nav__link" for="__nav_3_7_2">
         Maintenance
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Maintenance" data-md-level="3">
-        <label class="md-nav__title" for="__nav_3_6_2">
+        <label class="md-nav__title" for="__nav_3_7_2">
           <span class="md-nav__icon md-icon"></span>
           Maintenance
         </label>
@@ -710,14 +710,14 @@
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6_3" type="checkbox" id="__nav_3_6_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7_3" type="checkbox" id="__nav_3_7_3" checked>
       
-      <label class="md-nav__link" for="__nav_3_6_3">
+      <label class="md-nav__link" for="__nav_3_7_3">
         Override the Default Configs
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Override the Default Configs" data-md-level="3">
-        <label class="md-nav__title" for="__nav_3_6_3">
+        <label class="md-nav__title" for="__nav_3_7_3">
           <span class="md-nav__icon md-icon"></span>
           Override the Default Configs
         </label>
@@ -804,14 +804,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6_7" data-md-state="indeterminate" type="checkbox" id="__nav_3_6_7" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7_7" data-md-state="indeterminate" type="checkbox" id="__nav_3_7_7" checked>
       
-      <label class="md-nav__link" for="__nav_3_6_7">
+      <label class="md-nav__link" for="__nav_3_7_7">
         Email Forwarding
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Email Forwarding" data-md-level="3">
-        <label class="md-nav__title" for="__nav_3_6_7">
+        <label class="md-nav__title" for="__nav_3_7_7">
           <span class="md-nav__icon md-icon"></span>
           Email Forwarding
         </label>
@@ -1164,7 +1164,10 @@ This can also be used to add configuration that is not in our default configurat
 <span class="na">message_size_limit</span> <span class="o">=</span> <span class="s">52428800</span>
 </code></pre></div>
 <p>That specific example is now supported and can be handled by setting <code>POSTFIX_MESSAGE_SIZE_LIMIT</code>.</p>
+<div class="admonition seealso">
+<p class="admonition-title">Seealso</p>
 <p><a href="http://www.postfix.org/documentation.html">Postfix documentation</a> remains the best place to find configuration options.</p>
+</div>
 <p>Each line in the provided file will be loaded into postfix.</p>
 <p>In the same way it is possible to add a custom <code>config/postfix-master.cf</code> file that will override the standard <code>master.cf</code>. Each line in the file will be passed to <code>postconf -P</code>. The expected format is <code>&lt;service_name&gt;/&lt;type&gt;/&lt;parameter&gt;</code>, for example:</p>
 <div class="highlight"><pre><span></span><code><span class="na">submission/inet/smtpd_reject_unlisted_recipient</span><span class="o">=</span><span class="s">no</span>

@@ -613,6 +613,12 @@
   
 
           
+        </ul>
+      </nav>
+    </li>
+  
+
+          
             
   
   
@@ -621,12 +627,6 @@
       <a href="../../pop3/" class="md-nav__link">
         Mail Delivery with POP3
       </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
     </li>
   
 
@@ -641,14 +641,14 @@
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" type="checkbox" id="__nav_3_6" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7" type="checkbox" id="__nav_3_7" checked>
       
-      <label class="md-nav__link" for="__nav_3_6">
+      <label class="md-nav__link" for="__nav_3_7">
         Advanced Configuration
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Advanced Configuration" data-md-level="2">
-        <label class="md-nav__title" for="__nav_3_6">
+        <label class="md-nav__title" for="__nav_3_7">
           <span class="md-nav__icon md-icon"></span>
           Advanced Configuration
         </label>
@@ -674,14 +674,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6_2" data-md-state="indeterminate" type="checkbox" id="__nav_3_6_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7_2" data-md-state="indeterminate" type="checkbox" id="__nav_3_7_2" checked>
       
-      <label class="md-nav__link" for="__nav_3_6_2">
+      <label class="md-nav__link" for="__nav_3_7_2">
         Maintenance
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Maintenance" data-md-level="3">
-        <label class="md-nav__title" for="__nav_3_6_2">
+        <label class="md-nav__title" for="__nav_3_7_2">
           <span class="md-nav__icon md-icon"></span>
           Maintenance
         </label>
@@ -713,14 +713,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6_3" data-md-state="indeterminate" type="checkbox" id="__nav_3_6_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7_3" data-md-state="indeterminate" type="checkbox" id="__nav_3_7_3" checked>
       
-      <label class="md-nav__link" for="__nav_3_6_3">
+      <label class="md-nav__link" for="__nav_3_7_3">
         Override the Default Configs
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Override the Default Configs" data-md-level="3">
-        <label class="md-nav__title" for="__nav_3_6_3">
+        <label class="md-nav__title" for="__nav_3_7_3">
           <span class="md-nav__icon md-icon"></span>
           Override the Default Configs
         </label>
@@ -800,14 +800,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6_7" data-md-state="indeterminate" type="checkbox" id="__nav_3_6_7" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7_7" data-md-state="indeterminate" type="checkbox" id="__nav_3_7_7" checked>
       
-      <label class="md-nav__link" for="__nav_3_6_7">
+      <label class="md-nav__link" for="__nav_3_7_7">
         Email Forwarding
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Email Forwarding" data-md-level="3">
-        <label class="md-nav__title" for="__nav_3_6_7">
+        <label class="md-nav__title" for="__nav_3_7_7">
           <span class="md-nav__icon md-icon"></span>
           Email Forwarding
         </label>
@@ -1354,7 +1354,7 @@
                 
                 <h2 id="deployment-example">Deployment Example<a class="headerlink" href="#deployment-example" title="Permanent link">⚓︎</a></h2>
 <p>There is nothing much in deploying mailserver to Kubernetes itself. The things are pretty same as in <a href="https://github.com/docker-mailserver/docker-mailserver/blob/master/docker-compose.yml"><code>docker-compose.yml</code></a>, but with Kubernetes syntax.</p>
-<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
+<details class="example"><summary>ConfigMap</summary><div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Namespace</span>
 <span class="nt">metadata</span><span class="p">:</span>
   <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mailserver</span>
@@ -1418,7 +1418,12 @@
   <span class="c1">#  #!/bin/bash</span>
 
   <span class="c1">#fetchmail.cf: |</span>
-
+</code></pre></div>
+</details>
+<details class="example"><summary>Secret</summary><div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Namespace</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mailserver</span>
 <span class="nn">---</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Secret</span>
 <span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
@@ -1430,7 +1435,12 @@
 <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Opaque</span>
 <span class="nt">data</span><span class="p">:</span>
   <span class="nt">example.com-mail.key</span><span class="p">:</span> <span class="s">&#39;base64-encoded-DKIM-key&#39;</span>
-
+</code></pre></div>
+</details>
+<details class="example"><summary>Service</summary><div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Namespace</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mailserver</span>
 <span class="nn">---</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Service</span>
 <span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
@@ -1458,6 +1468,12 @@
     <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">imap-secure</span>
       <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">993</span>
       <span class="nt">targetPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">imap-secure</span>
+</code></pre></div>
+</details>
+<details class="example"><summary>Deployment</summary><div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Namespace</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mailserver</span>
 <span class="nn">---</span>
 <span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Deployment</span>
@@ -1576,8 +1592,9 @@
         <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tmp-files</span>
           <span class="nt">emptyDir</span><span class="p">:</span> <span class="p p-Indicator">{}</span>
 </code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+</details>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
 <p>Any sensitive data (keys, etc) should be deployed via <a href="https://kubernetes.io/docs/concepts/configuration/secret">Secrets</a>. Other configuration just fits well into <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configmap">ConfigMaps</a>.</p>
 </div>
 <div class="admonition note">
@@ -1589,6 +1606,8 @@
 <p>The major problem with exposing mailserver to outside world in Kubernetes is to <a href="https://kubernetes.io/docs/tutorials/services/source-ip">preserve real client IP</a>. Real client IP is required by mailserver for performing IP-based SPF checks and spam checks.</p>
 <p>Preserving real client IP is relatively <a href="https://kubernetes.io/docs/tutorials/services/source-ip">non-trivial in Kubernetes</a> and most exposing ways do not provide it. So, it's up to you to decide which exposing way suits better your needs in a price of complexity.</p>
 <p>If you do not require SPF checks for incoming mails you may disable them in <a href="../override-defaults/postfix/">Postfix configuration</a> by dropping following line (which removes <code>check_policy_service unix:private/policyd-spf</code> option):</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
 <div class="highlight"><pre><span></span><code><span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ConfigMap</span>
 <span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
 <span class="nt">metadata</span><span class="p">:</span>
@@ -1613,8 +1632,11 @@
         <span class="nt">mountPath</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/tmp/docker-mailserver/postfix-main.cf</span>
         <span class="nt">readOnly</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
+</div>
 <h3 id="external-ips-service">External IPs Service<a class="headerlink" href="#external-ips-service" title="Permanent link">⚓︎</a></h3>
 <p>The simplest way is to expose mailserver as a <a href="https://kubernetes.io/docs/concepts/services-networking/service">Service</a> with <a href="https://kubernetes.io/docs/concepts/services-networking/service/#external-ips">external IPs</a>.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
 <div class="highlight"><pre><span></span><code><span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Service</span>
 <span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
 <span class="nt">metadata</span><span class="p">:</span>
@@ -1632,6 +1654,7 @@
   <span class="nt">externalIPs</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">80.11.12.10</span>
 </code></pre></div>
+</div>
 <p><strong>Downsides</strong></p>
 <ul>
 <li>
@@ -1649,6 +1672,8 @@
 </ul>
 <h3 id="bind-to-concrete-node-and-use-host-network">Bind to concrete Node and use host network<a class="headerlink" href="#bind-to-concrete-node-and-use-host-network" title="Permanent link">⚓︎</a></h3>
 <p>The simplest way to preserve real client IP is to use <code>hostPort</code> and <code>hostNetwork: true</code> in the mailserver <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod">Pod</a>. This comes in price of availability: you can talk to mailserver from outside world only via IPs of <a href="https://kubernetes.io/docs/concepts/architecture/nodes">Node</a> where mailserver is deployed.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
 <div class="highlight"><pre><span></span><code><span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Deployment</span>
 <span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">extensions/v1beta1</span>
 <span class="nt">metadata</span><span class="p">:</span>
@@ -1671,6 +1696,7 @@
               <span class="nt">hostPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">993</span>
 <span class="c1"># ...</span>
 </code></pre></div>
+</div>
 <p><strong>Downsides</strong></p>
 <ul>
 <li>Not possible to access mailserver via other cluster Nodes, only via the one mailserver deployed at.</li>
@@ -1688,6 +1714,8 @@
 <p>With <a href="https://hub.docker.com/_/haproxy">HAProxy</a>, the configuration should look similar to the above. If you know what it actually looks like, add an example here. <img alt="😃" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f603.svg" title=":smiley:" /></p>
 <h4 id="configure-the-mailserver">Configure the Mailserver<a class="headerlink" href="#configure-the-mailserver" title="Permanent link">⚓︎</a></h4>
 <p>Then, configure both <a href="../override-defaults/postfix/">Postfix</a> and <a href="../override-defaults/dovecot/">Dovecot</a> to expect the PROXY protocol:</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
 <div class="highlight"><pre><span></span><code><span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ConfigMap</span>
 <span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
 <span class="nt">metadata</span><span class="p">:</span>
@@ -1734,12 +1762,15 @@
               <span class="nt">mountPath</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/tmp/docker-mailserver/dovecot.cf</span>
               <span class="nt">readOnly</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
+</div>
 <p><strong>Downsides</strong></p>
 <ul>
 <li>Not possible to access mailserver via inner cluster Kubernetes DNS, as PROXY protocol is required for incoming connections.</li>
 </ul>
 <h2 id="lets-encrypt-certificates">Let's Encrypt Certificates<a class="headerlink" href="#lets-encrypt-certificates" title="Permanent link">⚓︎</a></h2>
 <p><a href="https://github.com/jetstack/kube-lego">Kube-Lego</a> may be used for a role of Let's Encrypt client. It works with Kubernetes <a href="https://kubernetes.io/docs/concepts/services-networking/ingress">Ingress Resources</a> and automatically issues/manages certificates/keys for exposed services via Ingresses.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
 <div class="highlight"><pre><span></span><code><span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Ingress</span>
 <span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">extensions/v1beta1</span>
 <span class="nt">metadata</span><span class="p">:</span>
@@ -1762,7 +1793,10 @@
       <span class="nt">hosts</span><span class="p">:</span>
         <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">example.com</span>
 </code></pre></div>
+</div>
 <p>Now, you can use Let's Encrypt cert and key from <code>mailserver.tls</code> <a href="https://kubernetes.io/docs/concepts/configuration/secret">Secret</a> in your <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod">Pod</a> spec:</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># ...</span>
 <span class="nt">env</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SSL_TYPE</span>
@@ -1782,6 +1816,7 @@
     <span class="nt">secret</span><span class="p">:</span>
       <span class="nt">secretName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mailserver.tls</span>
 </code></pre></div>
+</div>
                 
                   
                 

@@ -613,6 +613,12 @@
   
 
           
+        </ul>
+      </nav>
+    </li>
+  
+
+          
             
   
   
@@ -621,12 +627,6 @@
       <a href="../../../pop3/" class="md-nav__link">
         Mail Delivery with POP3
       </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
     </li>
   
 
@@ -641,14 +641,14 @@
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" type="checkbox" id="__nav_3_6" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7" type="checkbox" id="__nav_3_7" checked>
       
-      <label class="md-nav__link" for="__nav_3_6">
+      <label class="md-nav__link" for="__nav_3_7">
         Advanced Configuration
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Advanced Configuration" data-md-level="2">
-        <label class="md-nav__title" for="__nav_3_6">
+        <label class="md-nav__title" for="__nav_3_7">
           <span class="md-nav__icon md-icon"></span>
           Advanced Configuration
         </label>
@@ -674,14 +674,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6_2" data-md-state="indeterminate" type="checkbox" id="__nav_3_6_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7_2" data-md-state="indeterminate" type="checkbox" id="__nav_3_7_2" checked>
       
-      <label class="md-nav__link" for="__nav_3_6_2">
+      <label class="md-nav__link" for="__nav_3_7_2">
         Maintenance
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Maintenance" data-md-level="3">
-        <label class="md-nav__title" for="__nav_3_6_2">
+        <label class="md-nav__title" for="__nav_3_7_2">
           <span class="md-nav__icon md-icon"></span>
           Maintenance
         </label>
@@ -713,14 +713,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6_3" data-md-state="indeterminate" type="checkbox" id="__nav_3_6_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7_3" data-md-state="indeterminate" type="checkbox" id="__nav_3_7_3" checked>
       
-      <label class="md-nav__link" for="__nav_3_6_3">
+      <label class="md-nav__link" for="__nav_3_7_3">
         Override the Default Configs
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Override the Default Configs" data-md-level="3">
-        <label class="md-nav__title" for="__nav_3_6_3">
+        <label class="md-nav__title" for="__nav_3_7_3">
           <span class="md-nav__icon md-icon"></span>
           Override the Default Configs
         </label>
@@ -802,14 +802,14 @@
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6_7" type="checkbox" id="__nav_3_6_7" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7_7" type="checkbox" id="__nav_3_7_7" checked>
       
-      <label class="md-nav__link" for="__nav_3_6_7">
+      <label class="md-nav__link" for="__nav_3_7_7">
         Email Forwarding
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Email Forwarding" data-md-level="3">
-        <label class="md-nav__title" for="__nav_3_6_7">
+        <label class="md-nav__title" for="__nav_3_7_7">
           <span class="md-nav__icon md-icon"></span>
           Email Forwarding
         </label>
@@ -1332,14 +1332,14 @@
 <h2 id="basic-configuration">Basic Configuration<a class="headerlink" href="#basic-configuration" title="Permanent link">⚓︎</a></h2>
 <p>Basic configuration is done via environment variables:</p>
 <ul>
-<li><strong>RELAY_HOST</strong> <em>default host to relay mail through, empty will disable this feature</em></li>
-<li><strong>RELAY_PORT</strong> <em>port on default relay, defaults to port 25</em></li>
-<li><strong>RELAY_USER</strong> <em>username for the default relay</em></li>
-<li><strong>RELAY_PASSWORD</strong> <em>password for the default user</em></li>
+<li><code>RELAY_HOST</code>: <em>default host to relay mail through, empty will disable this feature</em></li>
+<li><code>RELAY_PORT</code>: <em>port on default relay, defaults to port 25</em></li>
+<li><code>RELAY_USER</code>: <em>username for the default relay</em></li>
+<li><code>RELAY_PASSWORD</code>: <em>password for the default user</em></li>
 </ul>
 <p>Setting these environment variables will cause mail for all sender domains to be routed via the specified host, authenticating with the user/password combination.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
 <p>For users of the previous <code>AWS_SES_*</code> variables: please update your configuration to use these new variables, no other configuration is required.</p>
 </div>
 <h2 id="advanced-configuration">Advanced Configuration<a class="headerlink" href="#advanced-configuration" title="Permanent link">⚓︎</a></h2>

@@ -580,14 +580,12 @@
             
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" data-md-state="indeterminate" type="checkbox" id="__nav_3_5" checked>
       
       <label class="md-nav__link" for="__nav_3_5">
         Troubleshooting
@@ -612,6 +610,12 @@
   
 
           
+        </ul>
+      </nav>
+    </li>
+  
+
+          
             
   
   
@@ -631,12 +635,6 @@
   
 
           
-        </ul>
-      </nav>
-    </li>
-  
-
-          
             
   
   
@@ -645,14 +643,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" data-md-state="indeterminate" type="checkbox" id="__nav_3_6" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7" data-md-state="indeterminate" type="checkbox" id="__nav_3_7" checked>
       
-      <label class="md-nav__link" for="__nav_3_6">
+      <label class="md-nav__link" for="__nav_3_7">
         Advanced Configuration
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Advanced Configuration" data-md-level="2">
-        <label class="md-nav__title" for="__nav_3_6">
+        <label class="md-nav__title" for="__nav_3_7">
           <span class="md-nav__icon md-icon"></span>
           Advanced Configuration
         </label>
@@ -678,14 +676,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6_2" data-md-state="indeterminate" type="checkbox" id="__nav_3_6_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7_2" data-md-state="indeterminate" type="checkbox" id="__nav_3_7_2" checked>
       
-      <label class="md-nav__link" for="__nav_3_6_2">
+      <label class="md-nav__link" for="__nav_3_7_2">
         Maintenance
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Maintenance" data-md-level="3">
-        <label class="md-nav__title" for="__nav_3_6_2">
+        <label class="md-nav__title" for="__nav_3_7_2">
           <span class="md-nav__icon md-icon"></span>
           Maintenance
         </label>
@@ -717,14 +715,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6_3" data-md-state="indeterminate" type="checkbox" id="__nav_3_6_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7_3" data-md-state="indeterminate" type="checkbox" id="__nav_3_7_3" checked>
       
-      <label class="md-nav__link" for="__nav_3_6_3">
+      <label class="md-nav__link" for="__nav_3_7_3">
         Override the Default Configs
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Override the Default Configs" data-md-level="3">
-        <label class="md-nav__title" for="__nav_3_6_3">
+        <label class="md-nav__title" for="__nav_3_7_3">
           <span class="md-nav__icon md-icon"></span>
           Override the Default Configs
         </label>
@@ -804,14 +802,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6_7" data-md-state="indeterminate" type="checkbox" id="__nav_3_6_7" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7_7" data-md-state="indeterminate" type="checkbox" id="__nav_3_7_7" checked>
       
-      <label class="md-nav__link" for="__nav_3_6_7">
+      <label class="md-nav__link" for="__nav_3_7_7">
         Email Forwarding
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Email Forwarding" data-md-level="3">
-        <label class="md-nav__title" for="__nav_3_6_7">
+        <label class="md-nav__title" for="__nav_3_7_7">
           <span class="md-nav__icon md-icon"></span>
           Email Forwarding
         </label>
@@ -1157,9 +1155,11 @@
                 
                   <h1>Mail Delivery with POP3</h1>
                 
-                <p><strong>We do not recommend using POP. Use IMAP instead.</strong></p>
-<p>If you really want to have POP3 running, add 3 lines to the docker-compose.yml :<br />
-Add the ports 110 and 995, and add environment variable ENABLE_POP : </p>
+                <div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>We do not recommend using POP3. Use IMAP instead.</strong></p>
+</div>
+<p>If you really want to have POP3 running add the ports 110 and 995 and the environment variable <code>ENABLE_POP3</code> to your <code>docker-compose.yml</code>: </p>
 <div class="highlight"><pre><span></span><code><span class="nt">mail</span><span class="p">:</span>
   <span class="nt">ports</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="s">&quot;25:25&quot;</span>
