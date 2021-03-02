@@ -1578,9 +1578,11 @@
 <p>None! No database is required. Filesystem is the database.<br />
 This image is based on config files that can be persisted using Docker volumes, and as such versioned, backed up and so forth.  </p>
 <h3 id="where-are-emails-stored">Where are emails stored?<a class="headerlink" href="#where-are-emails-stored" title="Permanent link">⚓︎</a></h3>
-<p>Mails are stored in <code>/var/mail/${domain}/${username}</code>.</p>
-<p>You should use a <a href="https://medium.com/@ramangupta/why-docker-data-containers-are-good-589b3c6c749e#.uxyrp7xpu">data volume container</a> for <code>/var/mail</code> to persist data.</p>
-<p>Otherwise, your data may be lost.</p>
+<p>Mails are stored in <code>/var/mail/${domain}/${username}</code>. Since <code>v9.0.0</code> it is possible to add custom <code>user_attributes</code> for each accounts to have a different mailbox configuration (See <a href="https://github.com/docker-mailserver/docker-mailserver/pull/1792">#1792</a>).</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>You should use a <a href="https://medium.com/@ramangupta/why-docker-data-containers-are-good-589b3c6c749e#.uxyrp7xpu">data volume container</a> for <code>/var/mail</code> to persist data. Otherwise, your data may be lost.</p>
+</div>
 <h3 id="how-to-alter-the-running-mailserver-instance-without-relaunching-the-container">How to alter the running mailserver instance <em>without</em> relaunching the container?<a class="headerlink" href="#how-to-alter-the-running-mailserver-instance-without-relaunching-the-container" title="Permanent link">⚓︎</a></h3>
 <p><code>docker-mailserver</code> aggregates multiple "sub-services", such as Postfix, Dovecot, Fail2ban, SpamAssasin, etc. In many cases, one may edit a sub-service's config and reload that very sub-service, without stopping and relaunching the whole mail server.</p>
 <p>In order to do so, you'll probably want to push your config updates to your server through a Docker volume, then restart the sub-service to apply your changes, using <code>supervisorctl</code>. For instance, after editing fail2ban's config: <code>supervisorctl restart fail2ban</code>.</p>
@@ -1667,7 +1669,7 @@ Example of data folder persisted: lib-amavis, lib-clamav, lib-fail2ban, lib-post
 </code></pre></div>
 <p>If you run the server with <code>docker-compose</code>, you can leverage on docker configs and the mailserver's own cron. This is less problematic than the simple solution shown above, because it decouples the learning from the host on which the mailserver is running and avoids errors if the server is not running.</p>
 <p>The following configuration works nicely:</p>
-<p>Create a <em>system</em> cron file:</p>
+<details class="example"><summary>Example</summary><p>Create a <em>system</em> cron file:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># in the docker-compose.yml root directory</span>
 mkdir cron
 touch cron/sa-learn
@@ -1718,6 +1720,7 @@ chmod <span class="m">0644</span> cron/sa-learn
   <span class="nt">my_sa_crontab</span><span class="p">:</span>
     <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">./cron/sa-learn</span>
 </code></pre></div>
+</details>
 <p>With the default settings, Spamassassin will require 200 mails trained for spam (for example with the method explained above) and 200 mails trained for ham (using the same command as above but using <code>--ham</code> and providing it with some ham mails). Until you provided these 200+200 mails, Spamassasin will not take the learned mails into account. For further reference, see the <a href="https://wiki.apache.org/spamassassin/BayesNotWorking">Spamassassin Wiki</a>.</p>
 <h3 id="how-can-i-configure-a-catch-all">How can I configure a catch-all?<a class="headerlink" href="#how-can-i-configure-a-catch-all" title="Permanent link">⚓︎</a></h3>
 <p>Considering you want to redirect all incoming e-mails for the domain <code>domain.tld</code> to <code>user1@domain.tld</code>, add the following line to <code>config/postfix-virtual.cf</code>:</p>
@@ -1775,8 +1778,8 @@ Few examples of symptoms can be found <a href="https://github.com/docker-mailser
 <h3 id="what-system-requirements-are-required-to-run-docker-mailserver-effectively">What system requirements are required to run <code>docker-mailserver</code> effectively?<a class="headerlink" href="#what-system-requirements-are-required-to-run-docker-mailserver-effectively" title="Permanent link">⚓︎</a></h3>
 <p>1 core and 1GB of RAM + swap partition is recommended to run <code>docker-mailserver</code> with clamav.
 Otherwise, it could work with 512M of RAM.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
 <p>Clamav can consume a lot of memory, as it reads the entire signature database into RAM.</p>
 <p>Current figure is about 850M and growing. If you get errors about clamav or amavis failing to allocate memory you need more RAM or more swap and of course docker must be allowed to use swap (not always the case). If you can't use swap at all you may need 3G RAM.</p>
 </div>

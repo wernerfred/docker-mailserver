@@ -1235,10 +1235,12 @@ chmod a+x ./setup.sh
 </li>
 <li>
 <p>Create the file <code>docker-compose.yml</code> with a content like this:</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
 <div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span> <span class="s">&#39;2&#39;</span>
 
 <span class="nt">services</span><span class="p">:</span>
-  <span class="nt">mail</span><span class="p">:</span>
+<span class="nt">mail</span><span class="p">:</span>
     <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mailserver/docker-mailserver:latest</span>
     <span class="nt">hostname</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mail</span>
     <span class="nt">domainname</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">example.org</span>
@@ -1267,6 +1269,7 @@ chmod a+x ./setup.sh
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">NET_ADMIN</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">SYS_PTRACE</span>
 </code></pre></div>
+</div>
 <p>For more details about the environment variables that can be used, and their meaning and possible values, check also these:</p>
 <ul>
 <li><a href="https://github.com/docker-mailserver/docker-mailserver/blob/master/ENVIRONMENT.md">Environtment Variables</a></li>

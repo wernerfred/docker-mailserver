@@ -1093,7 +1093,7 @@
       
         <li class="md-nav__item">
   <a href="#bash-and-shell" class="md-nav__link">
-    bash and Shell
+    Bash and Shell
   </a>
   
 </li>
@@ -1252,7 +1252,7 @@
       
         <li class="md-nav__item">
   <a href="#bash-and-shell" class="md-nav__link">
-    bash and Shell
+    Bash and Shell
   </a>
   
 </li>
@@ -1338,11 +1338,11 @@
                 
                   <h1>Coding Style</h1>
                 
-                <h2 id="bash-and-shell">bash and Shell<a class="headerlink" href="#bash-and-shell" title="Permanent link">⚓︎</a></h2>
-<p>When refactoring, writing or altering scripts, that is Shell andbash scripts, in any way, adhere to these rules:</p>
+                <h2 id="bash-and-shell">Bash and Shell<a class="headerlink" href="#bash-and-shell" title="Permanent link">⚓︎</a></h2>
+<p>When refactoring, writing or altering scripts, that is Shell and bash scripts, in any way, adhere to these rules:</p>
 <ol>
 <li><strong>Adjust your style of coding to the style that is already present</strong>! Even if you do not like it, this is due to consistency. There was a lot of work involved in making all scripts consistent.</li>
-<li><strong>Use <code>shellcheck</code> to check your scripts</strong>! Your contributions are checked by TravisCI too, so you will need to do this. You can <strong>lint your work with <code>make lint</code></strong> to check against all targets.</li>
+<li><strong>Use <code>shellcheck</code> to check your scripts</strong>! Your contributions are checked by GitHub Actions too, so you will need to do this. You can <strong>lint your work with <code>make lint</code></strong> to check against all targets.</li>
 <li><strong>Use the provided <code>.editorconfig</code></strong> file.</li>
 <li>Use <code>/bin/bash</code> or <code>/usr/bin/envbash</code> instead of <code>/bin/sh</code>. Adjust the style accordingly.</li>
 <li><code>setup.sh</code> provides a good starting point to look for.</li>
@@ -1370,7 +1370,10 @@
 <span class="k">fi</span>
 </code></pre></div>
 <h3 id="variables-braces">Variables &amp; Braces<a class="headerlink" href="#variables-braces" title="Permanent link">⚓︎</a></h3>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
 <p>Variables are always uppercase. We always use braces.</p>
+</div>
 <p>If you forgot this and want to change it later, you can use <a href="https://regex101.com/r/ikzJpF/7">this link</a>. The used regex is <code>\$([^{("\\'\/])([a-zA-Z0-9_]*)([^}\/ \t'"\n.\]:(=\\-]*)</code>, where you should in practice be able to replace all variable occurrences without braces with occurrences with braces.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># good</span>
 <span class="nb">local</span> <span class="nv">VAR</span><span class="o">=</span><span class="s2">&quot;good&quot;</span>
