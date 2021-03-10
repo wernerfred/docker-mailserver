@@ -1,0 +1,27 @@
+/* This file adds our styling additions to maintain. */
+
+/* External Link icon feature. Rejected from upstreaming to `mkdocs-material`.
+Alternative solution using SVG icon here (Broken on Chrome?): https://github.com/squidfunk/mkdocs-material/issues/2318#issuecomment-789461149
+Tab or Nav sidebar with non-relative links will prepend an icon (font glyph)
+If you want to append instead, switch `::before` to `::after`.
+*/
+/* reference the icon font to use */
+@font-face {
+  font-family: 'external-link';
+  src: url('/docker-mailserver/assets/fonts/external-link.woff') format('woff');
+}
+
+/* Matches the two nav link classes that start with `http` `href` values, regular docs pages use relative URLs instead. */
+.md-tabs__link[href^="http"]::before, .md-nav__link[href^="http"]::before {
+  display: inline-block; /* treat similar to text */
+  font-family: 'external-link';
+  content:'\0041'; /* represents "A" which our font renders as an icon instead of the "A" glyph */
+  font-size: 80%; /* icon is a little too big by default, scale it down */
+}
+
+
+
+/* Layout adjustments */
+/* header bar (top of page) adjustments: increase scale of logo, adjust white-space. */
+.md-header__button.md-logo > img { transform: scale(180%); margin-left: 0.4rem; } /* Make the logo larger without impacting other header components */
+.md-header__title { margin-left: 0.3rem; } /* Reduce the white-space between the Logo and Title components */
