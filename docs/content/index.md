@@ -2,7 +2,7 @@
 title: Home
 ---
 
-# Welcome to the Extended Documentation for `docker-mailserver`!
+# Welcome to the Extended Documentation for `docker-mailserver` (v9.2)!
 
 Please first have a look at the [`README.md`][github-file-readme] to setup and configure this server.
 
