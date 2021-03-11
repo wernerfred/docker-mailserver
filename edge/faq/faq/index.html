@@ -1785,7 +1785,7 @@ Otherwise, it could work with 512M of RAM.</p>
 <p>Clamav can consume a lot of memory, as it reads the entire signature database into RAM.</p>
 <p>Current figure is about 850M and growing. If you get errors about clamav or amavis failing to allocate memory you need more RAM or more swap and of course docker must be allowed to use swap (not always the case). If you can't use swap at all you may need 3G RAM.</p>
 </div>
-<h3 id="can-docker-mailserver-run-in-a-rancher-environment"><a class="toclink" href="#can-docker-mailserver-run-in-a-rancher-environment">Can <code>docker-mailserver</code> run in a <a href="http://rancher.com/rancher/">Rancher Environment</a>?</a></h3>
+<h3 id="can-docker-mailserver-run-in-a-rancher-environment"><a class="toclink" href="#can-docker-mailserver-run-in-a-rancher-environment">Can <code>docker-mailserver</code> run in a Rancher Environment?</a></h3>
 <p>Yes, by adding the environment variable <code>PERMIT_DOCKER: network</code>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
