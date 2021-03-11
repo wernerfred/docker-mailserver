@@ -1,4 +1,6 @@
-/* This file adds our styling additions to maintain. */
+/* This file adds our styling additions / fixes to maintain. */
+
+/* ============================================================================================================= */
 
 /* External Link icon feature. Rejected from upstreaming to `mkdocs-material`.
 Alternative solution using SVG icon here (Broken on Chrome?): https://github.com/squidfunk/mkdocs-material/issues/2318#issuecomment-789461149
@@ -19,16 +21,56 @@ If you want to append instead, switch `::before` to `::after`.
   font-size: 80%; /* icon is a little too big by default, scale it down */
 }
 
+/* ============================================================================================================= */
 
+/* UI Improvement: Header bar (top of page) adjustments - Increase scale of logo and adjust white-space */
+/* Make the logo larger without impacting other header components */
+.md-header__button.md-logo > img { transform: scale(180%); margin-left: 0.4rem; }
+/* Reduce the white-space between the Logo and Title components */
+.md-header__title { margin-left: 0.3rem; }
 
-/* Layout adjustments */
-/* header bar (top of page) adjustments: increase scale of logo, adjust white-space. */
-.md-header__button.md-logo > img { transform: scale(180%); margin-left: 0.4rem; } /* Make the logo larger without impacting other header components */
-.md-header__title { margin-left: 0.3rem; } /* Reduce the white-space between the Logo and Title components */
+/* ============================================================================================================= */
 
-/* Light colour bg for the version selector with some rounded corners */
+/* UI Improvement: Add light colour bg for the version selector, with some rounded corners */
 .md-version__current {
   background-color: rgb(255,255,255,0.18); /* white with 18% opacity */
   padding: 5px;
   border-radius: 3px;
 }
+
+/* ============================================================================================================= */
+
+/*
+  UX Bugfix for permalink affecting typography in headings.
+  Upstream will not fix: https://github.com/squidfunk/mkdocs-material/issues/2369
+*/
+
+/* Headings are configured to be links (instead of only the permalink symbol), removes the link colour */
+div.md-content article.md-content__inner a.toclink {
+  color: currentColor;
+}
+
+/* Positions the permalink symbol to the left of the heading for consistent placement */
+/* Due to position order of the anchor link element to the heading content, it was better to replace it */
+/* Changed from a symbol to a solid thin rectangle due to vertical alignment and scaling (clipping) issues */
+div.md-content article.md-content__inner a.toclink::before {
+  display: inline-block;
+  margin-right: 0.2rem;
+  margin-left: -0.6rem;
+  content: '-'; /* not visible, just used as filler to make background-color visible */
+  background-color: #73a4d7; /* light blue, could modify theme colour vars to match this? */
+
+  /* Based on original `.headerlink` styles from `mkdocs-material` theme: */
+  color: transparent;
+  opacity: 0;
+  transition: opacity 125ms;
+}
+
+/* Based on original `.headerlink` styles from `mkdocs-material` theme: */
+div.md-content article.md-content__inner a.toclink:hover::before,
+div.md-content article.md-content__inner :target > a.toclink::before {
+  opacity: 1;
+  transition: opacity 125ms;
+}
+
+/* ============================================================================================================= */

@@ -1437,7 +1437,7 @@
 <li><a href="https://www.checktls.com/TestReceiver"><code>checktls.com</code></a></li>
 <li><a href="https://github.com/drwetter/testssl.sh"><code>testssl.sh</code></a></li>
 </ul>
-<h2 id="lets-encrypt-recommended">Let's Encrypt (Recommended)<a class="headerlink" href="#lets-encrypt-recommended" title="Permanent link">⚓︎</a></h2>
+<h2 id="lets-encrypt-recommended"><a class="toclink" href="#lets-encrypt-recommended">Let's Encrypt (Recommended)</a></h2>
 <p>To enable Let's Encrypt on your mail server, you have to:</p>
 <ul>
 <li>Get your certificate using <a href="https://github.com/letsencrypt/letsencrypt">letsencrypt client</a></li>
@@ -1454,7 +1454,7 @@
 </li>
 </ul>
 <p>You don't have anything else to do. Enjoy.</p>
-<h3 id="example-using-docker-for-lets-encrypt">Example using Docker for Let's Encrypt<a class="headerlink" href="#example-using-docker-for-lets-encrypt" title="Permanent link">⚓︎</a></h3>
+<h3 id="example-using-docker-for-lets-encrypt"><a class="toclink" href="#example-using-docker-for-lets-encrypt">Example using Docker for Let's Encrypt</a></h3>
 <ol>
 <li>
 <p>Make a directory to store your letsencrypt logs and configs. In my case:</p>
@@ -1486,7 +1486,7 @@
 </code></pre></div>
 </li>
 </ol>
-<h3 id="example-using-docker-nginx-proxy-and-letsencrypt-nginx-proxy-companion">Example using Docker, <code>nginx-proxy</code> and <code>letsencrypt-nginx-proxy-companion</code><a class="headerlink" href="#example-using-docker-nginx-proxy-and-letsencrypt-nginx-proxy-companion" title="Permanent link">⚓︎</a></h3>
+<h3 id="example-using-docker-nginx-proxy-and-letsencrypt-nginx-proxy-companion"><a class="toclink" href="#example-using-docker-nginx-proxy-and-letsencrypt-nginx-proxy-companion">Example using Docker, <code>nginx-proxy</code> and <code>letsencrypt-nginx-proxy-companion</code></a></h3>
 <p>If you are running a web server already, it is non-trivial to generate a Let's Encrypt certificate for your mail server using <code>certbot</code>, because port 80 is already occupied. In the following example, we show how <code>docker-mailserver</code> can be run alongside the docker containers <code>nginx-proxy</code> and <code>letsencrypt-nginx-proxy-companion</code>.</p>
 <p>There are several ways to start <code>nginx-proxy</code> and <code>letsencrypt-nginx-proxy-companion</code>. Any method should be suitable here.</p>
 <p>For example start <code>nginx-proxy</code> as in the <code>letsencrypt-nginx-proxy-companion</code> <a href="https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion">documentation</a>:</p>
@@ -1529,7 +1529,7 @@
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">/server/letsencrypt/etc:/etc/letsencrypt/live</span>
 </code></pre></div>
 <p>Then: <code>/path/to/mailserver/docker-compose up -d mail</code></p>
-<h3 id="example-using-docker-nginx-proxy-and-letsencrypt-nginx-proxy-companion-with-docker-compose">Example using Docker, <code>nginx-proxy</code> and <code>letsencrypt-nginx-proxy-companion</code> with <code>docker-compose</code><a class="headerlink" href="#example-using-docker-nginx-proxy-and-letsencrypt-nginx-proxy-companion-with-docker-compose" title="Permanent link">⚓︎</a></h3>
+<h3 id="example-using-docker-nginx-proxy-and-letsencrypt-nginx-proxy-companion-with-docker-compose"><a class="toclink" href="#example-using-docker-nginx-proxy-and-letsencrypt-nginx-proxy-companion-with-docker-compose">Example using Docker, <code>nginx-proxy</code> and <code>letsencrypt-nginx-proxy-companion</code> with <code>docker-compose</code></a></h3>
 <p>The following <code>docker-compose.yml</code> is the basic setup you need for using <code>letsencrypt-nginx-proxy-companion</code>. It is mainly derived from its own wiki/documenation.</p>
 <details class="example" open="open"><summary>Example Code</summary><div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span> <span class="s">&quot;2&quot;</span>
 
@@ -1622,7 +1622,7 @@
 </code></pre></div>
 </details>
 <p>The mail container needs to have the letsencrypt certificate folder mounted as a volume. No further changes are needed. The second container is a dummy-sidecar we need, because the mail-container do not expose any web-ports. Set your ENV variables as you need. (<code>VIRTUAL_HOST</code> and <code>LETSENCRYPT_HOST</code> are mandandory, see documentation)</p>
-<h3 id="example-using-the-lets-encrypt-certificates-on-a-synology-nas">Example using the Let's Encrypt Certificates on a Synology NAS<a class="headerlink" href="#example-using-the-lets-encrypt-certificates-on-a-synology-nas" title="Permanent link">⚓︎</a></h3>
+<h3 id="example-using-the-lets-encrypt-certificates-on-a-synology-nas"><a class="toclink" href="#example-using-the-lets-encrypt-certificates-on-a-synology-nas">Example using the Let's Encrypt Certificates on a Synology NAS</a></h3>
 <p>Version 6.2 and later of the Synology NAS DSM OS now come with an interface to generate and renew letencrypt certificates. Navigation into your DSM control panel and go to Security, then click on the tab Certificate to generate and manage letsencrypt certificates.</p>
 <p>Amongst other things, you can use these to secure your mail server. DSM locates the generated certificates in a folder below <code>/usr/syno/etc/certificate/_archive/</code>.</p>
 <p>Navigate to that folder and note the 6 character random folder name of the certificate you'd like to use. Then, add the following to your <code>docker-compose.yml</code> declaration file:</p>
@@ -1634,7 +1634,7 @@
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">SSL_KEY_PATH=/tmp/ssl/privkey.pem</span>
 </code></pre></div>
 <p>DSM-generated letsencrypt certificates get auto-renewed every three months.</p>
-<h2 id="caddy">Caddy<a class="headerlink" href="#caddy" title="Permanent link">⚓︎</a></h2>
+<h2 id="caddy"><a class="toclink" href="#caddy">Caddy</a></h2>
 <p>If you are using Caddy to renew your certificates, please note that only RSA certificates work. Read <a href="https://github.com/docker-mailserver/docker-mailserver/issues/1440">#1440</a> for details. In short for Caddy v1 the <code>Caddyfile</code> should look something like:</p>
 <div class="highlight"><pre><span></span><code>https://mail.domain.com {
   tls yourcurrentemail@gmail.com {
@@ -1728,10 +1728,10 @@
 <span class="go">no peer certificate available</span>
 <span class="go">No client certificate CA names sent</span>
 </code></pre></div>
-<h2 id="traefik">Traefik<a class="headerlink" href="#traefik" title="Permanent link">⚓︎</a></h2>
+<h2 id="traefik"><a class="toclink" href="#traefik">Traefik</a></h2>
 <p><a href="https://github.com/containous/traefik">Traefik</a> is an open-source Edge Router which handles ACME protocol using <a href="https://github.com/go-acme/lego">lego</a>.</p>
 <p>Traefik can request certificates for domains through the ACME protocol (see <a href="https://docs.traefik.io/https/acme/">Traefik's documentation about its ACME negotiation &amp; storage mechanism</a>). Traefik's router will take care of renewals, challenge negotiations, etc.</p>
-<h3 id="traefik-v2">Traefik v2<a class="headerlink" href="#traefik-v2" title="Permanent link">⚓︎</a></h3>
+<h3 id="traefik-v2"><a class="toclink" href="#traefik-v2">Traefik v2</a></h3>
 <p>(For Traefik v1 see <a href="#traefik-v1">next section</a>)</p>
 <p>Traefik's V2 storage format is natively supported if the <code>acme.json</code> store is mounted into the container at <code>/etc/letsencrypt/acme.json</code>. The file is also monitored for changes and will trigger a reload of the mail services. Lookup of the certificate domain happens in the following order:</p>
 <ol>
@@ -1779,10 +1779,10 @@
 </code></pre></div>
 </details>
 <p>This setup only comes with one caveat: The domain has to be configured on another service for traefik to actually request it from lets-encrypt (<code>whoami</code> in this case).</p>
-<h3 id="traefik-v1">Traefik v1<a class="headerlink" href="#traefik-v1" title="Permanent link">⚓︎</a></h3>
+<h3 id="traefik-v1"><a class="toclink" href="#traefik-v1">Traefik v1</a></h3>
 <p>If you are using Traefik v1, you might want to <em>push</em> your Traefik-managed certificates to the mailserver container, in order to reuse them. Not an easy task, but fortunately, <a href="https://github.com/youtous/docker-mailserver-traefik"><code>youtous/mailserver-traefik</code></a> is a certificate renewal service for <code>docker-mailserver</code>.</p>
 <p>Depending of your Traefik configuration, certificates may be stored using a file or a KV Store (consul, etcd...) Either way, certificates will be renewed by Traefik, then automatically pushed to the mailserver thanks to the <code>cert-renewer</code> service. Finally, dovecot and postfix will be restarted.</p>
-<h2 id="self-signed-certificates">Self-Signed Certificates<a class="headerlink" href="#self-signed-certificates" title="Permanent link">⚓︎</a></h2>
+<h2 id="self-signed-certificates"><a class="toclink" href="#self-signed-certificates">Self-Signed Certificates</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Use self-signed certificates only for testing purposes!</p>
@@ -1817,7 +1817,7 @@
 <li>Add <code>SSL_TYPE=self-signed</code> to your container environment variables</li>
 <li>If a matching certificate (files listed above) is found in <code>config/ssl</code>, it will be automatically setup in postfix and dovecot. You just have to place them in <code>config/ssl</code> folder.</li>
 </ul>
-<h2 id="custom-certificate-files">Custom Certificate Files<a class="headerlink" href="#custom-certificate-files" title="Permanent link">⚓︎</a></h2>
+<h2 id="custom-certificate-files"><a class="toclink" href="#custom-certificate-files">Custom Certificate Files</a></h2>
 <p>You can also provide your own certificate files. Add these entries to your <code>docker-compose.yml</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">volumes</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">/etc/ssl:/tmp/ssl:ro</span>
@@ -1831,7 +1831,7 @@
 <p class="admonition-title">Info</p>
 <p>You may have to restart your mailserver once the certificates change.</p>
 </div>
-<h2 id="testing-a-certificate-is-valid">Testing a Certificate is Valid<a class="headerlink" href="#testing-a-certificate-is-valid" title="Permanent link">⚓︎</a></h2>
+<h2 id="testing-a-certificate-is-valid"><a class="toclink" href="#testing-a-certificate-is-valid">Testing a Certificate is Valid</a></h2>
 <ul>
 <li>
 <p>From your host:</p>
@@ -1858,7 +1858,7 @@
   -CApath /etc/ssl/certs/ <span class="se">\</span>
   <span class="m">2</span>&gt;/dev/null <span class="p">|</span> openssl x509 -noout -dates
 </code></pre></div>
-<h2 id="plain-text-access">Plain-Text Access<a class="headerlink" href="#plain-text-access" title="Permanent link">⚓︎</a></h2>
+<h2 id="plain-text-access"><a class="toclink" href="#plain-text-access">Plain-Text Access</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Not recommended for purposes other than testing.</p>
@@ -1873,7 +1873,7 @@
 <li>The client is allowed to login with plaintext authentication even when SSL/TLS isn't enabled on the connection.</li>
 <li><strong>This is insecure</strong>, because the plaintext password is exposed to the internet.</li>
 </ul>
-<h2 id="importing-certificates-obtained-via-another-source">Importing Certificates Obtained via Another Source<a class="headerlink" href="#importing-certificates-obtained-via-another-source" title="Permanent link">⚓︎</a></h2>
+<h2 id="importing-certificates-obtained-via-another-source"><a class="toclink" href="#importing-certificates-obtained-via-another-source">Importing Certificates Obtained via Another Source</a></h2>
 <p>If you have another source for SSL/TLS certificates you can import them into the server via an external script. The external script can be found here: <a href="https://github.com/hanscees/dockerscripts/blob/master/scripts/tomav-renew-certs">external certificate import script</a>.</p>
 <p>The steps to follow are these:</p>
 <ol>

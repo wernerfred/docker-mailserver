@@ -1340,7 +1340,7 @@
                 
                   <h1>Coding Style</h1>
                 
-                <h2 id="bash-and-shell">Bash and Shell<a class="headerlink" href="#bash-and-shell" title="Permanent link">⚓︎</a></h2>
+                <h2 id="bash-and-shell"><a class="toclink" href="#bash-and-shell">Bash and Shell</a></h2>
 <p>When refactoring, writing or altering scripts, that is Shell and bash scripts, in any way, adhere to these rules:</p>
 <ol>
 <li><strong>Adjust your style of coding to the style that is already present</strong>! Even if you do not like it, this is due to consistency. There was a lot of work involved in making all scripts consistent.</li>
@@ -1350,8 +1350,8 @@
 <li><code>setup.sh</code> provides a good starting point to look for.</li>
 <li>When appropriate, use the <code>set</code> builtin. We recommend <code>set -euEo pipefail</code> or <code>set -uE</code>.</li>
 </ol>
-<h2 id="styling-rules">Styling rules<a class="headerlink" href="#styling-rules" title="Permanent link">⚓︎</a></h2>
-<h3 id="if-else-statements">If-Else-Statements<a class="headerlink" href="#if-else-statements" title="Permanent link">⚓︎</a></h3>
+<h2 id="styling-rules"><a class="toclink" href="#styling-rules">Styling rules</a></h2>
+<h3 id="if-else-statements"><a class="toclink" href="#if-else-statements">If-Else-Statements</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># when using braces, use double braces</span>
 <span class="c1"># remember you do not need &quot;&quot; when using [[ ]]</span>
 <span class="k">if</span> <span class="o">[[</span> &lt;CONDITION1&gt; <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="o">[[</span> -f <span class="si">${</span><span class="nv">FILE</span><span class="si">}</span> <span class="o">]]</span>
@@ -1371,7 +1371,7 @@
   &lt;CODE TO RUN&gt;
 <span class="k">fi</span>
 </code></pre></div>
-<h3 id="variables-braces">Variables &amp; Braces<a class="headerlink" href="#variables-braces" title="Permanent link">⚓︎</a></h3>
+<h3 id="variables-braces"><a class="toclink" href="#variables-braces">Variables &amp; Braces</a></h3>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
 <p>Variables are always uppercase. We always use braces.</p>
@@ -1385,14 +1385,14 @@
 <span class="nv">var</span><span class="o">=</span><span class="s2">&quot;bad&quot;</span>
 <span class="nv">new</span><span class="o">=</span><span class="nv">$var</span>
 </code></pre></div>
-<h3 id="loops">Loops<a class="headerlink" href="#loops" title="Permanent link">⚓︎</a></h3>
+<h3 id="loops"><a class="toclink" href="#loops">Loops</a></h3>
 <p>Like <code>if-else</code>, loops look like this</p>
 <div class="highlight"><pre><span></span><code><span class="k">for</span> / <span class="k">while</span> &lt;LOOP CONDITION&gt;
 <span class="k">do</span>
   &lt;CODE TO RUN&gt;
 <span class="k">done</span>
 </code></pre></div>
-<h3 id="functions">Functions<a class="headerlink" href="#functions" title="Permanent link">⚓︎</a></h3>
+<h3 id="functions"><a class="toclink" href="#functions">Functions</a></h3>
 <p>It's always nice to see the use of functions as it also provides a clear structure. If scripts are small, this is unnecessary, but if they become larger, please consider using functions. When doing so, provide <code>function _main</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="k">function</span> _&lt;name_underscored_and_lowercase&gt;
 <span class="o">{</span>
@@ -1402,7 +1402,7 @@
   <span class="nb">local</span> &lt;LOCAL_VARIABLE_NAME&gt;
 <span class="o">}</span>
 </code></pre></div>
-<h3 id="error-tracing">Error Tracing<a class="headerlink" href="#error-tracing" title="Permanent link">⚓︎</a></h3>
+<h3 id="error-tracing"><a class="toclink" href="#error-tracing">Error Tracing</a></h3>
 <p>A construct to trace error in your scripts looks like this. Remember: Remove <code>set -x</code> in the end. This is for debugging purposes only.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">set</span> -xeuEo pipefail
 <span class="nb">trap</span> <span class="s1">&#39;__log_err ${FUNCNAME[0]:-&quot;?&quot;} ${BASH_COMMAND:-&quot;?&quot;} ${LINENO:-&quot;?&quot;} ${?:-&quot;?&quot;}&#39;</span> ERR
@@ -1420,7 +1420,7 @@
   &lt;CODE TO RUN AFTERWARDS&gt;
 <span class="o">}</span>
 </code></pre></div>
-<h3 id="comments-descriptiveness-an-example">Comments, Descriptiveness &amp; An Example<a class="headerlink" href="#comments-descriptiveness-an-example" title="Permanent link">⚓︎</a></h3>
+<h3 id="comments-descriptiveness-an-example"><a class="toclink" href="#comments-descriptiveness-an-example">Comments, Descriptiveness &amp; An Example</a></h3>
 <p>Comments should only describe non-obvious matters. Comments should start lowercase when they aren't sentences. Make the code <strong>self-descriptive</strong> by using meaningful names! Make comments not longer than approximately 80 columns, then wrap the line.</p>
 <p>A positive example, which is taken from <code>start-mailserver.sh</code>, would be</p>
 <div class="highlight"><pre><span></span><code><span class="k">function</span> _setup_postfix_aliases
@@ -1458,7 +1458,7 @@
   ...
 <span class="o">}</span>
 </code></pre></div>
-<h2 id="yaml">YAML<a class="headerlink" href="#yaml" title="Permanent link">⚓︎</a></h2>
+<h2 id="yaml"><a class="toclink" href="#yaml">YAML</a></h2>
 <p>When formatting YAML files, use <a href="https://prettier.io">Prettier</a>, an opinionated formatter. There are many plugins for IDEs around.</p>
                 
                   

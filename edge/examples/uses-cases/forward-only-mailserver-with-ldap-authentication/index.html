@@ -1232,7 +1232,7 @@
                 
                   <h1>Forward-Only Mailserver with LDAP</h1>
                 
-                <h2 id="building-a-forward-only-mailserver">Building a Forward-Only Mailserver<a class="headerlink" href="#building-a-forward-only-mailserver" title="Permanent link">⚓︎</a></h2>
+                <h2 id="building-a-forward-only-mailserver"><a class="toclink" href="#building-a-forward-only-mailserver">Building a Forward-Only Mailserver</a></h2>
 <p>A <strong>forward-only</strong> mailserver does not have any local mailboxes. Instead, it has only aliases that forward emails to external email accounts (for example to a gmail account). You can also send email from the localhost (the computer where the mailserver is installed), using as sender any of the alias addresses.</p>
 <p>The important settings for this setup (on <code>mailserver.env</code>) are these:</p>
 <div class="highlight"><pre><span></span><code><span class="na">PERMIT_DOCKER</span><span class="o">=</span><span class="s">host</span>
@@ -1246,7 +1246,7 @@
 <p>We can create aliases with <code>./setup.sh</code>, like this:</p>
 <div class="highlight"><pre><span></span><code>./setup.sh <span class="nb">alias</span> add &lt;alias-address&gt; &lt;external-email-account&gt;
 </code></pre></div>
-<h2 id="authenticating-with-ldap">Authenticating with LDAP<a class="headerlink" href="#authenticating-with-ldap" title="Permanent link">⚓︎</a></h2>
+<h2 id="authenticating-with-ldap"><a class="toclink" href="#authenticating-with-ldap">Authenticating with LDAP</a></h2>
 <p>If you want to send emails from outside the mailserver you have to authenticate somehow (with a username and password). One way of doing it is described in <a href="https://github.com/docker-mailserver/docker-mailserver/issues/1247">this discussion</a>. However if there are many user accounts, it is better to use authentication with LDAP. The settings for this on <code>mailserver.env</code> are:</p>
 <div class="highlight"><pre><span></span><code><span class="na">ENABLE_LDAP</span><span class="o">=</span><span class="s">1</span>
 <span class="na">LDAP_START_TLS</span><span class="o">=</span><span class="s">yes</span>

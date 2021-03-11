@@ -1248,7 +1248,7 @@
                 
                   <h1>Dovecot</h1>
                 
-                <h2 id="add-configuration">Add Configuration<a class="headerlink" href="#add-configuration" title="Permanent link">⚓︎</a></h2>
+                <h2 id="add-configuration"><a class="toclink" href="#add-configuration">Add Configuration</a></h2>
 <p>The Dovecot default configuration can easily be extended providing a <code>config/dovecot.cf</code> file.
 <a href="https://wiki.dovecot.org">Dovecot documentation</a> remains the best place to find configuration options.</p>
 <p>Your <code>docker-mailserver</code> folder should look like this example:</p>
@@ -1264,7 +1264,7 @@
 </code></pre></div>
 <p>Another important option is the <code>default_process_limit</code> (defaults to <code>100</code>). If high-security mode is enabled you'll need to make sure this count is higher than the maximum number of users that can be logged in simultaneously.</p>
 <p>This limit is quickly reached if users connect to the mail server with multiple end devices.</p>
-<h2 id="override-configuration">Override Configuration<a class="headerlink" href="#override-configuration" title="Permanent link">⚓︎</a></h2>
+<h2 id="override-configuration"><a class="toclink" href="#override-configuration">Override Configuration</a></h2>
 <p>For major configuration changes it’s best to override the dovecot configuration files. For each configuration file you want to override, add a list entry under the <code>volumes</code> key.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
   <span class="nt">mail</span><span class="p">:</span>
@@ -1272,7 +1272,7 @@
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">maildata:/var/mail</span>
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">./config/dovecot/10-master.conf:/etc/dovecot/conf.d/10-master.conf</span>
 </code></pre></div>
-<h2 id="debugging">Debugging<a class="headerlink" href="#debugging" title="Permanent link">⚓︎</a></h2>
+<h2 id="debugging"><a class="toclink" href="#debugging">Debugging</a></h2>
 <p>To debug your dovecot configuration you can use:</p>
 <ul>
 <li>This command: <code>./setup.sh debug login doveconf | grep &lt;some-keyword&gt;</code></li>

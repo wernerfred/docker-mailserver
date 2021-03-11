@@ -1328,10 +1328,10 @@
                 
                   <h1>Relay Hosts</h1>
                 
-                <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">⚓︎</a></h2>
+                <h2 id="introduction"><a class="toclink" href="#introduction">Introduction</a></h2>
 <p>Rather than having Postfix deliver mail directly, you can configure Postfix to send mail via another mail relay (smarthost). Examples include <a href="https://www.mailgun.com/">Mailgun</a>, <a href="https://sendgrid.com/">Sendgrid</a> and <a href="https://aws.amazon.com/ses/">AWS SES</a>.</p>
 <p>Depending on the domain of the sender, you may want to send via a different relay, or authenticate in a different way.</p>
-<h2 id="basic-configuration">Basic Configuration<a class="headerlink" href="#basic-configuration" title="Permanent link">⚓︎</a></h2>
+<h2 id="basic-configuration"><a class="toclink" href="#basic-configuration">Basic Configuration</a></h2>
 <p>Basic configuration is done via environment variables:</p>
 <ul>
 <li><code>RELAY_HOST</code>: <em>default host to relay mail through, empty will disable this feature</em></li>
@@ -1344,8 +1344,8 @@
 <p class="admonition-title">Warning</p>
 <p>For users of the previous <code>AWS_SES_*</code> variables: please update your configuration to use these new variables, no other configuration is required.</p>
 </div>
-<h2 id="advanced-configuration">Advanced Configuration<a class="headerlink" href="#advanced-configuration" title="Permanent link">⚓︎</a></h2>
-<h3 id="sender-dependent-authentication">Sender-dependent Authentication<a class="headerlink" href="#sender-dependent-authentication" title="Permanent link">⚓︎</a></h3>
+<h2 id="advanced-configuration"><a class="toclink" href="#advanced-configuration">Advanced Configuration</a></h2>
+<h3 id="sender-dependent-authentication"><a class="toclink" href="#sender-dependent-authentication">Sender-dependent Authentication</a></h3>
 <p>Sender dependent authentication is done in <code>config/postfix-sasl-password.cf</code>. You can create this file manually, or use:</p>
 <div class="highlight"><pre><span></span><code>setup.sh relay add-auth &lt;domain&gt; &lt;username&gt; <span class="o">[</span>&lt;password&gt;<span class="o">]</span>
 </code></pre></div>
@@ -1358,7 +1358,7 @@
 <p class="admonition-title">Note</p>
 <p>To activate the configuration you must either restart the container, or you can also trigger an update by modifying a mail account.</p>
 </div>
-<h3 id="sender-dependent-relay-host">Sender-dependent Relay Host<a class="headerlink" href="#sender-dependent-relay-host" title="Permanent link">⚓︎</a></h3>
+<h3 id="sender-dependent-relay-host"><a class="toclink" href="#sender-dependent-relay-host">Sender-dependent Relay Host</a></h3>
 <p>Sender dependent relay hosts are configured in <code>config/postfix-relaymap.cf</code>. You can create this file manually, or use:</p>
 <div class="highlight"><pre><span></span><code>setup.sh relay add-domain &lt;domain&gt; &lt;host&gt; <span class="o">[</span>&lt;port&gt;<span class="o">]</span>
 </code></pre></div>
@@ -1371,7 +1371,7 @@
 <p class="admonition-title">Note</p>
 <p>You still have to define <code>RELAY_HOST</code> to activate the feature</p>
 </div>
-<h3 id="excluding-sender-domains">Excluding Sender Domains<a class="headerlink" href="#excluding-sender-domains" title="Permanent link">⚓︎</a></h3>
+<h3 id="excluding-sender-domains"><a class="toclink" href="#excluding-sender-domains">Excluding Sender Domains</a></h3>
 <p>If you want mail sent from some domains to be delivered directly, you can exclude them from being delivered via the default relay by adding them to <code>config/postfix-relaymap.cf</code> with no destination. You can also do this via:</p>
 <div class="highlight"><pre><span></span><code>setup.sh relay exclude-domain &lt;domain&gt;
 </code></pre></div>
@@ -1381,7 +1381,7 @@
 @domain3.com
 </code></pre></div>
 <p>This will cause email sent from domain3.com to be delivered directly.</p>
-<h4 id="references">References<a class="headerlink" href="#references" title="Permanent link">⚓︎</a></h4>
+<h4 id="references"><a class="toclink" href="#references">References</a></h4>
 <p>Thanks to the author of <a href="https://community.rackspace.com/products/f/email-products-forum/3897/how-to-setup-postfix-with-a-mailgun-smtp-relay-when-using-multiple-domains">this article</a> for the inspiration. This is also worth reading to understand a bit more about how to set up Mailgun to work with this.</p>
                 
                   

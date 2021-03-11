@@ -1576,16 +1576,16 @@
                 
                   <h1>FAQ</h1>
                 
-                <h3 id="what-kind-of-database-are-you-using">What kind of database are you using?<a class="headerlink" href="#what-kind-of-database-are-you-using" title="Permanent link">⚓︎</a></h3>
+                <h3 id="what-kind-of-database-are-you-using"><a class="toclink" href="#what-kind-of-database-are-you-using">What kind of database are you using?</a></h3>
 <p>None! No database is required. Filesystem is the database.<br />
 This image is based on config files that can be persisted using Docker volumes, and as such versioned, backed up and so forth.  </p>
-<h3 id="where-are-emails-stored">Where are emails stored?<a class="headerlink" href="#where-are-emails-stored" title="Permanent link">⚓︎</a></h3>
+<h3 id="where-are-emails-stored"><a class="toclink" href="#where-are-emails-stored">Where are emails stored?</a></h3>
 <p>Mails are stored in <code>/var/mail/${domain}/${username}</code>. Since <code>v9.0.0</code> it is possible to add custom <code>user_attributes</code> for each accounts to have a different mailbox configuration (See <a href="https://github.com/docker-mailserver/docker-mailserver/pull/1792">#1792</a>).</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>You should use a <a href="https://medium.com/@ramangupta/why-docker-data-containers-are-good-589b3c6c749e#.uxyrp7xpu">data volume container</a> for <code>/var/mail</code> to persist data. Otherwise, your data may be lost.</p>
 </div>
-<h3 id="how-to-alter-the-running-mailserver-instance-without-relaunching-the-container">How to alter the running mailserver instance <em>without</em> relaunching the container?<a class="headerlink" href="#how-to-alter-the-running-mailserver-instance-without-relaunching-the-container" title="Permanent link">⚓︎</a></h3>
+<h3 id="how-to-alter-the-running-mailserver-instance-without-relaunching-the-container"><a class="toclink" href="#how-to-alter-the-running-mailserver-instance-without-relaunching-the-container">How to alter the running mailserver instance <em>without</em> relaunching the container?</a></h3>
 <p><code>docker-mailserver</code> aggregates multiple "sub-services", such as Postfix, Dovecot, Fail2ban, SpamAssasin, etc. In many cases, one may edit a sub-service's config and reload that very sub-service, without stopping and relaunching the whole mail server.</p>
 <p>In order to do so, you'll probably want to push your config updates to your server through a Docker volume, then restart the sub-service to apply your changes, using <code>supervisorctl</code>. For instance, after editing fail2ban's config: <code>supervisorctl restart fail2ban</code>.</p>
 <p>See <a href="http://supervisord.org/running.html#running-supervisorctl">supervisorctl's documentation</a>.</p>
@@ -1594,7 +1594,7 @@ This image is based on config files that can be persisted using Docker volumes, 
 <p>To add, update or delete an email account; there is no need to restart postfix / dovecot service inside the container after using <code>setup.sh</code> script.</p>
 <p>For more information, see <a href="https://github.com/docker-mailserver/docker-mailserver/issues/1639">#1639</a>.</p>
 </div>
-<h3 id="how-can-i-sync-container-with-host-datetime-timezone">How can I sync container with host date/time? Timezone?<a class="headerlink" href="#how-can-i-sync-container-with-host-datetime-timezone" title="Permanent link">⚓︎</a></h3>
+<h3 id="how-can-i-sync-container-with-host-datetime-timezone"><a class="toclink" href="#how-can-i-sync-container-with-host-datetime-timezone">How can I sync container with host date/time? Timezone?</a></h3>
 <p>Share the host's <a href="https://www.freedesktop.org/software/systemd/man/localtime.html"><code>/etc/localtime</code></a> with the <code>docker-mailserver</code> container, using a Docker volume:  </p>
 <div class="highlight"><pre><span></span><code><span class="nt">volumes</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">/etc/localtime:/etc/localtime:ro</span>
@@ -1606,10 +1606,10 @@ This image is based on config files that can be persisted using Docker volumes, 
 </code></pre></div>
 <p>Check here for the <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones"><code>tz name list</code></a></p>
 </div>
-<h3 id="what-is-the-file-format">What is the file format?<a class="headerlink" href="#what-is-the-file-format" title="Permanent link">⚓︎</a></h3>
+<h3 id="what-is-the-file-format"><a class="toclink" href="#what-is-the-file-format">What is the file format?</a></h3>
 <p>All files are using the Unix format with <code>LF</code> line endings.</p>
 <p>Please do not use <code>CRLF</code>.</p>
-<h3 id="what-about-backups">What about backups?<a class="headerlink" href="#what-about-backups" title="Permanent link">⚓︎</a></h3>
+<h3 id="what-about-backups"><a class="toclink" href="#what-about-backups">What about backups?</a></h3>
 <p>Assuming that you use <code>docker-compose</code> and a data volumes, you can backup your user mails like this:</p>
 <div class="highlight"><pre><span></span><code>docker run --rm -ti <span class="se">\</span>
   -v maildata:/var/mail <span class="se">\</span>
@@ -1620,10 +1620,10 @@ This image is based on config files that can be persisted using Docker volumes, 
 
 find /backup/mail -type f -mtime +30 -exec rm -f <span class="o">{}</span> <span class="se">\;</span>
 </code></pre></div>
-<h3 id="what-about-mail-state-folder">What about <code>mail-state</code> folder?<a class="headerlink" href="#what-about-mail-state-folder" title="Permanent link">⚓︎</a></h3>
+<h3 id="what-about-mail-state-folder"><a class="toclink" href="#what-about-mail-state-folder">What about <code>mail-state</code> folder?</a></h3>
 <p>This folder consolidates all data generated by the server itself to persist when you upgrade.
 Example of data folder persisted: lib-amavis, lib-clamav, lib-fail2ban, lib-postfix, lib-postgrey, lib-spamassasin, lib-spamassassin, spool-postfix, ...</p>
-<h3 id="how-can-i-configure-my-email-client">How can I configure my email client?<a class="headerlink" href="#how-can-i-configure-my-email-client" title="Permanent link">⚓︎</a></h3>
+<h3 id="how-can-i-configure-my-email-client"><a class="toclink" href="#how-can-i-configure-my-email-client">How can I configure my email client?</a></h3>
 <p>Login are full email address (<code>user@domain.com</code>).</p>
 <div class="highlight"><pre><span></span><code><span class="c"># imap</span>
 <span class="na">username</span><span class="o">:</span>           <span class="s">&lt;user1@domain.tld&gt;</span>
@@ -1638,15 +1638,15 @@ Example of data folder persisted: lib-amavis, lib-clamav, lib-fail2ban, lib-post
 <span class="na">password</span><span class="o">:</span>           <span class="s">&lt;mypassword&gt;</span>
 </code></pre></div>
 <p>Please use <code>STARTTLS</code>.</p>
-<h3 id="how-can-i-manage-my-custom-spamassassin-rules">How can I manage my custom Spamassassin rules?<a class="headerlink" href="#how-can-i-manage-my-custom-spamassassin-rules" title="Permanent link">⚓︎</a></h3>
+<h3 id="how-can-i-manage-my-custom-spamassassin-rules"><a class="toclink" href="#how-can-i-manage-my-custom-spamassassin-rules">How can I manage my custom Spamassassin rules?</a></h3>
 <p>Antispam rules are managed in <code>config/spamassassin-rules.cf</code>.</p>
-<h3 id="what-are-acceptable-sa_spam_subject-values">What are acceptable <code>SA_SPAM_SUBJECT</code> values?<a class="headerlink" href="#what-are-acceptable-sa_spam_subject-values" title="Permanent link">⚓︎</a></h3>
+<h3 id="what-are-acceptable-sa_spam_subject-values"><a class="toclink" href="#what-are-acceptable-sa_spam_subject-values">What are acceptable <code>SA_SPAM_SUBJECT</code> values?</a></h3>
 <p>For no subject set <code>SA_SPAM_SUBJECT=undef</code>.</p>
 <p>For a trailing white-space subject one can define the whole variable with quotes in <code>docker-compose.yml</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">environment</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="s">&quot;SA_SPAM_SUBJECT=[SPAM]</span><span class="nv"> </span><span class="s">&quot;</span>
 </code></pre></div>
-<h3 id="can-i-use-nakedbare-domains-no-host-name">Can I use naked/bare domains (no host name)?<a class="headerlink" href="#can-i-use-nakedbare-domains-no-host-name" title="Permanent link">⚓︎</a></h3>
+<h3 id="can-i-use-nakedbare-domains-no-host-name"><a class="toclink" href="#can-i-use-nakedbare-domains-no-host-name">Can I use naked/bare domains (no host name)?</a></h3>
 <p>Yes, but not without some configuration changes. Normally it is assumed that <code>docker-mailserver</code> runs on a host with a name, so the fully qualified host name might be <code>mail.example.com</code> with the domain <code>example.com</code>. The MX records point to <code>mail.example.com</code>.</p>
 <p>To use a bare domain where the host name is <code>example.com</code> and the domain is also <code>example.com</code>, change <code>mydestination</code>:</p>
 <ul>
@@ -1657,10 +1657,10 @@ Example of data folder persisted: lib-amavis, lib-clamav, lib-fail2ban, lib-post
 <div class="highlight"><pre><span></span><code><span class="go">warning: do not list domain example.com in BOTH mydestination and virtual_mailbox_domains</span>
 </code></pre></div>
 <p>Plus of course mail delivery fails.</p>
-<h3 id="why-are-spamassassin-x-headers-not-inserted-into-my-sampledomaincom-subdomain-emails">Why are Spamassassin <code>x-headers</code> not inserted into my <code>sample.domain.com</code> subdomain emails?<a class="headerlink" href="#why-are-spamassassin-x-headers-not-inserted-into-my-sampledomaincom-subdomain-emails" title="Permanent link">⚓︎</a></h3>
+<h3 id="why-are-spamassassin-x-headers-not-inserted-into-my-sampledomaincom-subdomain-emails"><a class="toclink" href="#why-are-spamassassin-x-headers-not-inserted-into-my-sampledomaincom-subdomain-emails">Why are Spamassassin <code>x-headers</code> not inserted into my <code>sample.domain.com</code> subdomain emails?</a></h3>
 <p>In the default setup, amavis only applies Spamassassin x-headers into domains matching the template listed in the config file (<code>05-domain_id</code> in the amavis defaults).</p>
 <p>The default setup <code>@local_domains_acl = ( ".$mydomain" );</code> does not match subdomains. To match subdomains, you can override the <code>@local_domains_acl</code> directive in the amavis user config file <code>50-user</code> with <code>@local_domains_maps = (".");</code> to match any sort of domain template.</p>
-<h3 id="how-can-i-make-spamassassin-better-recognize-spam">How can I make SpamAssassin better recognize spam?<a class="headerlink" href="#how-can-i-make-spamassassin-better-recognize-spam" title="Permanent link">⚓︎</a></h3>
+<h3 id="how-can-i-make-spamassassin-better-recognize-spam"><a class="toclink" href="#how-can-i-make-spamassassin-better-recognize-spam">How can I make SpamAssassin better recognize spam?</a></h3>
 <p>Put received spams in <code>.Junk/</code> imap folder using <code>SPAMASSASSIN_SPAM_TO_INBOX=1</code> and <code>MOVE_SPAM_TO_JUNK=1</code> and add a <em>user</em> cron like the following:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># This assumes you&#39;re having `environment: ONE_DIR=1` in the `mailserver.env`,</span>
 <span class="c1"># with a consolidated config in `/var/mail-state`</span>
@@ -1724,18 +1724,18 @@ chmod <span class="m">0644</span> cron/sa-learn
 </code></pre></div>
 </details>
 <p>With the default settings, Spamassassin will require 200 mails trained for spam (for example with the method explained above) and 200 mails trained for ham (using the same command as above but using <code>--ham</code> and providing it with some ham mails). Until you provided these 200+200 mails, Spamassasin will not take the learned mails into account. For further reference, see the <a href="https://wiki.apache.org/spamassassin/BayesNotWorking">Spamassassin Wiki</a>.</p>
-<h3 id="how-can-i-configure-a-catch-all">How can I configure a catch-all?<a class="headerlink" href="#how-can-i-configure-a-catch-all" title="Permanent link">⚓︎</a></h3>
+<h3 id="how-can-i-configure-a-catch-all"><a class="toclink" href="#how-can-i-configure-a-catch-all">How can I configure a catch-all?</a></h3>
 <p>Considering you want to redirect all incoming e-mails for the domain <code>domain.tld</code> to <code>user1@domain.tld</code>, add the following line to <code>config/postfix-virtual.cf</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="na">@domain.tld user1@domain.tld</span>
 </code></pre></div>
-<h3 id="how-can-i-delete-all-the-emails-for-a-specific-user">How can I delete all the emails for a specific user?<a class="headerlink" href="#how-can-i-delete-all-the-emails-for-a-specific-user" title="Permanent link">⚓︎</a></h3>
+<h3 id="how-can-i-delete-all-the-emails-for-a-specific-user"><a class="toclink" href="#how-can-i-delete-all-the-emails-for-a-specific-user">How can I delete all the emails for a specific user?</a></h3>
 <p>First of all, create a special alias named <code>devnull</code> by editing <code>config/postfix-aliases.cf</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="na">devnull: /dev/null</span>
 </code></pre></div>
 <p>Considering you want to delete all the e-mails received for <code>baduser@domain.tld</code>, add the following line to <code>config/postfix-virtual.cf</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="na">baduser@domain.tld devnull</span>
 </code></pre></div>
-<h3 id="how-do-i-have-more-control-about-what-spamassasin-is-filtering">How do I have more control about what SPAMASSASIN is filtering?<a class="headerlink" href="#how-do-i-have-more-control-about-what-spamassasin-is-filtering" title="Permanent link">⚓︎</a></h3>
+<h3 id="how-do-i-have-more-control-about-what-spamassasin-is-filtering"><a class="toclink" href="#how-do-i-have-more-control-about-what-spamassasin-is-filtering">How do I have more control about what SPAMASSASIN is filtering?</a></h3>
 <p>By default, SPAM and INFECTED emails are put to a quarantine which is not very straight forward to access. Several config settings are affecting this behavior:</p>
 <p>First, make sure you have the proper thresholds set:</p>
 <div class="highlight"><pre><span></span><code><span class="na">SA_TAG</span><span class="o">=</span><span class="s">-100000.0</span>
@@ -1768,16 +1768,16 @@ chmod <span class="m">0644</span> cron/sa-learn
 <span class="na">$bad_header_quarantine_to</span> <span class="o">=</span> <span class="s">&quot;amavis\@domain.com&quot;;</span>
 <span class="na">$spam_quarantine_to</span>       <span class="o">=</span> <span class="s">&quot;amavis\@domain.com&quot;;</span>
 </code></pre></div>
-<h3 id="what-kind-of-ssl-certificates-can-i-use">What kind of SSL certificates can I use?<a class="headerlink" href="#what-kind-of-ssl-certificates-can-i-use" title="Permanent link">⚓︎</a></h3>
+<h3 id="what-kind-of-ssl-certificates-can-i-use"><a class="toclink" href="#what-kind-of-ssl-certificates-can-i-use">What kind of SSL certificates can I use?</a></h3>
 <p>You can use the same certificates you use with another mail server.</p>
 <p>The only thing is that we provide a <code>self-signed</code> certificate tool and a <code>letsencrypt</code> certificate loader.</p>
-<h3 id="i-just-moved-from-my-old-mail-server-but-it-doesnt-work">I just moved from my old mail server, but "it doesn't work"?<a class="headerlink" href="#i-just-moved-from-my-old-mail-server-but-it-doesnt-work" title="Permanent link">⚓︎</a></h3>
+<h3 id="i-just-moved-from-my-old-mail-server-but-it-doesnt-work"><a class="toclink" href="#i-just-moved-from-my-old-mail-server-but-it-doesnt-work">I just moved from my old mail server, but "it doesn't work"?</a></h3>
 <p>If this migration implies a DNS modification, be sure to wait for DNS propagation before opening an issue.
 Few examples of symptoms can be found <a href="https://github.com/docker-mailserver/docker-mailserver/issues/95">here</a> or <a href="https://github.com/docker-mailserver/docker-mailserver/issues/97">here</a>.</p>
 <p>This could be related to a modification of your <code>MX</code> record, or the IP mapped to <code>mail.my-domain.tld</code>. Additionally, <a href="https://intodns.com/">validate your DNS configuration</a>.</p>
 <p>If everything is OK regarding DNS, please provide <a href="https://guides.github.com/features/mastering-markdown/">formatted logs</a> and config files. This will allow us to help you.</p>
 <p>If we're blind, we won't be able to do anything.</p>
-<h3 id="what-system-requirements-are-required-to-run-docker-mailserver-effectively">What system requirements are required to run <code>docker-mailserver</code> effectively?<a class="headerlink" href="#what-system-requirements-are-required-to-run-docker-mailserver-effectively" title="Permanent link">⚓︎</a></h3>
+<h3 id="what-system-requirements-are-required-to-run-docker-mailserver-effectively"><a class="toclink" href="#what-system-requirements-are-required-to-run-docker-mailserver-effectively">What system requirements are required to run <code>docker-mailserver</code> effectively?</a></h3>
 <p>1 core and 1GB of RAM + swap partition is recommended to run <code>docker-mailserver</code> with clamav.
 Otherwise, it could work with 512M of RAM.</p>
 <div class="admonition warning">
@@ -1785,19 +1785,19 @@ Otherwise, it could work with 512M of RAM.</p>
 <p>Clamav can consume a lot of memory, as it reads the entire signature database into RAM.</p>
 <p>Current figure is about 850M and growing. If you get errors about clamav or amavis failing to allocate memory you need more RAM or more swap and of course docker must be allowed to use swap (not always the case). If you can't use swap at all you may need 3G RAM.</p>
 </div>
-<h3 id="can-docker-mailserver-run-in-a-rancher-environment">Can <code>docker-mailserver</code> run in a <a href="http://rancher.com/rancher/">Rancher Environment</a>?<a class="headerlink" href="#can-docker-mailserver-run-in-a-rancher-environment" title="Permanent link">⚓︎</a></h3>
+<h3 id="can-docker-mailserver-run-in-a-rancher-environment"><a class="toclink" href="#can-docker-mailserver-run-in-a-rancher-environment">Can <code>docker-mailserver</code> run in a <a href="http://rancher.com/rancher/">Rancher Environment</a>?</a></h3>
 <p>Yes, by adding the environment variable <code>PERMIT_DOCKER: network</code>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Adding the docker network's gateway to the list of trusted hosts, e.g. using the <code>network</code> or <code>connected-networks</code> option, can create an <a href="https://en.wikipedia.org/wiki/Open_mail_relay"><strong>open relay</strong></a>, for instance <a href="https://github.com/docker-mailserver/docker-mailserver/issues/1405#issuecomment-590106498">if IPv6 is enabled on the host machine but not in Docker</a>.</p>
 </div>
-<h3 id="how-can-i-authenticate-users-with-smtp_only">How can I Authenticate Users with <code>SMTP_ONLY</code>?<a class="headerlink" href="#how-can-i-authenticate-users-with-smtp_only" title="Permanent link">⚓︎</a></h3>
+<h3 id="how-can-i-authenticate-users-with-smtp_only"><a class="toclink" href="#how-can-i-authenticate-users-with-smtp_only">How can I Authenticate Users with <code>SMTP_ONLY</code>?</a></h3>
 <p>See <a href="https://github.com/docker-mailserver/docker-mailserver/issues/1247">#1247</a> for an example.</p>
 <div class="admonition todo">
 <p class="admonition-title">Todo</p>
 <p>Write a How-to / Use-Case / Tutorial about authentication with <code>SMTP_ONLY</code>.</p>
 </div>
-<h3 id="common-errors">Common Errors<a class="headerlink" href="#common-errors" title="Permanent link">⚓︎</a></h3>
+<h3 id="common-errors"><a class="toclink" href="#common-errors">Common Errors</a></h3>
 <div class="highlight"><pre><span></span><code><span class="go">warning: connect to Milter service inet:localhost:8893: Connection refused</span>
 <span class="gp"># </span>DMARC not <span class="nv">running</span>
 <span class="gp"># </span><span class="o">=</span>&gt; /etc/init.d/opendmarc restart
@@ -1813,14 +1813,14 @@ Otherwise, it could work with 512M of RAM.</p>
 <span class="gp"># </span>Clamav is not running <span class="o">(</span>not started or because you don<span class="err">&#39;</span>t have enough memory<span class="o">)</span>
 <span class="gp"># </span><span class="o">=</span>&gt; check requirements and/or start Clamav
 </code></pre></div>
-<h3 id="how-to-use-when-behind-a-proxy">How to use when behind a Proxy<a class="headerlink" href="#how-to-use-when-behind-a-proxy" title="Permanent link">⚓︎</a></h3>
+<h3 id="how-to-use-when-behind-a-proxy"><a class="toclink" href="#how-to-use-when-behind-a-proxy">How to use when behind a Proxy</a></h3>
 <p>Add to <code>/etc/postfix/main.cf</code> :</p>
 <div class="highlight"><pre><span></span><code><span class="na">proxy_interfaces</span> <span class="o">=</span> <span class="s">X.X.X.X (your public IP)</span>
 </code></pre></div>
-<h3 id="what-about-updates">What About Updates<a class="headerlink" href="#what-about-updates" title="Permanent link">⚓︎</a></h3>
+<h3 id="what-about-updates"><a class="toclink" href="#what-about-updates">What About Updates</a></h3>
 <p>You can of course use a own script or every now and then pull &amp;&amp; stop &amp;&amp; rm &amp;&amp; start the images but there are tools available for this.
 There is a page in the <a href="../../config/advanced/maintenance/update-and-cleanup/">Update and Cleanup</a> wiki page that explains how to use it the docker way.</p>
-<h3 id="how-to-adjust-settings-with-the-user-patchessh-script">How to adjust settings with the <code>user-patches.sh</code> script<a class="headerlink" href="#how-to-adjust-settings-with-the-user-patchessh-script" title="Permanent link">⚓︎</a></h3>
+<h3 id="how-to-adjust-settings-with-the-user-patchessh-script"><a class="toclink" href="#how-to-adjust-settings-with-the-user-patchessh-script">How to adjust settings with the <code>user-patches.sh</code> script</a></h3>
 <p>Suppose you want to change a number of settings that are not listed as variables or add things to the server that are not included?</p>
 <p>This docker-container has a built-in way to do post-install processes. If you place a script called <strong>user-patches.sh</strong> in the config directory it will be run after all configuration files are set up, but before the postfix, amavis and other daemons are started.</p>
 <p>The config file I am talking about is this volume in the yml file: <code>./config/:/tmp/docker-mailserver/</code></p>
@@ -1844,7 +1844,7 @@ cat /tmp/docker-mailserver/user-patches.sh
 <span class="nb">exit</span>
 </code></pre></div>
 <p>You can do a lot of things with such a script. You can find an example <code>user-patches.sh</code> script here: <a href="https://github.com/hanscees/dockerscripts/blob/master/scripts/tomav-user-patches.sh">example <code>user-patches.sh</code> script</a></p>
-<h4 id="special-use-case-patching-the-supervisord-config">Special use-case - Patching the <code>supervisord</code> config<a class="headerlink" href="#special-use-case-patching-the-supervisord-config" title="Permanent link">⚓︎</a></h4>
+<h4 id="special-use-case-patching-the-supervisord-config"><a class="toclink" href="#special-use-case-patching-the-supervisord-config">Special use-case - Patching the <code>supervisord</code> config</a></h4>
 <p>It seems worth noting, that the <code>user-patches.sh</code> gets executed trough supervisord. If you need to patch some supervisord config (e.g. <code>/etc/supervisor/conf.d/saslauth.conf</code>), the patching happens too late.</p>
 <p>An easy workaround is to make the <code>user-patches.sh</code> reload the supervisord config after patching it:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>

@@ -1354,7 +1354,7 @@
                 
                   <h1>Kubernetes</h1>
                 
-                <h2 id="deployment-example">Deployment Example<a class="headerlink" href="#deployment-example" title="Permanent link">⚓︎</a></h2>
+                <h2 id="deployment-example"><a class="toclink" href="#deployment-example">Deployment Example</a></h2>
 <p>There is nothing much in deploying mailserver to Kubernetes itself. The things are pretty same as in <a href="https://github.com/docker-mailserver/docker-mailserver/blob/master/docker-compose.yml"><code>docker-compose.yml</code></a>, but with Kubernetes syntax.</p>
 <details class="example"><summary>ConfigMap</summary><div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Namespace</span>
@@ -1603,7 +1603,7 @@
 <p class="admonition-title">Note</p>
 <p>Make sure that <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod">Pod</a> is <a href="https://kubernetes.io/docs/concepts/configuration/assign-pod-node">assigned</a> to specific <a href="https://kubernetes.io/docs/concepts/architecture/nodes">Node</a> in case you're using volume for data directly with <code>hostPath</code>. Otherwise Pod can be rescheduled on a different Node and previous data won't be found. Except the case when you're using some shared filesystem on your Nodes.</p>
 </div>
-<h2 id="exposing-to-the-outside-world">Exposing to the Outside World<a class="headerlink" href="#exposing-to-the-outside-world" title="Permanent link">⚓︎</a></h2>
+<h2 id="exposing-to-the-outside-world"><a class="toclink" href="#exposing-to-the-outside-world">Exposing to the Outside World</a></h2>
 <p>The hard part with Kubernetes is to expose deployed mailserver to outside world. Kubernetes provides multiple ways for doing that. Each has its downsides and complexity.</p>
 <p>The major problem with exposing mailserver to outside world in Kubernetes is to <a href="https://kubernetes.io/docs/tutorials/services/source-ip">preserve real client IP</a>. Real client IP is required by mailserver for performing IP-based SPF checks and spam checks.</p>
 <p>Preserving real client IP is relatively <a href="https://kubernetes.io/docs/tutorials/services/source-ip">non-trivial in Kubernetes</a> and most exposing ways do not provide it. So, it's up to you to decide which exposing way suits better your needs in a price of complexity.</p>
@@ -1635,7 +1635,7 @@
         <span class="nt">readOnly</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
 </div>
-<h3 id="external-ips-service">External IPs Service<a class="headerlink" href="#external-ips-service" title="Permanent link">⚓︎</a></h3>
+<h3 id="external-ips-service"><a class="toclink" href="#external-ips-service">External IPs Service</a></h3>
 <p>The simplest way is to expose mailserver as a <a href="https://kubernetes.io/docs/concepts/services-networking/service">Service</a> with <a href="https://kubernetes.io/docs/concepts/services-networking/service/#external-ips">external IPs</a>.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
@@ -1666,13 +1666,13 @@
 <p>Requirement to specify exposed IPs explicitly.</p>
 </li>
 </ul>
-<h3 id="proxy-port-to-service">Proxy port to Service<a class="headerlink" href="#proxy-port-to-service" title="Permanent link">⚓︎</a></h3>
+<h3 id="proxy-port-to-service"><a class="toclink" href="#proxy-port-to-service">Proxy port to Service</a></h3>
 <p>The <a href="https://github.com/kubernetes/contrib/tree/master/for-demos/proxy-to-service">Proxy Pod</a> helps to avoid necessity of specifying external IPs explicitly. This comes in price of complexity: you must deploy Proxy Pod on each <a href="https://kubernetes.io/docs/concepts/architecture/nodes">Node</a> you want to expose mailserver on.</p>
 <p><strong>Downsides</strong></p>
 <ul>
 <li><strong>Real client IP is not preserved</strong>, so SPF check of incoming mail will fail.</li>
 </ul>
-<h3 id="bind-to-concrete-node-and-use-host-network">Bind to concrete Node and use host network<a class="headerlink" href="#bind-to-concrete-node-and-use-host-network" title="Permanent link">⚓︎</a></h3>
+<h3 id="bind-to-concrete-node-and-use-host-network"><a class="toclink" href="#bind-to-concrete-node-and-use-host-network">Bind to concrete Node and use host network</a></h3>
 <p>The simplest way to preserve real client IP is to use <code>hostPort</code> and <code>hostNetwork: true</code> in the mailserver <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod">Pod</a>. This comes in price of availability: you can talk to mailserver from outside world only via IPs of <a href="https://kubernetes.io/docs/concepts/architecture/nodes">Node</a> where mailserver is deployed.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
@@ -1704,9 +1704,9 @@
 <li>Not possible to access mailserver via other cluster Nodes, only via the one mailserver deployed at.</li>
 <li>Every Port within the Container is exposed on the Host side, regardless of what the <code>ports</code> section in the Configuration defines. </li>
 </ul>
-<h3 id="proxy-port-to-service-via-proxy-protocol">Proxy Port to Service via PROXY Protocol<a class="headerlink" href="#proxy-port-to-service-via-proxy-protocol" title="Permanent link">⚓︎</a></h3>
+<h3 id="proxy-port-to-service-via-proxy-protocol"><a class="toclink" href="#proxy-port-to-service-via-proxy-protocol">Proxy Port to Service via PROXY Protocol</a></h3>
 <p>This way is ideologically the same as <a href="#proxy-port-to-service">using Proxy Pod</a>, but instead of a separate proxy pod, you configure your ingress to proxy TCP traffic to the mailserver pod using the PROXY protocol, which preserves the real client IP.</p>
-<h4 id="configure-your-ingress">Configure your Ingress<a class="headerlink" href="#configure-your-ingress" title="Permanent link">⚓︎</a></h4>
+<h4 id="configure-your-ingress"><a class="toclink" href="#configure-your-ingress">Configure your Ingress</a></h4>
 <p>With an <a href="https://kubernetes.github.io/ingress-nginx">NGINX ingress controller</a>, set <code>externalTrafficPolicy: Local</code> for its service, and add the following to the TCP services config map (as described <a href="https://kubernetes.github.io/ingress-nginx/user-guide/exposing-tcp-udp-services">here</a>):</p>
 <div class="highlight"><pre><span></span><code><span class="nt">25</span><span class="p">:</span>  <span class="s">&quot;mailserver/mailserver:25::PROXY&quot;</span>
 <span class="nt">465</span><span class="p">:</span> <span class="s">&quot;mailserver/mailserver:465::PROXY&quot;</span>
@@ -1714,7 +1714,7 @@
 <span class="nt">993</span><span class="p">:</span> <span class="s">&quot;mailserver/mailserver:993::PROXY&quot;</span>
 </code></pre></div>
 <p>With <a href="https://hub.docker.com/_/haproxy">HAProxy</a>, the configuration should look similar to the above. If you know what it actually looks like, add an example here. <img alt="😃" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f603.svg" title=":smiley:" /></p>
-<h4 id="configure-the-mailserver">Configure the Mailserver<a class="headerlink" href="#configure-the-mailserver" title="Permanent link">⚓︎</a></h4>
+<h4 id="configure-the-mailserver"><a class="toclink" href="#configure-the-mailserver">Configure the Mailserver</a></h4>
 <p>Then, configure both <a href="../override-defaults/postfix/">Postfix</a> and <a href="../override-defaults/dovecot/">Dovecot</a> to expect the PROXY protocol:</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
@@ -1769,7 +1769,7 @@
 <ul>
 <li>Not possible to access mailserver via inner cluster Kubernetes DNS, as PROXY protocol is required for incoming connections.</li>
 </ul>
-<h2 id="lets-encrypt-certificates">Let's Encrypt Certificates<a class="headerlink" href="#lets-encrypt-certificates" title="Permanent link">⚓︎</a></h2>
+<h2 id="lets-encrypt-certificates"><a class="toclink" href="#lets-encrypt-certificates">Let's Encrypt Certificates</a></h2>
 <p><a href="https://github.com/jetstack/kube-lego">Kube-Lego</a> may be used for a role of Let's Encrypt client. It works with Kubernetes <a href="https://kubernetes.io/docs/concepts/services-networking/ingress">Ingress Resources</a> and automatically issues/manages certificates/keys for exposed services via Ingresses.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
