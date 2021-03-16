@@ -15,8 +15,8 @@
       
         <link rel="canonical" href="https://docker-mailserver.github.io/docker-mailserver/edge/config/setup.sh/">
       
-      <link rel="shortcut icon" href="../../assets/logo/favicon-32x32.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.5">
+      <link rel="icon" href="../../assets/logo/favicon-32x32.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.6">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.77f3fd56.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2c0c5eaf.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.7fa14f5b.min.css">
@@ -75,11 +75,9 @@
       
     </div>
     
-      
-
-<header class="md-header" data-md-component="header">
+      <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="https://docker-mailserver.github.io/docker-mailserver/edge" title="Docker Mailserver" class="md-header__button md-logo" aria-label="Docker Mailserver">
+    <a href="../.." title="Docker Mailserver" class="md-header__button md-logo" aria-label="Docker Mailserver" data-md-component="logo">
       
   <img src="../../assets/logo/dmo-logo-white.svg" alt="logo">
 
@@ -297,14 +295,12 @@
                   <div class="md-sidebar__inner">
                     
 
-
-
   
 
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="https://docker-mailserver.github.io/docker-mailserver/edge" title="Docker Mailserver" class="md-nav__button md-logo" aria-label="Docker Mailserver">
+    <a href="../.." title="Docker Mailserver" class="md-nav__button md-logo" aria-label="Docker Mailserver" data-md-component="logo">
       
   <img src="../../assets/logo/dmo-logo-white.svg" alt="logo">
 
@@ -1230,7 +1226,7 @@ chmod a+x ./setup.sh
 <p>Make sure to get the <code>setup.sh</code> that comes with the release you're using. Look up the release and the git commit on which this release is based upon by selecting the appropriate tag on GitHub. This can done with the "Switch branches/tags" button on GitHub, choosing the right tag. This is done in order to rule out possible inconsistencies between versions.</p>
 </div>
 <h2 id="usage"><a class="toclink" href="#usage">Usage</a></h2>
-<p>Run <code>./setup.sh -h</code> and you'll get some usage information:</p>
+<p>Run <code>./setup.sh help</code> and you'll get some usage information:</p>
 <div class="highlight"><pre><span></span><code>setup.sh Bootstrapping Script
 
 Usage: ./setup.sh <span class="o">[</span>-i IMAGE_NAME<span class="o">]</span> <span class="o">[</span>-c CONTAINER_NAME<span class="o">]</span> &lt;subcommand&gt; &lt;subcommand&gt; <span class="o">[</span>args<span class="o">]</span>
@@ -1239,7 +1235,7 @@ OPTIONS:
 
   -i IMAGE_NAME     The name of the docker-mailserver image
                     The default value is
-                    <span class="s1">&#39;docker.io/mailserver/docker-maiserver:latest&#39;</span>
+                    <span class="s1">&#39;docker.io/mailserver/docker-mailserver:latest&#39;</span>
 
   -c CONTAINER_NAME The name of the running container.
 
@@ -1371,7 +1367,7 @@ SUBCOMMANDS:
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.expand", "navigation.instant"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.5cf3e710.min.js"></script>
+      <script src="../../assets/javascripts/bundle.a1c7c35e.min.js"></script>
       
     
   </body>

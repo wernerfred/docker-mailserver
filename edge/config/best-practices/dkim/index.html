@@ -15,8 +15,8 @@
       
         <link rel="canonical" href="https://docker-mailserver.github.io/docker-mailserver/edge/config/best-practices/dkim/">
       
-      <link rel="shortcut icon" href="../../../assets/logo/favicon-32x32.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.5">
+      <link rel="icon" href="../../../assets/logo/favicon-32x32.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.6">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.77f3fd56.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.2c0c5eaf.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.7fa14f5b.min.css">
@@ -75,11 +75,9 @@
       
     </div>
     
-      
-
-<header class="md-header" data-md-component="header">
+      <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="https://docker-mailserver.github.io/docker-mailserver/edge" title="Docker Mailserver" class="md-header__button md-logo" aria-label="Docker Mailserver">
+    <a href="../../.." title="Docker Mailserver" class="md-header__button md-logo" aria-label="Docker Mailserver" data-md-component="logo">
       
   <img src="../../../assets/logo/dmo-logo-white.svg" alt="logo">
 
@@ -295,14 +293,12 @@
                   <div class="md-sidebar__inner">
                     
 
-
-
   
 
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="https://docker-mailserver.github.io/docker-mailserver/edge" title="Docker Mailserver" class="md-nav__button md-logo" aria-label="Docker Mailserver">
+    <a href="../../.." title="Docker Mailserver" class="md-nav__button md-logo" aria-label="Docker Mailserver" data-md-component="logo">
       
   <img src="../../../assets/logo/dmo-logo-white.svg" alt="logo">
 
@@ -1284,10 +1280,10 @@
 <div class="highlight"><pre><span></span><code>./setup.sh config dkim
 </code></pre></div>
 <p>After generating DKIM keys, you should restart the mail server. DNS edits may take a few minutes to hours to propagate. The script assumes you're being in the directory where the <code>config/</code> directory is located. The default keysize when generating the signature is 4096 bits for now. If you need to change it (e.g. your DNS provider limits the size), then provide the size as the first parameter of the command:</p>
-<div class="highlight"><pre><span></span><code>./setup.sh config dkim &lt;keysize&gt;
+<div class="highlight"><pre><span></span><code>./setup.sh config dkim keysize &lt;keysize&gt;
 </code></pre></div>
 <p>For LDAP systems that do not have any directly created user account you can run the following command (since <code>8.0.0</code>) to generate the signature by additionally providing the desired domain name (if you have multiple domains use the command multiple times or provide a comma-separated list of domains): </p>
-<div class="highlight"><pre><span></span><code>./setup.sh config dkim &lt;key-size&gt; &lt;domain.tld&gt;<span class="o">[</span>,&lt;domain2.tld&gt;<span class="o">]</span>
+<div class="highlight"><pre><span></span><code>./setup.sh config dkim keysize &lt;key-size&gt; domain &lt;domain.tld&gt;<span class="o">[</span>,&lt;domain2.tld&gt;<span class="o">]</span>
 </code></pre></div>
 <p>Now the keys are generated, you can configure your DNS server with DKIM signature, simply by adding a TXT record. If you have direct access to your DNS zone file, then it's only a matter of pasting the content of <code>config/opendkim/keys/domain.tld/mail.txt</code> in your <code>domain.tld.hosts</code> zone.</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>dig mail._domainkey.domain.tld TXT
@@ -1435,7 +1431,7 @@
     <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.expand", "navigation.instant"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.fb4a9340.min.js", "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.5cf3e710.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.a1c7c35e.min.js"></script>
       
     
   </body>
