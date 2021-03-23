@@ -516,15 +516,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#debugging" class="md-nav__link">
-    Debugging
+  <a href="#switch-off-dkim" class="md-nav__link">
+    Switch Off DKIM
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#switch-off-dkim" class="md-nav__link">
-    Switch Off DKIM
+  <a href="#debugging" class="md-nav__link">
+    Debugging
   </a>
   
 </li>
@@ -1238,15 +1238,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#debugging" class="md-nav__link">
-    Debugging
+  <a href="#switch-off-dkim" class="md-nav__link">
+    Switch Off DKIM
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#switch-off-dkim" class="md-nav__link">
-    Switch Off DKIM
+  <a href="#debugging" class="md-nav__link">
+    Debugging
   </a>
   
 </li>
@@ -1327,6 +1327,8 @@
 
 <span class="na">Mode                    v</span>
 </code></pre></div>
+<h2 id="switch-off-dkim"><a class="toclink" href="#switch-off-dkim">Switch Off DKIM</a></h2>
+<p>Simply remove the DKIM key by recreating (not just relaunching) the mailserver container.</p>
 <h2 id="debugging"><a class="toclink" href="#debugging">Debugging</a></h2>
 <ul>
 <li><a href="https://addons.mozilla.org/en-US/thunderbird/addon/dkim-verifier">DKIM-verifer</a>: A add-on for the mail client Thunderbird.</li>
@@ -1353,8 +1355,11 @@
 <span class="go">;; WHEN: Wed Sep 07 18:22:57 CEST 2016</span>
 <span class="go">;; MSG SIZE  rcvd: 310</span>
 </code></pre></div>
-<h2 id="switch-off-dkim"><a class="toclink" href="#switch-off-dkim">Switch Off DKIM</a></h2>
-<p>Simply remove the DKIM key by recreating (not just relaunching) the mailserver container.</p>
+<hr />
+<div class="admonition warning">
+<p class="admonition-title">Key sizes &gt;=4096-bit</p>
+<p>Keys of 4096 bits could de denied by some mailservers. According to <a href="https://tools.ietf.org/html/rfc6376">https://tools.ietf.org/html/rfc6376</a> keys are preferably between 512 and 2048 bits. See issue <a href="https://github.com/docker-mailserver/docker-mailserver/issues/1854">#1854</a>.</p>
+</div>
                 
                   
                 
